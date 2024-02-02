@@ -60,9 +60,9 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5593507633682237006}
-        m_TargetAssemblyTypeName: InputSystemController, Assembly-CSharp
-        m_MethodName: HandleMovement
+      - m_Target: {fileID: 6454500962280664600, guid: ad4c7bfb4e9913b4784424ba39a8d3e7, type: 3}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: Movement
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

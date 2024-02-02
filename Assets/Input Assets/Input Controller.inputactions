@@ -1,5 +1,5 @@
 {
-    "name": "New Controls",
+    "name": "Input Controller",
     "maps": [
         {
             "name": "Player",
@@ -11,7 +11,7 @@
                     "id": "4843a353-ccab-40db-9435-a4b5f1ff350c",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Hold",
                     "initialStateCheck": true
                 },
                 {
