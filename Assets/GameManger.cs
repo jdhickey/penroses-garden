@@ -45,7 +45,7 @@ public class GameManger : MonoBehaviour
                     tile.transform.position = newPosition;
 
                     Collider2D[] collisionCheck = Physics2D.OverlapCircleAll(tile.transform.position, 0.2f);
-                    if(!collisionCheck.isEmpty){
+                    if(collisionCheck.Length != 0){
                         //ADD THE CURRENT NODE TO IGNORE BEFORE RETRYING
                         OrientTile(tile, ignore);
                     }
