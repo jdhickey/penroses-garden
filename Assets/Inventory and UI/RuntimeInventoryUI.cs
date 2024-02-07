@@ -15,14 +15,15 @@ public class RuntimeInventoryUI : MonoBehaviour
     {
         // The UXML is already instantiated by the UIDocument component
         var uiDocument = GetComponent<UIDocument>();
+        Camera mainCamera = Camera.main;
+        uiDocument.transform.parent = mainCamera.transform;
+        uiDocument.transform.localPosition = new Vector3(0, 0, 1);
+
 
         _button = uiDocument.rootVisualElement.Q("button") as Button;
         _toggle = uiDocument.rootVisualElement.Q("toggle") as Toggle;
 
         _button.RegisterCallback<ClickEvent>(PrintClickMessage);
-
-        var _inputFields = uiDocument.rootVisualElement.Q("input-message");
-        _inputFields.RegisterCallback<ChangeEvent<string>>(InputMessage);
     }
 
     private void OnDisable()
@@ -36,10 +37,5 @@ public class RuntimeInventoryUI : MonoBehaviour
 
         Debug.Log($"{"button"} was clicked!" +
                 (_toggle.value ? " Count: " + _clickCount : ""));
-    }
-
-    public static void InputMessage(ChangeEvent<string> evt)
-    {
-        Debug.Log($"{evt.newValue} -> {evt.target}");
     }
 }
