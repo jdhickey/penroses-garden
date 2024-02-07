@@ -17,7 +17,7 @@ public class RuntimeInventoryUI : MonoBehaviour
         var uiDocument = GetComponent<UIDocument>();
         Camera mainCamera = Camera.main;
         uiDocument.transform.parent = mainCamera.transform;
-        uiDocument.transform.localPosition = new Vector3(0, 0, 1);
+        uiDocument.transform.localPosition = new Vector3(mainCamera.transform.position.x, 0, 1);
 
 
         _button = uiDocument.rootVisualElement.Q("button") as Button;
