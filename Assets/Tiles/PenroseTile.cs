@@ -12,7 +12,7 @@ public abstract class PenroseTile : MonoBehaviour
     }
 
     public TileType tileType;
-    public bool[] freeSide = new bool[4];
+    public PenroseTile[] freeSide = new PenroseTile[4];
     public int[,] colorFence = new int[2,2]; 
     public float sideLength = 0.0f;
     public float smallAngle = 0.0f;
@@ -24,13 +24,19 @@ public abstract class PenroseTile : MonoBehaviour
     {
         for (int i = 0; i < 4; i++)
         {
-            if (i < 2 && otherTile.freeSide[(-1) * (i - 1)] && !ignore.Contains(i))
+            int tester = (-1) * (i - 1);
+            //Debug.Log("length: " + otherTile.freeSide.Length);
+            if (i < 2 && otherTile.freeSide[tester]  == null && !ignore.Contains(tester))
             {
-                return (-1) * (i - 1);
+                Debug.Log("side:" + i);
+                return tester;
             }
-            else if (otherTile.freeSide[(i - 3) * (-1) + 2])
+            tester = (i - 3) * (-1) + 2;
+            //Debug.Log("length2: " + otherTile.freeSide.Length);
+            if (i > 1 && otherTile.freeSide[tester]  == null && !ignore.Contains(tester))
             {
-                return (i - 3) * (-1) + 2;
+                //Debug.Log("side2:" + i);
+                return tester;
             }
         }
         return 4;
@@ -48,8 +54,9 @@ public abstract class PenroseTile : MonoBehaviour
         if(adjacentTile.tileType == PenroseTile.TileType.ThinRhombus)
         {
             offsetX = GetOffset(adjacentTile);
+            Debug.Log("offsetX:" + offsetX);
             offsetY = GetOffset(adjacentTile) * (Mathf.Sin(Mathf.Deg2Rad * 36)/Mathf.Sin(Mathf.Deg2Rad * 56));
-            Debug.Log("connection:" + connection);
+            Debug.Log("offsetY:" + offsetY);
             if(connection == 0){
                 offsetX *= -1;
             }
@@ -65,10 +72,10 @@ public abstract class PenroseTile : MonoBehaviour
             }
         }
 
-        Debug.Log("Pre rotation:" + offsetX + " " + offsetY);
+        //Debug.Log("Pre rotation:" + offsetX + " " + offsetY);
         float rotatedY = offsetX * Mathf.Cos(radians) - offsetY * Mathf.Sin(radians);
         float rotatedX = offsetX * Mathf.Sin(radians) + offsetY * Mathf.Cos(radians);
-        Debug.Log("Post rotation:" + rotatedX + " " + rotatedY);
+        //Debug.Log("Post rotation:" + rotatedX + " " + rotatedY);
 
         return new Vector2(rotatedX, rotatedY);
     }
@@ -98,15 +105,21 @@ public abstract class PenroseTile : MonoBehaviour
         }
     }
 
-    public void Start()
+    public void Awake()
+{
+    freeSide = new PenroseTile[4];
+    for (int i = 0; i < 4; i++)
     {
-        sideLength = (GetComponent<PolygonCollider2D>().bounds.size).y;
-
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        if (rb == null)
-        {
-            rb = gameObject.AddComponent<Rigidbody2D>();
-            rb.isKinematic = true;
-        }
+        freeSide[i] = null;
     }
+
+    sideLength = (GetComponent<PolygonCollider2D>().bounds.size).y;
+
+    Rigidbody2D rb = GetComponent<Rigidbody2D>();
+    if (rb == null)
+    {
+        rb = gameObject.AddComponent<Rigidbody2D>();
+        rb.isKinematic = true;
+    }
+}
 }

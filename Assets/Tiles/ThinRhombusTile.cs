@@ -12,10 +12,6 @@ public class ThinRhombusTile : PenroseTile
 
     public void InitializeTile()
     {
-        for (int i = 0; i < 4; i++)
-        {
-            freeSide[i] = true;
-        }
         smallAngle = 36;
     }
 }
