@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInputs : MonoBehaviour
@@ -43,14 +44,43 @@ public class PlayerInputs : MonoBehaviour
         OrientTile(newTile, ignore);
     }
 
+    void InitializePosition(PenroseTile tile){
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(tile.transform.position, 0.01f);
+        float n = 0.01f;
+        while(colliders.Length == 1 ){
+            colliders = Physics2D.OverlapCircleAll(tile.transform.position, n);
+            n += 0.01f;
+            if (n == tile.sideLength*2){
+                Debug.Log("No Collision detected");   
+                break; 
+            }
+        }
+        Debug.Log("Collision detected");
+    }
+
     void OrientTile(PenroseTile tile, int[] ignore){
         if (Array.IndexOf(ignore, 4) == -1){
             Destroy(tile.gameObject);
             Debug.Log("No Tile Placed");
             return;
         }
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(tile.transform.position, 0.2f);
+        InitializePosition(tile);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(tile.transform.position, tile.sideLength * 0.3f);
+        List<GameObject> adjacentTiles = new List<GameObject>();
         foreach (Collider2D collider in colliders){
+            if (collider != null){
+                PenroseTile temp = collider.gameObject.GetComponent<PenroseTile>();
+                if (temp != null){
+                    adjacentTiles.Add(collider.gameObject);
+                }
+            }
+        }
+        Debug.Log("adjacentTiles length:" + adjacentTiles.Count);
+
+        foreach (GameObject adjacent in adjacentTiles){
+
+        }
+        /*
             PenroseTile adjacentTile = collider.GetComponent<PenroseTile>();
             if (adjacentTile != null && adjacentTile != tile){
                 int connection = tile.CanConnectWith(adjacentTile, ignore);
@@ -61,9 +91,9 @@ public class PlayerInputs : MonoBehaviour
                     Vector2 offset = tile.CalculatePositionOffset(adjacentTile, rotationAngle, connection);
                     Vector3 newPosition = (Vector3)adjacentTile.transform.position + (Vector3)offset;
                     tile.transform.position = newPosition;
-
-                    Collider2D[] collisionCheck = Physics2D.OverlapCircleAll(tile.transform.position, tile.sideLength*0.6f);
-                    if (collisionCheck.Length != 0){
+                    
+                    PenroseTile otherTile = tile.collision.gameObject.GetComponent<PenroseTile>();
+                    if (otherTile == null){
                         for (int i = 0; i <= 4; i++){
                             if (ignore[i] == 4){
                                 ignore[i] = connection;
@@ -72,6 +102,7 @@ public class PlayerInputs : MonoBehaviour
                         }
                         OrientTile(tile, ignore);
                     }
+        
                     else
                     {
                         adjacentTile.freeSide[connection] = tile;
@@ -90,6 +121,7 @@ public class PlayerInputs : MonoBehaviour
                     return;
                 }
             }
-        }
+            */
+        
     }
 }

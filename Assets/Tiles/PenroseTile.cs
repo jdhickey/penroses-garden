@@ -54,9 +54,8 @@ public abstract class PenroseTile : MonoBehaviour
         if(adjacentTile.tileType == PenroseTile.TileType.ThinRhombus)
         {
             offsetX = GetOffset(adjacentTile);
-            Debug.Log("offsetX:" + offsetX);
             offsetY = GetOffset(adjacentTile) * (Mathf.Sin(Mathf.Deg2Rad * 36)/Mathf.Sin(Mathf.Deg2Rad * 56));
-            Debug.Log("offsetY:" + offsetY);
+            
             if(connection == 0){
                 offsetX *= -1;
             }
@@ -72,10 +71,10 @@ public abstract class PenroseTile : MonoBehaviour
             }
         }
 
-        //Debug.Log("Pre rotation:" + offsetX + " " + offsetY);
+        Debug.Log("Pre rotation:" + offsetX + " " + offsetY);
         float rotatedY = offsetX * Mathf.Cos(radians) - offsetY * Mathf.Sin(radians);
         float rotatedX = offsetX * Mathf.Sin(radians) + offsetY * Mathf.Cos(radians);
-        //Debug.Log("Post rotation:" + rotatedX + " " + rotatedY);
+        Debug.Log("Post rotation:" + rotatedX + " " + rotatedY);
 
         return new Vector2(rotatedX, rotatedY);
     }
@@ -96,13 +95,15 @@ public abstract class PenroseTile : MonoBehaviour
         return rotationAngle;
     }
 
-    private void OnCollision(Collision2D collision)
+    public bool HasCollision(Collision2D collision)
     {
         PenroseTile otherTile = collision.gameObject.GetComponent<PenroseTile>();
         if (otherTile != null)
         {
             Debug.Log("Collision with another PenroseTile detected!");
+            return true;
         }
+        return false;
     }
 
     public void Awake()
