@@ -1,35 +1,34 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerInputs : MonoBehaviour
 {
-    public GameObject gameManager;
-
     public Vector3 currPos = new Vector3(0, 0, 0);
 
     public ThinRhombusTile ThinRhombusPrefab;
 
-    void OnShuffle()
+    public void OnShuffle()
     {
         print("Shuffle!");
     }
 
-    void OnInventorySelect()
+    public void OnInventorySelect(InputValue value)
     {
-        print("Inventory Select!");
+        print("Inventory Select! " + value.Get<float>());
     }
 
-    void OnInventoryScroll()
+    public void OnInventoryScroll(InputValue value)
     {
-        print("Inventory Scroll!");
+        print("Inventory Scroll! " + value.Get<float>());
     }
 
-    void OnExit()
+    public void OnExit()
     {
         print("Exit!");
     }
 
-    void OnPlace()
+    public void OnPlace()
     {
         currPos.x = transform.position.x;
         currPos.y = transform.position.y;
