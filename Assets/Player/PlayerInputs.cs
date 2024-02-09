@@ -74,7 +74,8 @@ public class PlayerInputs : MonoBehaviour
         }
         PenroseTile adjacentTile = adjacentTiles[0];
         if (adjacentTile != null && adjacentTile != tile){
-            int connection = tile.CanConnectWith(adjacentTile);
+            int[] ignore = {4,4,4,4};
+            int connection = tile.CanConnectWith(adjacentTile, ignore);
             if (connection != 4){
                 float rotationAngle = tile.CalculateRotation(adjacentTile, connection);
                 tile.transform.rotation = Quaternion.Euler(0, 0, rotationAngle);
@@ -95,7 +96,7 @@ public class PlayerInputs : MonoBehaviour
             Debug.Log("No Tile Placed");
             return;
         }
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(tile.transform.position, tile.sideLength * 0.6f);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(tile.transform.position, tile.sideLength * 0.31f);
         List<PenroseTile> adjacentTiles = new List<PenroseTile>();
         foreach (Collider2D collider in colliders){
             if (collider != null){
@@ -106,55 +107,26 @@ public class PlayerInputs : MonoBehaviour
                 }
             }
         }
-        float[,] tilesInfo = new float[adjacentTiles.Count, 4];
+        float x = tile.transform.position.x;
+        float y = tile.transform.position.y;
+        float r = tile.transform.rotation.eulerAngles.z;
+        bool validPlacement = true;
         for (int i = 0; i < adjacentTiles.Count; i++){
             if(adjacentTiles[i] != null){
-                tilesInfo[i, 0] = adjacentTiles[i].transform.position.x;
-                tilesInfo[i, 1] = adjacentTiles[i].transform.position.y;
-                tilesInfo[i, 2] = adjacentTiles[i].transform.rotation.eulerAngles.z;
-            }
-        }
-            /*
-            PenroseTile adjacentTile = collider.GetComponent<PenroseTile>();
-            if (adjacentTile != null && adjacentTile != tile){
-                int connection = tile.CanConnectWith(adjacentTile, ignore);
-                if (connection != 4){
-                    float rotationAngle = tile.CalculateRotation(adjacentTile, connection);
-                    tile.transform.rotation = Quaternion.Euler(0, 0, rotationAngle);
-                    Vector2 offset = tile.CalculatePositionOffset(adjacentTile, rotationAngle, connection);
-                    Vector3 newPosition = (Vector3)adjacentTile.transform.position + (Vector3)offset;
-                    tile.transform.position = newPosition;
-                    
-                    PenroseTile otherTile = tile.collision.gameObject.GetComponent<PenroseTile>();
-                    if (otherTile == null){
-                        for (int i = 0; i <= 4; i++){
-                            if (ignore[i] == 4){
-                                ignore[i] = connection;
-                                break;
-                            }
-                        }
-                        OrientTile(tile, ignore);
+                if(adjacentTiles[i]){
+                    int connection = tile.CanConnectWith(adjacentTile, );
+                    if (connection != 4){
+                        float rotationAngle = tile.CalculateRotation(adjacentTile, connection);
+                        tile.transform.rotation = Quaternion.Euler(0, 0, rotationAngle);
+                        Vector2 offset = tile.CalculatePositionOffset(adjacentTile, rotationAngle, connection);
+                        Vector3 newPosition = (Vector3)adjacentTile.transform.position + (Vector3)offset;
+                        tile.transform.position = newPosition;
                     }
-        
-                    else
-                    {
-                        adjacentTile.freeSide[connection] = tile;
-                        int i = 0;
-                        if (connection < 2)
-                        {
-                            i = (-1) * (connection - 1);
-                        }
-                        else
-                        {
-                            i = (connection - 3) * (-1) + 2;
-                        }
-                        tile.freeSide[i] = adjacentTile;
+                    else{
+                        return false;
                     }
-                    Debug.Log("Tile Placed");
-                    return;
                 }
             }
-            */
-        
+        }
     }
 }

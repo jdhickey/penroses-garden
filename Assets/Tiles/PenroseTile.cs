@@ -20,21 +20,15 @@ public abstract class PenroseTile : MonoBehaviour
     color fence = [line 0 color, line 1 color] 
                   [line 0 fence, line 1 fence]
     */
-    public int CanConnectWith(PenroseTile otherTile)
-    {
-        for (int i = 0; i < 4; i++)
-        {
+    public int CanConnectWith(PenroseTile otherTile, int[] ignore){
+        for (int i = 0; i < 4; i++){
             int tester = (-1) * (i - 1);
-            //Debug.Log("length: " + otherTile.freeSide.Length);
-            if (i < 2 && otherTile.freeSide[tester]  == null)
-            {
+            if (i < 2 && otherTile.freeSide[tester]  == null && Array.IndexOf(ignore, tester) == -1){
                 Debug.Log("side1:" + i);
                 return tester;
             }
             tester = (i - 3) * (-1) + 2;
-            //Debug.Log("length2: " + otherTile.freeSide.Length);
-            if (i > 1 && otherTile.freeSide[tester]  == null)
-            {
+            if (i > 1 && otherTile.freeSide[tester]  == null && Array.IndexOf(ignore, tester) == -1){
                 Debug.Log("side2:" + i);
                 return tester;
             }
@@ -51,11 +45,8 @@ public abstract class PenroseTile : MonoBehaviour
         float radians = Mathf.Deg2Rad * rotationAngle;
         float offset = 0.0f;
         offset = GetOffset(adjacentTile);
-        
-        Debug.Log("Pre rotation:" + offset + " 0");
         float rotatedY = offset * Mathf.Cos(radians);
         float rotatedX = offset * Mathf.Sin(radians);
-        Debug.Log("Post rotation:" + rotatedX + " " + rotatedY);
         if(adjacentTile.tileType == PenroseTile.TileType.ThinRhombus)
         {
             if(connection == 1){
