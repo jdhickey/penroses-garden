@@ -20,22 +20,22 @@ public abstract class PenroseTile : MonoBehaviour
     color fence = [line 0 color, line 1 color] 
                   [line 0 fence, line 1 fence]
     */
-    public int CanConnectWith(PenroseTile otherTile, int[] ignore)
+    public int CanConnectWith(PenroseTile otherTile)
     {
         for (int i = 0; i < 4; i++)
         {
             int tester = (-1) * (i - 1);
             //Debug.Log("length: " + otherTile.freeSide.Length);
-            if (i < 2 && otherTile.freeSide[tester]  == null && !ignore.Contains(tester))
+            if (i < 2 && otherTile.freeSide[tester]  == null)
             {
-                Debug.Log("side:" + i);
+                Debug.Log("side1:" + i);
                 return tester;
             }
             tester = (i - 3) * (-1) + 2;
             //Debug.Log("length2: " + otherTile.freeSide.Length);
-            if (i > 1 && otherTile.freeSide[tester]  == null && !ignore.Contains(tester))
+            if (i > 1 && otherTile.freeSide[tester]  == null)
             {
-                //Debug.Log("side2:" + i);
+                Debug.Log("side2:" + i);
                 return tester;
             }
         }
@@ -49,32 +49,22 @@ public abstract class PenroseTile : MonoBehaviour
     public Vector2 CalculatePositionOffset(PenroseTile adjacentTile, float rotationAngle, int connection)
     {
         float radians = Mathf.Deg2Rad * rotationAngle;
-        float offsetX = 0.0f;
-        float offsetY = 0.0f;
+        float offset = 0.0f;
+        offset = GetOffset(adjacentTile);
+        
+        Debug.Log("Pre rotation:" + offset + " 0");
+        float rotatedY = offset * Mathf.Cos(radians);
+        float rotatedX = offset * Mathf.Sin(radians);
+        Debug.Log("Post rotation:" + rotatedX + " " + rotatedY);
         if(adjacentTile.tileType == PenroseTile.TileType.ThinRhombus)
         {
-            offsetX = GetOffset(adjacentTile);
-            offsetY = GetOffset(adjacentTile) * (Mathf.Sin(Mathf.Deg2Rad * 36)/Mathf.Sin(Mathf.Deg2Rad * 56));
-            
-            if(connection == 0){
-                offsetX *= -1;
-            }
-            else if(connection == 1){
-                offsetX *= 1;
-            }
-            else if(connection == 2){
-                offsetY *= -1;
+            if(connection == 1){
+                rotatedY *= -1;
             }
             else if(connection == 3){
-                offsetX *= -1;
-                offsetY *= -1;
+                rotatedX *= -1;
             }
         }
-
-        Debug.Log("Pre rotation:" + offsetX + " " + offsetY);
-        float rotatedY = offsetX * Mathf.Cos(radians) - offsetY * Mathf.Sin(radians);
-        float rotatedX = offsetX * Mathf.Sin(radians) + offsetY * Mathf.Cos(radians);
-        Debug.Log("Post rotation:" + rotatedX + " " + rotatedY);
 
         return new Vector2(rotatedX, rotatedY);
     }
@@ -85,10 +75,10 @@ public abstract class PenroseTile : MonoBehaviour
         float rotationAngle = 0;
         if(adjacentTile.tileType == PenroseTile.TileType.ThinRhombus)
         {
-            if(connection == 0 || connection == 2){
+            if(connection == 1 || connection == 2){
                 rotationAngle = adjacentRotation + 216;
             }
-            else if(connection == 1 || connection == 3){
+            else if(connection == 0 || connection == 3){
                 rotationAngle = adjacentRotation + 144;
             }
         }
