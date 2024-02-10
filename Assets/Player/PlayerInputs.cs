@@ -48,10 +48,13 @@ public class PlayerInputs : MonoBehaviour
         currPos.x = transform.position.x;
         currPos.y = transform.position.y;
         tilePlayed = inventoryManagementScript.ActiveTile();
-        PlaceTile(currPos); // result = PlaceTile(currPos, tilePlayed). tilePlayed will need to be an argument for PlaceTile and to return a boolean whether successful or not.
-        if (result)
+        if (tilePlayed != null) // Replace with reference to the empty tile.
         {
-            inventoryManagementScript.ActiveDestroy();
+            PlaceTile(currPos); // result = PlaceTile(currPos, tilePlayed). tilePlayed will need to be an argument for PlaceTile and to return a boolean whether successful or not.
+            if (result)
+            {
+                inventoryManagementScript.ActiveDestroy();
+            }
         }
     }
 
