@@ -7,35 +7,34 @@ using UnityEditor.UIElements;
 
 public class RuntimeInventoryUI : MonoBehaviour
 {
-    private Button _button;
-    private Toggle _toggle;
+
+    public GameObject inventoryObj;
     private UIDocument uiDocument;
-    private VisualTreeAsset itemBox;
+    private VisualElement root;
+    private int itemCount;
+    private PenroseTile[] inventory;
 
-    private int _clickCount;
-
-    public void Awake() {
-        uiDocument = GetComponent<UIDocument>();
-        itemBox = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/Inventory and UI/InventoryElement.uxml");
-    }
-
-    public void SetUp(int itemCount, PenroseTile[] inventory) {
-        VisualElement wrapper = uiDocument.rootVisualElement.Query("InventoryBar");
-        for (int i = 0; i < itemCount; i++) {
-            Sprite tileSprite = inventory[i].GetComponent<SpriteRenderer>().sprite;
-
-            VisualElement box = itemBox.Instantiate();
-            box.Q("icon").style.backgroundImage = new StyleBackground(tileSprite);
-            box.name = string.Format("{0}", i);
-
-            uiDocument.rootVisualElement.Add(box);
-            Debug.Log("success!");
-        }
+    void Start() {
+        
     }
 
     //Add logic that interacts with the UI controls in the `OnEnable` methods
     private void OnEnable()
     {
+
+        inventoryObj.GetComponent<InventoryManager>().initializeInventory();
+        itemCount = inventoryObj.GetComponent<InventoryManager>().inventorySize;
+        inventory = inventoryObj.GetComponent<InventoryManager>().inventory;
+
+        uiDocument = GetComponent<UIDocument>();
+        root = uiDocument.rootVisualElement;
+
+        for (int i = 0; i < itemCount; i++) {
+            Sprite tileSprite = inventory[i].GetComponent<SpriteRenderer>().sprite;
+            uiDocument.rootVisualElement.Q((i+1).ToString()).style.backgroundImage = new StyleBackground(tileSprite);
+        }
+
+        uiDocument = GetComponent<UIDocument>();
         // The UXML is already instantiated by the UIDocument component
         Camera mainCamera = Camera.main;
         uiDocument.transform.parent = mainCamera.transform;
