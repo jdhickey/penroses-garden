@@ -28,21 +28,24 @@ public class InventoryManager : MonoBehaviour
         print("This is working!");
     }
 
-    public void PlayerSelect(float value)
+    public void PlayerSelect(int value)
     {
-        activeIndex = (int)value;
+        activeIndex = value;
+        print("Tile #" + activeIndex + " is the active tile!");
     }
 
-    public void PlayerScroll(float value)
+    public void PlayerScroll(int value)
     {
-        if (value < 0)
+        activeIndex += value;
+        if (activeIndex > inventorySize)
         {
-            activeIndex--;
+            activeIndex -= inventorySize;
         }
-        else if (value > 0)
+        else if (activeIndex < 1)
         {
-            activeIndex++;
+            activeIndex += inventorySize;
         }
+        print("Tile #" + activeIndex + " is the active tile!");
     }
 
     public void PlayerDelete()

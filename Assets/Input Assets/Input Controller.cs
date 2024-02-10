@@ -42,7 +42,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""id"": ""f94d7517-5d24-49fd-8970-bff109212321"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -51,7 +51,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""id"": ""84b43120-51d4-4c2e-acee-a7492ff2353e"",
                     ""expectedControlType"": ""Analog"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": true
                 },
                 {
@@ -69,7 +69,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""id"": ""88b7e565-225b-4f67-aa82-1d2f18053e19"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -78,7 +78,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""id"": ""086c45d0-d5ad-4279-83fb-8842a08ad506"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 }
             ],

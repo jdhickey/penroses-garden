@@ -8,19 +8,32 @@ public class PlayerInputs : MonoBehaviour
 
     public ThinRhombusTile ThinRhombusPrefab;
 
+    InventoryManager inventoryManagementScript;
+    int intVal;
+
+    void Start()
+    {
+        inventoryManagementScript = GameObject.FindGameObjectWithTag("InventoryManagement").GetComponent<InventoryManager>();
+    }
+
     public void OnShuffle()
     {
-        print("Shuffle!");
+        inventoryManagementScript.PlayerShuffle();
     }
 
     public void OnInventorySelect(InputValue value)
     {
-        print("Inventory Select! " + value.Get<float>());
+        if (value.isPressed)
+        {
+            intVal = (int) value.Get<float>();
+            inventoryManagementScript.PlayerSelect(intVal);
+        }
     }
 
     public void OnInventoryScroll(InputValue value)
     {
-        print("Inventory Scroll! " + value.Get<float>());
+        intVal = (int) value.Get<float>();
+        inventoryManagementScript.PlayerScroll(intVal);
     }
 
     public void OnExit()
