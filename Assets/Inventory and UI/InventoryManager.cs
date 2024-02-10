@@ -2,38 +2,22 @@ using System.Collections;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
-<<<<<<< Updated upstream
 {
-=======
-{ 
-
-    public int inventorySize;
->>>>>>> Stashed changes
     public PenroseTile[] tileOptions;
     public PenroseTile[] inventory;
-
-    void Awake() {
-        inventory = new PenroseTile[inventorySize];
-        inventorySize = inventory.Length;
-    }
 
     public int activeIndex = 1;
     public int inventorySize = 5;
 
     void Start()
     {
-<<<<<<< Updated upstream
         inventory = new PenroseTile[inventorySize];
 
         PlayerShuffle();
-=======
-        
->>>>>>> Stashed changes
     }
 
     public void PlayerShuffle()
     {
-<<<<<<< Updated upstream
         for (int i = 0; i <= inventorySize - 1; i++)
         {
             inventory[i] = randomTile();
@@ -69,21 +53,13 @@ public class InventoryManager : MonoBehaviour
     public PenroseTile ActiveTile()
     {
         return inventory[activeIndex];
-=======
-
->>>>>>> Stashed changes
     }
 
     // This returns a random tile type to be put into the inventory.
-    // The tile types it selects from are contained in the attribute tileOptions
-<<<<<<< Updated upstream
-    PenroseTile randomTile()
+    // The tile types it selects from are contained in the attribute tileOptions    
+    PenroseTile randomTile() 
     {
-        int index = random_tile_type.Next(tileOptions.Length);
-=======
-    PenroseTile randomTile() {
         int index = Random.Range(0, tileOptions.Length);
->>>>>>> Stashed changes
         PenroseTile prefab = tileOptions[index];
         return prefab;
     }
