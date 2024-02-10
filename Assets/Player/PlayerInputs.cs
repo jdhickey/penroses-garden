@@ -4,12 +4,14 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputs : MonoBehaviour
 {
-    public Vector3 currPos = new Vector3(0, 0, 0);
+    Vector3 currPos = new Vector3(0, 0, 0);
 
     public ThinRhombusTile ThinRhombusPrefab;
 
     InventoryManager inventoryManagementScript;
     int intVal;
+    bool result = false;
+    PenroseTile tilePlayed;
 
     void Start()
     {
@@ -45,7 +47,12 @@ public class PlayerInputs : MonoBehaviour
     {
         currPos.x = transform.position.x;
         currPos.y = transform.position.y;
-        PlaceTile(currPos);
+        tilePlayed = inventoryManagementScript.ActiveTile();
+        PlaceTile(currPos); // result = PlaceTile(currPos, tilePlayed). tilePlayed will need to be an argument for PlaceTile and to return a boolean whether successful or not.
+        if (result)
+        {
+            inventoryManagementScript.ActiveDestroy();
+        }
     }
 
     void PlaceTile(Vector2 position){

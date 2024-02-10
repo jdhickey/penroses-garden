@@ -11,7 +11,6 @@ public class InventoryManager : MonoBehaviour
     public int activeIndex = 1;
     public int inventorySize = 5;
 
-    // Start is called before the first frame update
     void Start()
     {
         inventory = new PenroseTile[inventorySize];
@@ -25,7 +24,7 @@ public class InventoryManager : MonoBehaviour
         {
             inventory[i] = randomTile();
         }
-        print("This is working!");
+        print("Tiles have been shuffled!");
     }
 
     public void PlayerSelect(int value)
@@ -48,9 +47,14 @@ public class InventoryManager : MonoBehaviour
         print("Tile #" + activeIndex + " is the active tile!");
     }
 
-    public void PlayerDelete()
+    public void ActiveDestroy()
     {
         inventory[activeIndex] = null; // Replace with empty tile.
+    }
+
+    public PenroseTile ActiveTile()
+    {
+        return inventory[activeIndex];
     }
 
     // This returns a random tile type to be put into the inventory.
