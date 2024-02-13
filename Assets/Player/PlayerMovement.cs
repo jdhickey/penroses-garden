@@ -10,14 +10,26 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     public Animator animator;
     public InputController playerActions;
+    private SpriteRenderer _renderer;
+    private bool flip;
 
     Vector2 movementRaw;
     Vector3 movement = new Vector3(0,0,0);
 
+    void Start() {
+        _renderer = GetComponent<SpriteRenderer>();
+    }
+
+
     void Update()
     {
-        animator.SetFloat("Horizontal", movement.x);
-        animator.SetFloat("Vertical", movement.y);
+        if (movement.x > 0) {
+            flip = true;
+        } else if (movement.x < 0) {
+            flip = false;
+        }
+
+        _renderer.flipX = flip;
     }
 
     void OnMove(InputValue value)
