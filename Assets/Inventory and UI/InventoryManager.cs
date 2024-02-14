@@ -64,7 +64,6 @@ public class InventoryManager : MonoBehaviour
         return prefab;
     }
 
-    // Nothing is initialized ever because the world hates me
     public void initializeInventory() {
         for (int i = 0; i < inventorySize; i++) {
             inventory[i] = randomTile();

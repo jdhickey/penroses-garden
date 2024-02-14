@@ -44,7 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1bdc9f0352654fb680641f9d77fd507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventorySize: 5
   tileOptions:
   - {fileID: 8059499933239002205, guid: fdda93d376d4ae8489a0fbc553520923, type: 3}
   - {fileID: 8059499933239002205, guid: fdda93d376d4ae8489a0fbc553520923, type: 3}
@@ -57,3 +56,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  activeIndex: 1
+  inventorySize: 5
