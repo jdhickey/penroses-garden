@@ -5,6 +5,7 @@ public class InventoryManager : MonoBehaviour
 {
     public PenroseTile[] tileOptions;
     public PenroseTile[] inventory;
+    private RuntimeInventoryUI _hotbar;
 
     public int activeIndex = 1;
     public int inventorySize = 5;
@@ -12,7 +13,7 @@ public class InventoryManager : MonoBehaviour
     void Start()
     {
         inventory = new PenroseTile[inventorySize];
-
+        _hotbar = GameObject.FindGameObjectWithTag("UI").GetComponent<RuntimeInventoryUI>();
         PlayerShuffle();
     }
 
@@ -28,6 +29,7 @@ public class InventoryManager : MonoBehaviour
     public void PlayerSelect(int value)
     {
         activeIndex = value;
+        _hotbar.Select(value);
         print("Tile #" + activeIndex + " is the active tile!");
     }
 
@@ -52,7 +54,8 @@ public class InventoryManager : MonoBehaviour
 
     public PenroseTile ActiveTile()
     {
-        return inventory[activeIndex];
+        // There was an off by one error before. The -1 fixes this.
+        return inventory[activeIndex - 1];
     }
 
     // This returns a random tile type to be put into the inventory.

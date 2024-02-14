@@ -62,3 +62,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryObj: {fileID: 1090557495777700523, guid: 0f1cda47d6d1c4f1fa95294d1c329c31, type: 3}
+  select_sprites:
+  - {fileID: -269998971, guid: 61b91d0c7aac245dba1bd22ebcc243c0, type: 3}
+  - {fileID: 450850510, guid: 61b91d0c7aac245dba1bd22ebcc243c0, type: 3}

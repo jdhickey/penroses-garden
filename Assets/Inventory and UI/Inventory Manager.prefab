@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -4733608207505094520}
   m_Layer: 0
   m_Name: Inventory Manager
-  m_TagString: Untagged
+  m_TagString: InventoryManagement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,10 +51,10 @@ MonoBehaviour:
   - {fileID: 8059499933239002205, guid: fdda93d376d4ae8489a0fbc553520923, type: 3}
   - {fileID: 8059499933239002205, guid: fdda93d376d4ae8489a0fbc553520923, type: 3}
   inventory:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8059499933239002205, guid: fdda93d376d4ae8489a0fbc553520923, type: 3}
+  - {fileID: 8059499933239002205, guid: fdda93d376d4ae8489a0fbc553520923, type: 3}
+  - {fileID: 8059499933239002205, guid: fdda93d376d4ae8489a0fbc553520923, type: 3}
+  - {fileID: 8059499933239002205, guid: fdda93d376d4ae8489a0fbc553520923, type: 3}
+  - {fileID: 8059499933239002205, guid: fdda93d376d4ae8489a0fbc553520923, type: 3}
   activeIndex: 1
   inventorySize: 5

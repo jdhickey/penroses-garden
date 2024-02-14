@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a49b12c2f3ea64c7e89f1797b7d72c54
+guid: 61b91d0c7aac245dba1bd22ebcc243c0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: inventory_box_0
+      name: inventory_box - Copy_0
       rect:
         serializedVersion: 2
         x: 0
@@ -119,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0eb603055b1364bddae73835c73dc320
-      internalID: -1606630736
+      spriteID: 4797a6b1d943247af991ace677b85a2a
+      internalID: -269998971
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: inventory_box_1
+      name: inventory_box - Copy_1
       rect:
         serializedVersion: 2
         x: 128
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9649a98d627974ce480d3935e6ef3469
-      internalID: -561438759
+      spriteID: ab6c61c013a114d4cbf6f1d11dfc9da9
+      internalID: 450850510
       vertices: []
       indices: 
       edges: []
@@ -157,8 +157,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      inventory_box_0: -1606630736
-      inventory_box_1: -561438759
+      inventory_box - Copy_0: -269998971
+      inventory_box - Copy_1: 450850510
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - InventoryManagement
+  - UI
   layers:
   - Default
   - TransparentFX

@@ -9,6 +9,8 @@ public class RuntimeInventoryUI : MonoBehaviour
 {
 
     public GameObject inventoryObj;
+    public Sprite[] select_sprites;
+
     private UIDocument uiDocument;
     private VisualElement root;
     private int itemCount;
@@ -41,6 +43,20 @@ public class RuntimeInventoryUI : MonoBehaviour
         uiDocument.transform.localPosition = new Vector3(mainCamera.transform.position.x, 0, 1);
 
         //_button.RegisterCallback<ClickEvent>(PrintClickMessage);
+    }
+
+    // index is from 0-4
+    public void Select(int index) {
+        Sprite unselected = select_sprites[0];
+        Sprite selected = select_sprites[1];
+
+        for (int i = 0; i < itemCount; i++) {
+            // Gets the highlight visual elements of each inventory item and deselects it
+            uiDocument.rootVisualElement.Q((i+1).ToString()).Q("highlight").style.backgroundImage = new StyleBackground(unselected);
+        }
+
+        // Sets the chosen inventory item to selected
+        uiDocument.rootVisualElement.Q((index).ToString()).Q("highlight").style.backgroundImage = new StyleBackground(selected);
     }
 
     private void OnDisable()
