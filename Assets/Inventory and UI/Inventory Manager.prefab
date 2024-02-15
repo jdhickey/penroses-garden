@@ -46,15 +46,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileOptions:
   - {fileID: 8059499933239002205, guid: fdda93d376d4ae8489a0fbc553520923, type: 3}
-  - {fileID: 8059499933239002205, guid: fdda93d376d4ae8489a0fbc553520923, type: 3}
-  - {fileID: 8059499933239002205, guid: fdda93d376d4ae8489a0fbc553520923, type: 3}
-  - {fileID: 8059499933239002205, guid: fdda93d376d4ae8489a0fbc553520923, type: 3}
-  - {fileID: 8059499933239002205, guid: fdda93d376d4ae8489a0fbc553520923, type: 3}
   inventory:
   - {fileID: 8059499933239002205, guid: fdda93d376d4ae8489a0fbc553520923, type: 3}
   - {fileID: 8059499933239002205, guid: fdda93d376d4ae8489a0fbc553520923, type: 3}
   - {fileID: 8059499933239002205, guid: fdda93d376d4ae8489a0fbc553520923, type: 3}
   - {fileID: 8059499933239002205, guid: fdda93d376d4ae8489a0fbc553520923, type: 3}
   - {fileID: 8059499933239002205, guid: fdda93d376d4ae8489a0fbc553520923, type: 3}
+  emptyTile: {fileID: 3861361692662059243, guid: 0341eadf1f2a44f98a1141ab8a518f71, type: 3}
   activeIndex: 1
   inventorySize: 5

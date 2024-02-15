@@ -36,13 +36,21 @@ public class RuntimeInventoryUI : MonoBehaviour
             uiDocument.rootVisualElement.Q((i+1).ToString()).style.backgroundImage = new StyleBackground(tileSprite);
         }
 
-        uiDocument = GetComponent<UIDocument>();
         // The UXML is already instantiated by the UIDocument component
         Camera mainCamera = Camera.main;
         uiDocument.transform.parent = mainCamera.transform;
         uiDocument.transform.localPosition = new Vector3(mainCamera.transform.position.x, 0, 1);
 
         //_button.RegisterCallback<ClickEvent>(PrintClickMessage);
+    }
+
+    public void VisualUpdate() {
+        inventory = inventoryObj.GetComponent<InventoryManager>().inventory;
+
+        for (int i = 0; i < itemCount; i++) {
+            Sprite tileSprite = inventory[i].GetComponent<SpriteRenderer>().sprite;
+            uiDocument.rootVisualElement.Q((i+1).ToString()).style.backgroundImage = new StyleBackground(tileSprite);
+        }
     }
 
     // index is from 0-4

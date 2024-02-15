@@ -5,6 +5,7 @@ public class InventoryManager : MonoBehaviour
 {
     public PenroseTile[] tileOptions;
     public PenroseTile[] inventory;
+    public PenroseTile emptyTile;
     private RuntimeInventoryUI _hotbar;
 
     public int activeIndex = 1;
@@ -14,6 +15,7 @@ public class InventoryManager : MonoBehaviour
     {
         inventory = new PenroseTile[inventorySize];
         _hotbar = GameObject.FindGameObjectWithTag("UI").GetComponent<RuntimeInventoryUI>();
+        _hotbar.Select(1);
         PlayerShuffle();
     }
 
@@ -23,13 +25,17 @@ public class InventoryManager : MonoBehaviour
         {
             inventory[i] = randomTile();
         }
+        _hotbar.VisualUpdate();
+
         print("Tiles have been shuffled!");
     }
 
     public void PlayerSelect(int value)
     {
         activeIndex = value;
-        _hotbar.Select(value);
+        _hotbar.Select(activeIndex);
+        _hotbar.VisualUpdate();
+
         print("Tile #" + activeIndex + " is the active tile!");
     }
 
@@ -44,12 +50,16 @@ public class InventoryManager : MonoBehaviour
         {
             activeIndex += inventorySize;
         }
+
+        _hotbar.Select(activeIndex);
+        _hotbar.VisualUpdate();
+
         print("Tile #" + activeIndex + " is the active tile!");
     }
 
     public void ActiveDestroy()
     {
-        inventory[activeIndex] = null; // Replace with empty tile.
+        inventory[activeIndex - 1] = emptyTile; // Replace with empty tile.
     }
 
     public PenroseTile ActiveTile()

@@ -55,6 +55,7 @@ public class PlayerInputs : MonoBehaviour
             {
                 inventoryManagementScript.ActiveDestroy();
             }
+            inventoryManagementScript.ActiveDestroy();
         }
     }
 

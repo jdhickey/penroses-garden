@@ -701,6 +701,10 @@ PrefabInstance:
       propertyPath: inventoryObj
       value: 
       objectReference: {fileID: 1090557495777700523, guid: 0f1cda47d6d1c4f1fa95294d1c329c31, type: 3}
+    - target: {fileID: 6806536892598535857, guid: 4eb7d0c00dfa0407991aa8dd4616a612, type: 3}
+      propertyPath: select_sprites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7791406921191823191, guid: 4eb7d0c00dfa0407991aa8dd4616a612, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -768,7 +772,7 @@ PrefabInstance:
       objectReference: {fileID: 7791406921191823194, guid: 4eb7d0c00dfa0407991aa8dd4616a612, type: 3}
     - target: {fileID: -4733608207505094520, guid: 0f1cda47d6d1c4f1fa95294d1c329c31, type: 3}
       propertyPath: tileOptions.Array.size
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4733608207505094520, guid: 0f1cda47d6d1c4f1fa95294d1c329c31, type: 3}
       propertyPath: tileOptions.Array.data[0]
@@ -777,7 +781,7 @@ PrefabInstance:
     - target: {fileID: -4733608207505094520, guid: 0f1cda47d6d1c4f1fa95294d1c329c31, type: 3}
       propertyPath: tileOptions.Array.data[1]
       value: 
-      objectReference: {fileID: 8059499933239002205, guid: fdda93d376d4ae8489a0fbc553520923, type: 3}
+      objectReference: {fileID: 3861361692662059243, guid: 0341eadf1f2a44f98a1141ab8a518f71, type: 3}
     - target: {fileID: -4733608207505094520, guid: 0f1cda47d6d1c4f1fa95294d1c329c31, type: 3}
       propertyPath: tileOptions.Array.data[2]
       value: 
