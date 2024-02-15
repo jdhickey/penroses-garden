@@ -7,34 +7,27 @@ using UnityEditor.UIElements;
 
 public class RuntimeInventoryUI : MonoBehaviour
 {
-
-    public GameObject inventoryObj;
     public Sprite[] select_sprites;
+
+    private InventoryManager inventoryManagementScript;
 
     private UIDocument uiDocument;
     private VisualElement root;
     private int itemCount;
     private PenroseTile[] inventory;
 
-    void Start() {
-        
+    private void Awake()
+    {
+        inventoryManagementScript = GameObject.FindGameObjectWithTag("InventoryManagement").GetComponent<InventoryManager>();
     }
 
     //Add logic that interacts with the UI controls in the `OnEnable` methods
     private void OnEnable()
     {
-
-        inventoryObj.GetComponent<InventoryManager>().initializeInventory();
-        itemCount = inventoryObj.GetComponent<InventoryManager>().inventorySize;
-        inventory = inventoryObj.GetComponent<InventoryManager>().inventory;
-
         uiDocument = GetComponent<UIDocument>();
         root = uiDocument.rootVisualElement;
 
-        for (int i = 0; i < itemCount; i++) {
-            Sprite tileSprite = inventory[i].GetComponent<SpriteRenderer>().sprite;
-            uiDocument.rootVisualElement.Q((i+1).ToString()).style.backgroundImage = new StyleBackground(tileSprite);
-        }
+        VisualUpdate();
 
         // The UXML is already instantiated by the UIDocument component
         Camera mainCamera = Camera.main;
@@ -42,21 +35,25 @@ public class RuntimeInventoryUI : MonoBehaviour
         uiDocument.transform.localPosition = new Vector3(mainCamera.transform.position.x, 0, 1);
 
         //_button.RegisterCallback<ClickEvent>(PrintClickMessage);
+
+        Select(1);
     }
 
     public void VisualUpdate() {
-        inventory = inventoryObj.GetComponent<InventoryManager>().inventory;
+        inventory = inventoryManagementScript.inventory;
+        itemCount = inventoryManagementScript.GetInventorySize();
 
         for (int i = 0; i < itemCount; i++) {
             Sprite tileSprite = inventory[i].GetComponent<SpriteRenderer>().sprite;
-            uiDocument.rootVisualElement.Q((i+1).ToString()).style.backgroundImage = new StyleBackground(tileSprite);
+            uiDocument.rootVisualElement.Q((i + 1).ToString()).style.backgroundImage = new StyleBackground(tileSprite);
         }
     }
 
-    // index is from 0-4
+    // index is from 0 to inventorySize - 1.
     public void Select(int index) {
         Sprite unselected = select_sprites[0];
         Sprite selected = select_sprites[1];
+        itemCount = inventoryManagementScript.GetInventorySize();
 
         for (int i = 0; i < itemCount; i++) {
             // Gets the highlight visual elements of each inventory item and deselects it
@@ -65,18 +62,5 @@ public class RuntimeInventoryUI : MonoBehaviour
 
         // Sets the chosen inventory item to selected
         uiDocument.rootVisualElement.Q((index).ToString()).Q("highlight").style.backgroundImage = new StyleBackground(selected);
-    }
-
-    private void OnDisable()
-    {
-        //_button.UnregisterCallback<ClickEvent>(PrintClickMessage);
-    }
-
-    private void PrintClickMessage(ClickEvent evt)
-    {
-        //++_clickCount;
-
-        //Debug.Log($"{"button"} was clicked!" +
-        //        (_toggle.value ? " Count: " + _clickCount : ""));
     }
 }

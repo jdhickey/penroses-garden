@@ -7,13 +7,10 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 1.0f;
 
-    public Rigidbody2D rb;
     public Animator animator;
     public InputController playerActions;
     private SpriteRenderer _renderer;
     private bool flip;
-
-    Vector2 movementRaw;
     Vector3 movement = new Vector3(0,0,0);
 
     void Start() {
@@ -34,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnMove(InputValue value)
     {
-        movementRaw = value.Get<Vector2>();
+        Vector2 movementRaw = value.Get<Vector2>();
         movement.x = movementRaw.x;
         movement.y = movementRaw.y;
     }

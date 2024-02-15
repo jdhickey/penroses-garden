@@ -679,8 +679,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6454500962280664601, guid: ad4c7bfb4e9913b4784424ba39a8d3e7, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad4c7bfb4e9913b4784424ba39a8d3e7, type: 3}
 --- !u!1001 &7791406921056920527
 PrefabInstance:
@@ -772,7 +771,7 @@ PrefabInstance:
       objectReference: {fileID: 7791406921191823194, guid: 4eb7d0c00dfa0407991aa8dd4616a612, type: 3}
     - target: {fileID: -4733608207505094520, guid: 0f1cda47d6d1c4f1fa95294d1c329c31, type: 3}
       propertyPath: tileOptions.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4733608207505094520, guid: 0f1cda47d6d1c4f1fa95294d1c329c31, type: 3}
       propertyPath: tileOptions.Array.data[0]
@@ -781,7 +780,7 @@ PrefabInstance:
     - target: {fileID: -4733608207505094520, guid: 0f1cda47d6d1c4f1fa95294d1c329c31, type: 3}
       propertyPath: tileOptions.Array.data[1]
       value: 
-      objectReference: {fileID: 3861361692662059243, guid: 0341eadf1f2a44f98a1141ab8a518f71, type: 3}
+      objectReference: {fileID: 4079072475250845916, guid: 981a2a6c0d0232f47b757150beab66e2, type: 3}
     - target: {fileID: -4733608207505094520, guid: 0f1cda47d6d1c4f1fa95294d1c329c31, type: 3}
       propertyPath: tileOptions.Array.data[2]
       value: 

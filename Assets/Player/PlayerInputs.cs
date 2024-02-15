@@ -4,58 +4,54 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputs : MonoBehaviour
 {
-    Vector3 currPos = new Vector3(0, 0, 0);
-
     public ThinRhombusTile ThinRhombusPrefab;
 
-    InventoryManager inventoryManagementScript;
-    int intVal;
-    bool result = false;
-    PenroseTile tilePlayed;
+    private InventoryManager inventoryManagementScript;
 
     void Start()
     {
         inventoryManagementScript = GameObject.FindGameObjectWithTag("InventoryManagement").GetComponent<InventoryManager>();
     }
 
-    public void OnShuffle()
+    private void OnShuffle()
     {
         inventoryManagementScript.PlayerShuffle();
     }
 
-    public void OnInventorySelect(InputValue value)
+    private void OnInventorySelect(InputValue value)
     {
         if (value.isPressed)
         {
-            intVal = (int) value.Get<float>();
+            int intVal = (int) value.Get<float>();
             inventoryManagementScript.PlayerSelect(intVal);
         }
     }
 
-    public void OnInventoryScroll(InputValue value)
+    private void OnInventoryScroll(InputValue value)
     {
-        intVal = (int) value.Get<float>();
+        int intVal = (int) value.Get<float>();
         inventoryManagementScript.PlayerScroll(intVal);
     }
 
-    public void OnExit()
+    private void OnExit()
     {
         print("Exit!");
     }
 
-    public void OnPlace()
+    private void OnPlace()
     {
+        bool result = false;
+        Vector3 currPos = new Vector3(0, 0, 0);
         currPos.x = transform.position.x;
         currPos.y = transform.position.y;
-        tilePlayed = inventoryManagementScript.ActiveTile();
-        if (tilePlayed != null) // Replace with reference to the empty tile.
+        PenroseTile tilePlayed = inventoryManagementScript.ActiveTile();
+        if (tilePlayed != inventoryManagementScript.emptyTile) // Replace with reference to the empty tile.
         {
             PlaceTile(currPos); // result = PlaceTile(currPos, tilePlayed). tilePlayed will need to be an argument for PlaceTile and to return a boolean whether successful or not.
             if (result)
             {
                 inventoryManagementScript.ActiveDestroy();
             }
-            inventoryManagementScript.ActiveDestroy();
         }
     }
 
