@@ -9,15 +9,13 @@ public class PlayerTilePlacement : MonoBehaviour
 
     public bool PlaceTile(Vector3 position, PenroseTile tilePlayed){
         bool ValidPlacement = true;
+        PenroseTile newTile = Instantiate(tilePlayed, position, Quaternion.identity);
+        newTile.InitializeTile();
         if(temporaryPlacedTile == true){
-            PenroseTile newTile = Instantiate(tilePlayed, position, Quaternion.identity);
-            newTile.InitializeTile();
             int[] ignore = {4,4,4,4};
             ValidPlacement = OrientTile(newTile, ignore);
         }
         else{
-            PenroseTile newTile = Instantiate(tilePlayed, position, Quaternion.identity);
-            newTile.InitializeTile();
             temporaryPlacedTile = true;
         }
         return ValidPlacement;
@@ -82,38 +80,36 @@ public class PlayerTilePlacement : MonoBehaviour
         if(x1 == x2 && y1 == y2){
             return true;
         }
-        else if(y1 == 1 && x1 == 1 && x2 == 0 && y2 == 1){
-            return true;
-        }
-        else if(y1 == -1 && x1 == -1 && x2 == 0 && y2 == -1){
-            return true;
+        else if (x2 == 0){
+            if (y1 == 1 && y1 == x1 && x1 == y2){
+                return true;
+            }
         }
         return false;
     }
     
     private float Normalize(float n){
+        float normVal = 0;
         if(n > 0){
-            n = 1;
+            normVal = 1;
         }
         else if(n < 0){
-            n = -1;
+            normVal = -1;
         }
-        else{
-            n = 0;
-        }
-        return n;
+        return normVal;
     }
 
     private bool IsValidPlacement(PenroseTile tile, PenroseTile adjacentTile, int connection){
-        if (tile.IsTouchingTile()){
-            Debug.Log("Overlap detected");
-            return true;
-        }
         if ((connection <= 1 && tile.freeSide[(-1) * (connection - 1)] == null) || (connection >= 1 && tile.freeSide[(connection - 3) * (-1) + 2] == null)){
             Debug.Log("Valid connection");
             return true;
         }
-        Debug.Log("Invalid connection");
+        if (tile.IsTouchingTile()){
+            Debug.Log("Overlap detected");
+        }
+        else {
+            Debug.Log("Invalid connection");
+        }
         return false;
     }
 
