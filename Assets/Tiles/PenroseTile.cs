@@ -50,11 +50,19 @@ public abstract class PenroseTile : MonoBehaviour
         float rotatedX = offset * Mathf.Sin(radians);
         if(adjacentTile.tileType == PenroseTile.TileType.ThinRhombus)
         {
-            if(connection == 1){
+            if(connection == 0){
+                rotatedX = 0;
+                rotatedY = offset;
+            }
+            else if(connection == 1){
                 rotatedY *= -1;
             }
-            else if(connection == 3){
+            else if(connection == 2){
                 rotatedX *= -1;
+            }
+            else if(connection == 3){
+                rotatedX = 0;
+                rotatedY = -1 * offset;
             }
         }
 
@@ -67,10 +75,10 @@ public abstract class PenroseTile : MonoBehaviour
         float rotationAngle = 0;
         if(adjacentTile.tileType == PenroseTile.TileType.ThinRhombus)
         {
-            if(connection == 1 || connection == 3){
+            if(connection == 1 || connection == 2){
                 rotationAngle = adjacentRotation + 216;
             }
-            else if(connection == 2 || connection == 0){
+            else if(connection == 0 || connection == 3){
                 rotationAngle = adjacentRotation + 144;
             }
         }

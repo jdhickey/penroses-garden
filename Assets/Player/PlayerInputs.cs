@@ -77,11 +77,10 @@ public class PlayerInputs : MonoBehaviour
         for (int i = 0; i < adjacentTiles.Count; i++){
             PenroseTile adjacentTile = adjacentTiles[i];
             if (adjacentTile != null && adjacentTile != tile){
-                float xOff = Simplify(x - adjacentTile.transform.position.x);
-                float yOff = Simplify(y - adjacentTile.transform.position.y);
-                Debug.Log("Old offset: " + xOff + ", " + yOff);
+                float xOff = Normalize(x - adjacentTile.transform.position.x);
+                float yOff = Normalize(y - adjacentTile.transform.position.y);
+                //Debug.Log("Old offset: " + xOff + ", " + yOff);
                 for(int j = 0; j < 4; j++){
-                    Debug.Log(ignore[0] + " " + ignore[1] + " " + ignore[2] + " " + ignore[3]);
                     int connection = tile.CanConnectWith(adjacentTile, ignore);
                     if (connection != 4){
                         float rotationAngle = tile.CalculateRotation(adjacentTile, connection);
@@ -89,10 +88,10 @@ public class PlayerInputs : MonoBehaviour
                         Vector2 offset = tile.CalculatePositionOffset(adjacentTile, rotationAngle, connection);
                         Vector3 newPosition = (Vector3)adjacentTile.transform.position + (Vector3)offset;
                         tile.transform.position = newPosition;
-                        Debug.Log("New offset: " + Simplify(tile.transform.position.x - adjacentTile.transform.position.x) + ", " + Simplify(tile.transform.position.y - adjacentTile.transform.position.y));
-                        if(xOff == Simplify(tile.transform.position.x - adjacentTile.transform.position.x) && yOff == Simplify(tile.transform.position.y - adjacentTile.transform.position.y)){
+                        //Debug.Log("New offset: " + Normalize(tile.transform.position.x - adjacentTile.transform.position.x) + ", " + Normalize(tile.transform.position.y - adjacentTile.transform.position.y));
+                        if(Approx(xOff, Normalize(tile.transform.position.x - adjacentTile.transform.position.x), yOff, Normalize(tile.transform.position.y - adjacentTile.transform.position.y))){
                             j = adjacentTiles.Count;
-                            Debug.Log("Correct Position");
+                            Debug.Log("Correct Position, connection = " + connection);
                             return true;
                         }
                         else{
@@ -108,13 +107,29 @@ public class PlayerInputs : MonoBehaviour
         }   
         return false;
     }
-
-    public float Simplify(float n){
-        if(n >= 0){
+    
+    public bool Approx(float x1, float x2, float y1, float y2){
+        if(x1 == x2 && y1 == y2){
+            return true;
+        }
+        else if(y1 == 1 && x1 == 1 && x2 == 0 && y2 == 1){
+            return true;
+        }
+        else if(y1 == -1 && x1 == -1 && x2 == 0 && y2 == -1){
+            return true;
+        }
+        return false;
+    }
+    
+    public float Normalize(float n){
+        if(n > 0){
             n = 1;
         }
-        else{
+        else if(n < 0){
             n = -1;
+        }
+        else{
+            n = 0;
         }
         return n;
     }
@@ -139,7 +154,8 @@ public class PlayerInputs : MonoBehaviour
             Debug.Log("No Tile Placed");
             return;
         }
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(tile.transform.position, tile.sideLength * 0.31f);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(tile.transform.position, tile.sideLength * 0.35f);
+        Debug.Log("Colliders: " + colliders.Length);
         List<PenroseTile> adjacentTiles = new List<PenroseTile>();
         foreach (Collider2D collider in colliders){
             if (collider != null){
@@ -154,16 +170,19 @@ public class PlayerInputs : MonoBehaviour
         float r = tile.transform.rotation.eulerAngles.z;
         bool validPlacement = true;
         List<int> connections = new List<int>();
+        Debug.Log("Adjacent Tiles: " + adjacentTiles.Count);
         for (int i = 0; i < adjacentTiles.Count; i++){
             if(adjacentTiles[i] != null){
                 if(adjacentTiles[i]){
                     int connection = tile.CanConnectWith(adjacentTiles[i], ignore);
                     if (connection == 4 || !IsValidPlacement(tile, adjacentTiles[i], connection)){
+                        Debug.Log("Not valid placement");
                         validPlacement = false;
                     }
                     else{
-                        //Debug.Log("Ignoring:" + ignore);
-                        connections[i] = connection;
+                        Debug.Log("Ignoring:" + connection);
+                        connections.Add(connection);
+                        ignore[i] = connection;
                     }
                 }
             }
