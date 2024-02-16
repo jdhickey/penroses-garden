@@ -53,7 +53,7 @@ public class PlayerInputs : MonoBehaviour
         }
     }
 
-    bool InitializePosition(PenroseTile tile){
+    bool InitializePosition(PenroseTile tile, int[] ignore){
         Collider2D[] colliders = Physics2D.OverlapCircleAll(tile.transform.position, 0.01f);
         float n = 0.01f;
         while(colliders.Length == 1){
@@ -72,26 +72,69 @@ public class PlayerInputs : MonoBehaviour
                 }
             }
         }
-        PenroseTile adjacentTile = adjacentTiles[0];
-        if (adjacentTile != null && adjacentTile != tile){
-            int[] ignore = {4,4,4,4};
-            int connection = tile.CanConnectWith(adjacentTile, ignore);
-            if (connection != 4){
-                float rotationAngle = tile.CalculateRotation(adjacentTile, connection);
-                tile.transform.rotation = Quaternion.Euler(0, 0, rotationAngle);
-                Vector2 offset = tile.CalculatePositionOffset(adjacentTile, rotationAngle, connection);
-                Vector3 newPosition = (Vector3)adjacentTile.transform.position + (Vector3)offset;
-                tile.transform.position = newPosition;
+        float x = tile.transform.position.x;
+        float y = tile.transform.position.y;
+        for (int i = 0; i < adjacentTiles.Count; i++){
+            PenroseTile adjacentTile = adjacentTiles[i];
+            if (adjacentTile != null && adjacentTile != tile){
+                float xOff = Simplify(x - adjacentTile.transform.position.x);
+                float yOff = Simplify(y - adjacentTile.transform.position.y);
+                Debug.Log("Old offset: " + xOff + ", " + yOff);
+                for(int j = 0; j < 4; j++){
+                    Debug.Log(ignore[0] + " " + ignore[1] + " " + ignore[2] + " " + ignore[3]);
+                    int connection = tile.CanConnectWith(adjacentTile, ignore);
+                    if (connection != 4){
+                        float rotationAngle = tile.CalculateRotation(adjacentTile, connection);
+                        tile.transform.rotation = Quaternion.Euler(0, 0, rotationAngle);
+                        Vector2 offset = tile.CalculatePositionOffset(adjacentTile, rotationAngle, connection);
+                        Vector3 newPosition = (Vector3)adjacentTile.transform.position + (Vector3)offset;
+                        tile.transform.position = newPosition;
+                        Debug.Log("New offset: " + Simplify(tile.transform.position.x - adjacentTile.transform.position.x) + ", " + Simplify(tile.transform.position.y - adjacentTile.transform.position.y));
+                        if(xOff == Simplify(tile.transform.position.x - adjacentTile.transform.position.x) && yOff == Simplify(tile.transform.position.y - adjacentTile.transform.position.y)){
+                            j = adjacentTiles.Count;
+                            Debug.Log("Correct Position");
+                            return true;
+                        }
+                        else{
+                            ignore[j] = j;
+
+                        }
+                    }
+                    else{
+                        return false;
+                    }
+                }
             }
-            else{
-                return false;
-            }
-        }
-        return true;
+        }   
+        return false;
     }
 
+    public float Simplify(float n){
+        if(n >= 0){
+            n = 1;
+        }
+        else{
+            n = -1;
+        }
+        return n;
+    }
+
+    private bool IsValidPlacement(PenroseTile tile, PenroseTile adjacentTile, int connection){
+        if (tile.IsTouchingTile()){
+            Debug.Log("Overlap detected");
+            return true;
+        }
+        if ((connection <= 1 && tile.freeSide[(-1) * (connection - 1)] == null) || (connection >= 1 && tile.freeSide[(connection - 3) * (-1) + 2] == null)){
+            Debug.Log("Valid connection");
+            return true;
+        }
+        Debug.Log("Invalid connection");
+        return false;
+    }
+
+
     void OrientTile(PenroseTile tile, int[] ignore){
-        if (Array.IndexOf(ignore, 4) == -1 || !InitializePosition(tile)){
+        if (Array.IndexOf(ignore, 4) == -1 || !InitializePosition(tile, ignore)){
             Destroy(tile.gameObject);
             Debug.Log("No Tile Placed");
             return;
@@ -102,7 +145,6 @@ public class PlayerInputs : MonoBehaviour
             if (collider != null){
                 PenroseTile temp = collider.gameObject.GetComponent<PenroseTile>();
                 if (temp != null && temp != tile){
-                    Debug.Log("tiles arent the same");
                     adjacentTiles.Add(temp);
                 }
             }
@@ -111,22 +153,38 @@ public class PlayerInputs : MonoBehaviour
         float y = tile.transform.position.y;
         float r = tile.transform.rotation.eulerAngles.z;
         bool validPlacement = true;
+        List<int> connections = new List<int>();
         for (int i = 0; i < adjacentTiles.Count; i++){
             if(adjacentTiles[i] != null){
                 if(adjacentTiles[i]){
-                    int connection = tile.CanConnectWith(adjacentTile, );
-                    if (connection != 4){
-                        float rotationAngle = tile.CalculateRotation(adjacentTile, connection);
-                        tile.transform.rotation = Quaternion.Euler(0, 0, rotationAngle);
-                        Vector2 offset = tile.CalculatePositionOffset(adjacentTile, rotationAngle, connection);
-                        Vector3 newPosition = (Vector3)adjacentTile.transform.position + (Vector3)offset;
-                        tile.transform.position = newPosition;
+                    int connection = tile.CanConnectWith(adjacentTiles[i], ignore);
+                    if (connection == 4 || !IsValidPlacement(tile, adjacentTiles[i], connection)){
+                        validPlacement = false;
                     }
                     else{
-                        return false;
+                        //Debug.Log("Ignoring:" + ignore);
+                        connections[i] = connection;
                     }
                 }
             }
+        }
+        if(validPlacement){
+            for (int i = 0; i < adjacentTiles.Count; i++){
+                adjacentTiles[i].freeSide[connections[i]] = tile;
+                if(connections[i] <= 1){
+                    tile.freeSide[(-1) * (connections[i] - 1)] = adjacentTiles[i];
+                    Debug.Log("Tile connected with side:" + ((-1) * (connections[i] - 1)));
+                }
+                else{
+                    tile.freeSide[(connections[i] - 3) * (-1) + 2] = adjacentTiles[i];
+                    Debug.Log("Tile connected with side:" + ((connections[i] - 3) * (-1) + 2));
+                }
+            }
+        }
+        else{
+            Destroy(tile.gameObject);
+            Debug.Log("No Tile Placed");
+            return;
         }
     }
 }

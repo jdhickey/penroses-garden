@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
 public abstract class PenroseTile : MonoBehaviour
 {
@@ -23,13 +24,13 @@ public abstract class PenroseTile : MonoBehaviour
     public int CanConnectWith(PenroseTile otherTile, int[] ignore){
         for (int i = 0; i < 4; i++){
             int tester = (-1) * (i - 1);
-            if (i < 2 && otherTile.freeSide[tester]  == null && Array.IndexOf(ignore, tester) == -1){
-                Debug.Log("side1:" + i);
+            if (i < 2 && otherTile.freeSide[tester]  == null && Array.IndexOf(ignore, i) == -1){
+                //Debug.Log("Connection: " + tester);
                 return tester;
             }
             tester = (i - 3) * (-1) + 2;
-            if (i > 1 && otherTile.freeSide[tester]  == null && Array.IndexOf(ignore, tester) == -1){
-                Debug.Log("side2:" + i);
+            if (i > 1 && otherTile.freeSide[tester]  == null && Array.IndexOf(ignore, i) == -1){
+                //Debug.Log("Connection: " + tester);
                 return tester;
             }
         }
@@ -66,42 +67,47 @@ public abstract class PenroseTile : MonoBehaviour
         float rotationAngle = 0;
         if(adjacentTile.tileType == PenroseTile.TileType.ThinRhombus)
         {
-            if(connection == 1 || connection == 2){
+            if(connection == 1 || connection == 3){
                 rotationAngle = adjacentRotation + 216;
             }
-            else if(connection == 0 || connection == 3){
+            else if(connection == 2 || connection == 0){
                 rotationAngle = adjacentRotation + 144;
             }
         }
         return rotationAngle;
     }
 
-    public bool HasCollision(Collision2D collision)
+    public bool IsTouchingTile()
     {
-        PenroseTile otherTile = collision.gameObject.GetComponent<PenroseTile>();
-        if (otherTile != null)
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, GetComponent<PolygonCollider2D>().bounds.size, 0);
+        
+        foreach (Collider2D collider in colliders)
         {
-            Debug.Log("Collision with another PenroseTile detected!");
-            return true;
+            if (collider != null && collider != GetComponent<Collider2D>())
+            {
+                PenroseTile otherTile = collider.gameObject.GetComponent<PenroseTile>();
+                if (otherTile != null)
+                {
+                    return true;
+                }
+            }
         }
+
         return false;
     }
 
-    public void Awake()
-{
-    freeSide = new PenroseTile[4];
-    for (int i = 0; i < 4; i++)
-    {
-        freeSide[i] = null;
-    }
+    public void Awake(){
+        freeSide = new PenroseTile[4];
+        for (int i = 0; i < 4; i++){
+            freeSide[i] = null;
+        }
 
-    sideLength = (GetComponent<PolygonCollider2D>().bounds.size).y;
+        sideLength = (GetComponent<PolygonCollider2D>().bounds.size).y;
 
-    Rigidbody2D rb = GetComponent<Rigidbody2D>();
-    if (rb == null)
-    {
-        rb = gameObject.AddComponent<Rigidbody2D>();
-        rb.isKinematic = true;
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb == null){
+            rb = gameObject.AddComponent<Rigidbody2D>();
+            rb.isKinematic = true;
+        }
     }
-}
 }
