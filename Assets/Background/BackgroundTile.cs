@@ -5,13 +5,21 @@ using UnityEngine;
 public class BackgroundTile : MonoBehaviour
 {
 
+    public static Sprite[] options;
     public GameObject tile;
     private Renderer _rend;
+    private bool initialized = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        // Loads sprites from background spritemap and randomly assigns one to this tile
+        if (!initialized) {
+            options = Resources.LoadAll<Sprite>("Background");
+            initialized = true;
+        }
         _rend = GetComponent<Renderer>();
+        GetComponent<SpriteRenderer>().sprite = options[Random.Range(0,options.Length)];
     }
 
     // Update is called once per frame
