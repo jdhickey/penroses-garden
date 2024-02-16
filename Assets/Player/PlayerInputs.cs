@@ -40,13 +40,11 @@ public class PlayerInputs : MonoBehaviour
 
     private void OnPlace()
     {
-        bool result = false;
-        Vector3 currPos = new Vector3(0, 0, 0);
-        currPos.x = transform.position.x;
-        currPos.y = transform.position.y;
-        PenroseTile tilePlayed = inventoryManagementScript.ActiveTile();
+        PenroseTile tilePlayed = inventoryManagementScript.GetActiveTile();
         if (tilePlayed != inventoryManagementScript.emptyTile) // Replace with reference to the empty tile.
         {
+            bool result = false; // Delete when player tile placement is finished.
+            Vector3 currPos = transform.position;
             PlaceTile(currPos); // result = PlaceTile(currPos, tilePlayed). tilePlayed will need to be an argument for PlaceTile and to return a boolean whether successful or not.
             if (result)
             {
@@ -55,7 +53,7 @@ public class PlayerInputs : MonoBehaviour
         }
     }
 
-    void PlaceTile(Vector2 position){
+    void PlaceTile(Vector3 position){
         ThinRhombusTile newTile = Instantiate(ThinRhombusPrefab, position, Quaternion.identity);
         newTile.InitializeTile();
         int[] ignore = {4,4,4,4};

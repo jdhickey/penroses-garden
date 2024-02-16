@@ -4,7 +4,7 @@ using UnityEngine;
 public class InventoryManager : MonoBehaviour
 {
     public PenroseTile[] tileOptions;
-    public PenroseTile[] inventory;
+    private PenroseTile[] inventory;
     public PenroseTile emptyTile;
     private RuntimeInventoryUI _hotbar;
 
@@ -13,9 +13,39 @@ public class InventoryManager : MonoBehaviour
 
     void Awake()
     {
+        // Generate inventory and UI.
         inventory = new PenroseTile[inventorySize];
         _hotbar = GameObject.FindGameObjectWithTag("UI").GetComponent<RuntimeInventoryUI>();
         initializeInventory();
+    }
+
+    public void initializeInventory() {
+        // Populates inventory using randomTile.
+        for (int i = 0; i < inventorySize; i++) {
+            inventory[i] = randomTile();
+        }
+    }
+ 
+    PenroseTile randomTile() 
+    {
+        // Picks a random tile in tileOptions.
+        int index = Random.Range(0, tileOptions.Length);
+        PenroseTile prefab = tileOptions[index];
+        return prefab;
+    }
+
+    public PenroseTile GetActiveTile()
+    {
+        return inventory[activeIndex - 1]; 
+    }
+
+    public int GetInventorySize()
+    {
+        return inventorySize; 
+    }
+    
+    public PenroseTile[] GetInventory(){
+        return inventory; 
     }
 
     public void PlayerShuffle()
@@ -33,6 +63,7 @@ public class InventoryManager : MonoBehaviour
     public void PlayerScroll(int value)
     {
         activeIndex += value;
+        // Wrap.
         if (activeIndex > inventorySize)
         {
             activeIndex -= inventorySize;
@@ -47,14 +78,8 @@ public class InventoryManager : MonoBehaviour
 
     public void ActiveDestroy()
     {
-        inventory[activeIndex - 1] = emptyTile; // Replace with empty tile.
+        inventory[activeIndex - 1] = emptyTile;
         _hotbar.VisualUpdate();
-    }
-
-    public PenroseTile ActiveTile()
-    {
-        // There was an off by one error before. The -1 fixes this.
-        return inventory[activeIndex - 1];
     }
 
     public void SetInventorySize(int n)
@@ -62,23 +87,7 @@ public class InventoryManager : MonoBehaviour
         inventorySize = n;
     }
 
-    public int GetInventorySize()
-    {
-        return inventorySize;
-    }
-
-    // This returns a random tile type to be put into the inventory.
-    // The tile types it selects from are contained in the attribute tileOptions    
-    PenroseTile randomTile() 
-    {
-        int index = Random.Range(0, tileOptions.Length);
-        PenroseTile prefab = tileOptions[index];
-        return prefab;
-    }
-
-    public void initializeInventory() {
-        for (int i = 0; i < inventorySize; i++) {
-            inventory[i] = randomTile();
-        }
+    public void SetInventory(PenroseTile[] newInventory){
+        inventory = newInventory;
     }
 }
