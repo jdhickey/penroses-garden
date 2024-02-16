@@ -118,4 +118,8 @@ public abstract class PenroseTile : MonoBehaviour
             rb.isKinematic = true;
         }
     }
+
+    public void InitializeTile()
+    {
+    }
 }
