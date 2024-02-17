@@ -47,8 +47,9 @@ public class PlayerInputs : MonoBehaviour
         if (tilePlayed != inventoryManagementScript.emptyTile) // Replace with reference to the empty tile.
         {
             Vector3 currPos = transform.position;
-            tilePlayed = ThinRhombusPrefab; // Remove eventually.
-            bool result = playerTilePlacementScript.PlaceTile(currPos, tilePlayed); // result = PlaceTile(currPos, tilePlayed). tilePlayed will need to be an argument for PlaceTile and to return a boolean whether successful or not.
+            currPos.y -= 0.5f; // Offset to place on shadow.
+            tilePlayed = ThinRhombusPrefab; // Remove when tile placement works with the thick rhombus.
+            bool result = playerTilePlacementScript.PlaceTile(currPos, tilePlayed);
             if (result)
             {
                 inventoryManagementScript.ActiveDestroy();

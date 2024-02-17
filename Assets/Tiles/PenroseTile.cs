@@ -38,7 +38,7 @@ public abstract class PenroseTile : MonoBehaviour
     }
 
     public float GetOffset(PenroseTile adjacentTile){
-        return sideLength/2 + adjacentTile.sideLength/2;
+        return sideLength / 2 + adjacentTile.sideLength / 2;
     }
 
     public Vector2 CalculatePositionOffset(PenroseTile adjacentTile, float rotationAngle, int connection)
