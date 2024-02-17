@@ -14,6 +14,7 @@ public class ButtonScript : MonoBehaviour
     private CapsuleCollider2D thisCollider;
     private float colliderOffset;
     private float factor;
+    private bool active;
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +51,7 @@ public class ButtonScript : MonoBehaviour
 
         // Offsets the sprite to indicate it is chosen
         transform.position = transform.position + highlightVec;
+        active = true;
     }
 
     void OnMouseExit() {
@@ -62,5 +64,13 @@ public class ButtonScript : MonoBehaviour
 
         // Moves the sprite back to where it was
         transform.position = transform.position - highlightVec;
+        active = false;
+    }
+
+    public void AttemptActivate() {
+        if (active) {
+            // Replace with scene to load TODO
+            Debug.Log(name);
+        }
     }
 }

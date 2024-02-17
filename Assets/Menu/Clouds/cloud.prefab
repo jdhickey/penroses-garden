@@ -98,4 +98,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 1.25
-  minSpeed: 0.28
+  minSpeed: 0.25
+  maxAngle: 7

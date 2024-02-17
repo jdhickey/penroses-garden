@@ -45,4 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cloudPrefab: {fileID: 234130081592965696, guid: a5e0a0b0dad034dadab10ce2c1c7da77, type: 3}
-  maxInterval: 7
+  maxInterval: 4
+  minInterval: 2

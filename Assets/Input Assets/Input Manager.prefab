@@ -59,7 +59,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6454500962280664600, guid: ad4c7bfb4e9913b4784424ba39a8d3e7, type: 3}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
         m_MethodName: 
         m_Mode: 1
@@ -153,6 +153,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 086c45d0-d5ad-4279-83fb-8842a08ad506
     m_ActionName: Player/Shuffle[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 425e2b9f-c462-48dc-a10a-96a5ad9b0002
+    m_ActionName: Menu/Select[/Mouse/leftButton,/Keyboard/enter]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard & Mouse
   m_DefaultActionMap: Player

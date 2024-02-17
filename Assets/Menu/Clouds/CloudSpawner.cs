@@ -6,6 +6,7 @@ public class CloudSpawner : MonoBehaviour
 {
     public GameObject cloudPrefab;
     public float maxInterval;
+    public float minInterval;
 
     private static Camera cam;
     private static bool camera_def = false;
@@ -29,7 +30,7 @@ public class CloudSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float seconds = Random.Range(0f, maxInterval);
+        float seconds = Random.Range(minInterval, maxInterval);
         if (spawn_cloud) {
             Invoke("SpawnCloud", seconds);
             spawn_cloud = false;
