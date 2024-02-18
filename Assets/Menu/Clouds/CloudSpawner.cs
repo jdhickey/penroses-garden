@@ -35,6 +35,8 @@ public class CloudSpawner : MonoBehaviour
             Invoke("SpawnCloud", seconds);
             spawn_cloud = false;
         }
+
+        transform.position = new Vector3(-cam.aspect * cam.orthographicSize * 1.5f, transform.position.y, 0);
     }
 
     void SpawnCloud() {

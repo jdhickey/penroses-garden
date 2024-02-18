@@ -987,6 +987,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3491482665903236669, guid: cb6119b82ee324a0dad26307d82343c5, type: 3}
+      propertyPath: loadScene
+      value: Main Scene
+      objectReference: {fileID: 0}
     - target: {fileID: 7116944036331899270, guid: cb6119b82ee324a0dad26307d82343c5, type: 3}
       propertyPath: m_Name
       value: ButtonHouse
