@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using Random=UnityEngine.Random;
+
+
 public class PlayerTilePlacement : MonoBehaviour
 {
     private bool initialTile = false;
