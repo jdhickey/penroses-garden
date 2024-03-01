@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class PlayerTilePlacement : MonoBehaviour
 {
-    void Start(){
-
-    }
-
     private bool initialTile = false;
+    public PenroseTile[] tileOptions;
+
+    public void PlaceRandomTile(Vector3 position){
+        int index = Random.Range(0, tileOptions.Length);
+        PlaceTile(position, tileOptions[index]);
+    }
 
     public bool PlaceTile(Vector3 position, PenroseTile tilePlayed){
         bool ValidPlacement = true;
