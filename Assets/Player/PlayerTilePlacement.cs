@@ -5,18 +5,22 @@ using UnityEngine;
 
 public class PlayerTilePlacement : MonoBehaviour
 {
-    private bool temporaryPlacedTile = false;
+    void Start(){
+
+    }
+
+    private bool initialTile = false;
 
     public bool PlaceTile(Vector3 position, PenroseTile tilePlayed){
         bool ValidPlacement = true;
         PenroseTile newTile = Instantiate(tilePlayed, position, Quaternion.identity);
         newTile.InitializeTile();
-        if(temporaryPlacedTile == true){
+        if(initialTile == true){
             int[] ignore = {4,4,4,4};
             ValidPlacement = OrientTile(newTile, ignore);
         }
         else{
-            temporaryPlacedTile = true;
+            initialTile = true;
         }
         return ValidPlacement;
     }
