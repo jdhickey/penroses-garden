@@ -32,7 +32,7 @@ public class BackgroundTile : MonoBehaviour
             CancelInvoke("DestroyMe");
         } else {
             // If the renderer is not visible, it will be destroyed in 2 seconds
-            Invoke("DestroyMe", 2);
+            Invoke("DestroyMe", 1);
         }
     }
 
@@ -53,7 +53,7 @@ public class BackgroundTile : MonoBehaviour
         }
 
         for (int i = 0; i < 360; i += 90) {
-            Vector3 test_dir = new Vector3(1, 0, 0);
+            Vector3 test_dir = new Vector3(width, 0, 0);
             test_dir = Quaternion.Euler(0, 0, i) * test_dir;
             bool is_open = true;
 

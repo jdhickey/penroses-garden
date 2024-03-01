@@ -305,8 +305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25abcb2a1a13c35499f677178240c54e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ThinRhombusPrefab: {fileID: 0}
-  temporaryPlacedTile: 0
+  tileOptions: []
 --- !u!1 &1382008683
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,11 +460,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6454500962280664603, guid: ad4c7bfb4e9913b4784424ba39a8d3e7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6454500962280664603, guid: ad4c7bfb4e9913b4784424ba39a8d3e7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6454500962280664603, guid: ad4c7bfb4e9913b4784424ba39a8d3e7, type: 3}
       propertyPath: m_LocalPosition.z
