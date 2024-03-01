@@ -124,13 +124,15 @@ public class PlayerTilePlacement : MonoBehaviour
             Debug.Log("No Tile Placed");
             return false;
         }
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(tile.transform.position, tile.sideLength * 0.35f);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(tile.transform.position, tile.sideLength * 0.62f);
         Debug.Log("Colliders: " + colliders.Length);
         List<PenroseTile> adjacentTiles = new List<PenroseTile>();
         foreach (Collider2D collider in colliders){
             if (collider != null){
                 PenroseTile temp = collider.gameObject.GetComponent<PenroseTile>();
+                Debug.Log("Yay");
                 if (temp != null && temp != tile){
+                    Debug.Log("Yay 2");
                     adjacentTiles.Add(temp);
                 }
             }
