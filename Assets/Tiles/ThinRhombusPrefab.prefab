@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 3480668897140079476}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.6017704, y: 6.7469954, z: -0.08550941}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -99,7 +99,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileType: 0
-  freeSide: 00000000
+  freeSide: []
+  sideLength: 0
+  smallAngle: 36
 --- !u!60 &3530845472062583175
 PolygonCollider2D:
   m_ObjectHideFlags: 0

@@ -31,7 +31,7 @@ public class RuntimeInventoryUI : MonoBehaviour
         Camera mainCamera = Camera.main;
         uiDocument.transform.parent = mainCamera.transform;
         uiDocument.transform.localPosition = new Vector3(mainCamera.transform.position.x, 0, 1);
-
+        uiDocument.panelSettings.scale = 1.25f;
         Select(1);
     }
 
