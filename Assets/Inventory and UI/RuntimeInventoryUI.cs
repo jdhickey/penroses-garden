@@ -43,7 +43,7 @@ public class RuntimeInventoryUI : MonoBehaviour
         // Populate UI.
         for (int i = 0; i < itemCount; i++) {
             Sprite tileSprite = inventory[i].GetComponent<SpriteRenderer>().sprite;
-            uiDocument.rootVisualElement.Q((i + 1).ToString()).style.backgroundImage = new StyleBackground(tileSprite);
+            uiDocument.rootVisualElement.Q("Inventory_Slot_"+(i+1).ToString()+"_Border").Q((i + 1).ToString()).style.backgroundImage = new StyleBackground(tileSprite);
         }
     }
 
@@ -56,10 +56,10 @@ public class RuntimeInventoryUI : MonoBehaviour
         
         for (int i = 0; i < itemCount; i++) {
             // Gets the highlight visual elements of each inventory item and deselects it
-            uiDocument.rootVisualElement.Q((i+1).ToString()).Q("highlight").style.backgroundImage = new StyleBackground(unselected);
+            uiDocument.rootVisualElement.Q("Inventory_Slot_"+(i+1).ToString()+"_Border").style.backgroundImage = new StyleBackground(unselected);
         }
 
         // Sets the chosen inventory item to selected
-        uiDocument.rootVisualElement.Q((index).ToString()).Q("highlight").style.backgroundImage = new StyleBackground(selected);
+        uiDocument.rootVisualElement.Q("Inventory_Slot_"+(index)+"_Border").style.backgroundImage = new StyleBackground(selected);
     }
 }

@@ -48,6 +48,10 @@ public class InventoryManager : MonoBehaviour
         return inventory; 
     }
 
+    public int GetActiveIndex(){
+        return activeIndex;
+    }
+
     public void PlayerShuffle()
     {
         initializeInventory();
