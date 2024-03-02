@@ -43,9 +43,9 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         // If there is movement and it's not fast. Move faster.
-        if (moveSpeed < 10f && movement.magnitude != 0)
+        if (moveSpeed < 6.5f && movement.magnitude != 0)
         {
-            moveSpeed *= 1.1f;
+            moveSpeed *= 1.05f;
         }
         Vector3 moveVal = movement * moveSpeed * Time.fixedDeltaTime; // Initial moveVal, only changed if deacceleration is engaged.
 
@@ -63,12 +63,10 @@ public class PlayerMovement : MonoBehaviour
         if (moveVal.magnitude != 0)
         {
             transform.Translate(moveVal);
-        }
-
-        // If there is actual input then update previousMove. It's only going activating on every 0.1 second because it was causing issues.
-        if (movement.magnitude != 0 && Time.fixedDeltaTime % 0.1f == 0f)
-        {
-            previousMove = movement;
+            // If there is actual input then update previousMove. It's only going activating on every 0.1 second because it was causing issues.
+            if (Time.fixedDeltaTime % 0.1f == 0f){
+                previousMove = movement;
+            }
         }
     }
 }
