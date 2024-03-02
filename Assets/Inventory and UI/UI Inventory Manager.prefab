@@ -61,8 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02e5fdaa86f454c7fb25f37302b9e0ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryObj: {fileID: 1090557495777700523, guid: 0f1cda47d6d1c4f1fa95294d1c329c31, type: 3}
   select_sprites:
-  - {fileID: -269998971, guid: 61b91d0c7aac245dba1bd22ebcc243c0, type: 3}
+  - {fileID: 21300000, guid: 6fc71968ba114704396f6c9a51d65222, type: 3}
   - {fileID: 450850510, guid: 61b91d0c7aac245dba1bd22ebcc243c0, type: 3}
   - {fileID: 21300000, guid: 6f75fc7f8acf2409caed81b7dc4cb7fa, type: 3}
