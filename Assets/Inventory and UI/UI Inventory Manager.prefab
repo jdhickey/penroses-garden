@@ -63,5 +63,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   select_sprites:
   - {fileID: 21300000, guid: 6fc71968ba114704396f6c9a51d65222, type: 3}
-  - {fileID: 450850510, guid: 61b91d0c7aac245dba1bd22ebcc243c0, type: 3}
+  - {fileID: 21300000, guid: 33d8e7d81619e014f9efb93bcd0a2fe5, type: 3}
   - {fileID: 21300000, guid: 6f75fc7f8acf2409caed81b7dc4cb7fa, type: 3}
