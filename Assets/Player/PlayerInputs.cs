@@ -33,7 +33,12 @@ public class PlayerInputs : MonoBehaviour
     private void OnInventoryScroll(InputValue value)
     {
         int intVal = (int) value.Get<float>();
-        inventoryManagementScript.PlayerScroll(intVal);
+        if (intVal != 0){
+            if (intVal != 1 || intVal != -1){
+                intVal /= Mathf.Abs(intVal);
+                inventoryManagementScript.PlayerScroll(intVal);
+            }
+        }
     }
 
     private void OnExit()
