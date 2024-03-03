@@ -10,6 +10,9 @@ public class BackgroundTile : MonoBehaviour
     private Renderer _rend;
     private bool initialized = false;
 
+    private float width;
+    private Vector3 centre;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,18 +23,30 @@ public class BackgroundTile : MonoBehaviour
         }
         _rend = GetComponent<Renderer>();
         GetComponent<SpriteRenderer>().sprite = options[Random.Range(0,options.Length)];
+
+        width = _rend.bounds.size.x;
+        centre = _rend.bounds.center;
     }
 
     // Update is called once per frame
     void Update()
     {
+        // the below code checks to see if any neighbouring tile is visible
+        // if so, also cancel the invoke (retains border tiles)
+        bool neighbourVis = false;
+        Collider[] nearTiles = Physics.OverlapSphere(centre, width);
+        foreach (Collider neighbour in nearTiles) {
+            try {
+                BackgroundTile neighbourScript = neighbour.gameObject.GetComponent<BackgroundTile>();
+                neighbourVis = neighbourVis || neighbourScript._rend.isVisible;
+            } catch {}
+        }
+
         // If the renderer is visible, will spawn in the neighbours with an offset and cancel
         // any ongoing destroy action
-        if (_rend.isVisible) {
+        if (_rend.isVisible || neighbourVis) {
             spawnNeighbours();
             CancelInvoke("DestroyMe");
-
-            // TODO: add condition that if a neighbour is visible, also cancel invoke
         } else {
             // If the renderer is not visible, it will be destroyed in 2 seconds
             Invoke("DestroyMe", 1);
@@ -43,10 +58,6 @@ public class BackgroundTile : MonoBehaviour
     }
 
     void spawnNeighbours() {
-        var bounds = _rend.bounds;
-        Vector3 centre = bounds.center;
-        float width = bounds.size.x;
-
         Collider[] nearTiles = Physics.OverlapSphere(centre, width);
         Vector3[] directions = new Vector3[nearTiles.Length];
 
