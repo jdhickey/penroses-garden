@@ -30,6 +30,8 @@ public class BackgroundTile : MonoBehaviour
         if (_rend.isVisible) {
             spawnNeighbours();
             CancelInvoke("DestroyMe");
+
+            // TODO: add condition that if a neighbour is visible, also cancel invoke
         } else {
             // If the renderer is not visible, it will be destroyed in 2 seconds
             Invoke("DestroyMe", 1);
