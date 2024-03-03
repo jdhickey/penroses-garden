@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3a52cadba4c3042e3bd46bff3358522d
+guid: 585823fd9c59749fe92478abb8799872
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 128
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bg_tiles 1_0
+      name: bg_updates_flow_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 64
-        width: 64
-        height: 64
+        x: 5
+        y: 141
+        width: 126
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e5a1f57faa314ae2889aaa2c0541469
-      internalID: -209079723
+      spriteID: e42894ca8589a4df09d3a49ce08795ff
+      internalID: -226587008
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bg_tiles 1_1
+      name: bg_updates_flow_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 64
-        width: 64
-        height: 64
+        x: 141
+        y: 141
+        width: 126
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c9ca35edb0ab74773a8f0a17fc738a52
-      internalID: 315651959
+      spriteID: 953340ac5e9ce4f1389935fe3f3907b5
+      internalID: 103006708
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bg_tiles 1_2
+      name: bg_updates_flow_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 64
+        x: 5
+        y: 5
+        width: 126
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57d0931a9291e4739b65ab74a45508d5
-      internalID: 136890631
+      spriteID: 8fed2f7848aa84489b790f85726694b5
+      internalID: 1068555382
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bg_tiles 1_3
+      name: bg_updates_flow_3
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 64
+        x: 141
+        y: 5
+        width: 126
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,8 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b1c1f635b81f4e959c80abb17d2a668
-      internalID: 2103112552
+      spriteID: 921a9e93121a54d7baeb5c5b6be7c9ff
+      internalID: -1020822155
       vertices: []
       indices: 
       edges: []
@@ -199,10 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bg_tiles 1_0: -209079723
-      bg_tiles 1_1: 315651959
-      bg_tiles 1_2: 136890631
-      bg_tiles 1_3: 2103112552
+      bg_updates_flow_0: -226587008
+      bg_updates_flow_1: 103006708
+      bg_updates_flow_2: 1068555382
+      bg_updates_flow_3: -1020822155
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

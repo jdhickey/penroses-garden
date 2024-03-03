@@ -58,7 +58,7 @@ public class BackgroundTile : MonoBehaviour
             bool is_open = true;
 
             foreach (Vector3 dir in directions) {
-                if (Vector3.Distance(dir, test_dir) < 0.1) {
+                if (Vector3.Distance(dir, test_dir) < 0.01) {
                     is_open = false;
                 }
             }
