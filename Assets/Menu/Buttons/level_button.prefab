@@ -160,7 +160,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -186,6 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadScene: 
   LevelNumber: 0
+  lockedSprite: {fileID: 21300000, guid: 9d793f20a47204a098c0e8fecd654c30, type: 3}
 --- !u!60 &2604176824040861600
 PolygonCollider2D:
   m_ObjectHideFlags: 0

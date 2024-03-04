@@ -7,9 +7,11 @@ public class LevelButton : MonoBehaviour
     public string loadScene;
     [Range(0, 99)]
     public int LevelNumber;
+    public Sprite lockedSprite;
+    public bool locked = true;
 
     private Sprite[] numberSprites;
-    private SpriteRenderer spriteRenderer;
+    private SpriteRenderer _rend;
     private float spriteHeight;
     private Vector3 highlightVec;
     private PolygonCollider2D thisCollider;
@@ -17,6 +19,7 @@ public class LevelButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _rend = GetComponent<SpriteRenderer>();
         Sprite[] numberSprites = Resources.LoadAll<Sprite>("LevelButtons1");
 
         // Determines the left and right sides of the level button by the number assigned to the button
@@ -42,7 +45,11 @@ public class LevelButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (locked) {
+            _rend.sprite = lockedSprite;
+        } else {
+            _rend.sprite = null;
+        }
     }
 
     char[] levelName(int val) {
