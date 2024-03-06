@@ -1011,5 +1011,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: ButtonHouse
       objectReference: {fileID: 0}
+    - target: {fileID: 7529081503129830573, guid: cb6119b82ee324a0dad26307d82343c5, type: 3}
+      propertyPath: loadScene
+      value: Level Select
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb6119b82ee324a0dad26307d82343c5, type: 3}
