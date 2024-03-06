@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highlight: 0.1
+  loadScene: Assets/Scenes/Game Scene.unity
 --- !u!70 &799597943740775155
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

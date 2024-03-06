@@ -10,7 +10,7 @@ public class ThickRhombusTile : PenroseTile
         InitializeTile();
     }
 
-    public void InitializeTile()
+    public new void InitializeTile()
     {
         smallAngle = 72; // We've gotta update this number.
     }
