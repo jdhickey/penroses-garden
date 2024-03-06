@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highlight: 0.1
+  loadScene: Level Select
 --- !u!70 &4856812092029561219
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
