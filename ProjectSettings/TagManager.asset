@@ -6,13 +6,15 @@ TagManager:
   tags:
   - InventoryManagement
   - UI
+  - PlayerPreferences
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Background
   - Water
   - UI
+  - 6
   - 
   - 
   - 
@@ -38,7 +40,6 @@ TagManager:
   - 
   - 
   - 
-  - Background
   m_SortingLayers:
   - name: Background
     uniqueID: 3084062335
