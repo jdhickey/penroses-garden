@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelButton : MonoBehaviour
+public class LevelButton : ButtonParent
 {
-    public string loadScene;
     [Range(0, 99)]
     public int LevelNumber;
     public Sprite lockedSprite;
@@ -55,5 +54,11 @@ public class LevelButton : MonoBehaviour
     char[] levelName(int val) {
         string name = val.ToString("00");
         return name.ToCharArray();
+    }
+
+    public void AttemptLoad() {
+        if (!locked) {
+            StartCoroutine(LoadYourAsyncScene());
+        }
     }
 }

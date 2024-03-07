@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 7651531662331079872}
   - component: {fileID: 1428139805427240423}
   - component: {fileID: 2604176824040861600}
+  - component: {fileID: 6572625530759139838}
   m_Layer: 0
   m_Name: level_button
   m_TagString: Untagged
@@ -187,6 +188,7 @@ MonoBehaviour:
   loadScene: 
   LevelNumber: 0
   lockedSprite: {fileID: 21300000, guid: 9d793f20a47204a098c0e8fecd654c30, type: 3}
+  locked: 1
 --- !u!60 &2604176824040861600
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -197,7 +199,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -224,6 +226,27 @@ PolygonCollider2D:
       - {x: 0.47, y: -0.1}
       - {x: 0.47, y: 0.1}
       - {x: 0.37, y: 0.37}
+--- !u!50 &6572625530759139838
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5473787582507688470}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &7109709520255507550
 GameObject:
   m_ObjectHideFlags: 0

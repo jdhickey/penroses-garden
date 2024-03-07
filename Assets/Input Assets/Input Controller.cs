@@ -449,15 +449,6 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Move"",
-                    ""type"": ""Value"",
-                    ""id"": ""2ed36bd3-90bb-41df-8192-029824f25f1f"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -493,10 +484,58 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""action"": ""Select"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""LevelMenu"",
+            ""id"": ""72e5776e-9ef4-4e81-85a8-a99339f57c71"",
+            ""actions"": [
+                {
+                    ""name"": ""Select"",
+                    ""type"": ""Button"",
+                    ""id"": ""8bf171e7-d652-44f3-8bf5-25f6362e03a4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""b6cb2a42-1691-4733-904a-f094cdb98f8f"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""ae725b50-8185-4595-94b1-e0baf9dc3db1"",
+                    ""path"": ""<Keyboard>/{Submit}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Select"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7296036d-4b85-4755-96d8-c0411e8bde21"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Select"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 },
                 {
                     ""name"": ""Primary"",
-                    ""id"": ""12ef11da-8884-42bd-80e0-07b26b4b68fe"",
+                    ""id"": ""0b7f6fd0-9e3e-42db-ae14-ab561d2d404c"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -507,7 +546,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Up"",
-                    ""id"": ""30d8db3d-e400-4b8e-be90-e3f0ac8d5405"",
+                    ""id"": ""cbd1baa7-9241-4298-b998-e9f3474cfdf7"",
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -518,7 +557,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Left"",
-                    ""id"": ""28c5a95f-fe24-4657-ab0c-091266b3bc20"",
+                    ""id"": ""15a04757-ca80-4ba4-8ad5-60842fc4935c"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -529,7 +568,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Down"",
-                    ""id"": ""d4addbec-933d-4a45-ae73-efe007f4c16f"",
+                    ""id"": ""7226b062-3cd2-4e63-8888-9efc50481851"",
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -540,7 +579,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Right"",
-                    ""id"": ""ddcb075b-4b5a-412f-92d1-ce6826271e25"",
+                    ""id"": ""b839adba-aa78-4ed6-ad4a-4a2a496a42b6"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -551,7 +590,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Alt"",
-                    ""id"": ""b9f57fc9-5785-4ff6-be76-350f60086ba6"",
+                    ""id"": ""732b4a24-0b5b-43ba-af16-ea62292eeacb"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -562,7 +601,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""31dc30e9-ccea-417c-a40d-e41f36791438"",
+                    ""id"": ""c987d3cf-36c4-44be-9d8b-e66faeffcf5f"",
                     ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -573,7 +612,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""e86b01bf-6069-4602-918d-c9b395666bb8"",
+                    ""id"": ""a816200f-715d-448d-9d07-2c193376d2b2"",
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -584,7 +623,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""down"",
-                    ""id"": ""99dfb7e9-d8d7-4027-a274-f317da936384"",
+                    ""id"": ""35ba3190-1bb6-4c1c-98f5-22426d2bb976"",
                     ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -595,7 +634,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""23216b33-056e-4fc1-8ddf-a9f92b09c7b0"",
+                    ""id"": ""b31b9fc8-1347-47b9-bf3a-79a642daf695"",
                     ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -637,7 +676,10 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Select = m_Menu.FindAction("Select", throwIfNotFound: true);
-        m_Menu_Move = m_Menu.FindAction("Move", throwIfNotFound: true);
+        // LevelMenu
+        m_LevelMenu = asset.FindActionMap("LevelMenu", throwIfNotFound: true);
+        m_LevelMenu_Select = m_LevelMenu.FindAction("Select", throwIfNotFound: true);
+        m_LevelMenu_Move = m_LevelMenu.FindAction("Move", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -786,13 +828,11 @@ public partial class @InputController: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Menu;
     private List<IMenuActions> m_MenuActionsCallbackInterfaces = new List<IMenuActions>();
     private readonly InputAction m_Menu_Select;
-    private readonly InputAction m_Menu_Move;
     public struct MenuActions
     {
         private @InputController m_Wrapper;
         public MenuActions(@InputController wrapper) { m_Wrapper = wrapper; }
         public InputAction @Select => m_Wrapper.m_Menu_Select;
-        public InputAction @Move => m_Wrapper.m_Menu_Move;
         public InputActionMap Get() { return m_Wrapper.m_Menu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -805,9 +845,6 @@ public partial class @InputController: IInputActionCollection2, IDisposable
             @Select.started += instance.OnSelect;
             @Select.performed += instance.OnSelect;
             @Select.canceled += instance.OnSelect;
-            @Move.started += instance.OnMove;
-            @Move.performed += instance.OnMove;
-            @Move.canceled += instance.OnMove;
         }
 
         private void UnregisterCallbacks(IMenuActions instance)
@@ -815,9 +852,6 @@ public partial class @InputController: IInputActionCollection2, IDisposable
             @Select.started -= instance.OnSelect;
             @Select.performed -= instance.OnSelect;
             @Select.canceled -= instance.OnSelect;
-            @Move.started -= instance.OnMove;
-            @Move.performed -= instance.OnMove;
-            @Move.canceled -= instance.OnMove;
         }
 
         public void RemoveCallbacks(IMenuActions instance)
@@ -835,6 +869,60 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         }
     }
     public MenuActions @Menu => new MenuActions(this);
+
+    // LevelMenu
+    private readonly InputActionMap m_LevelMenu;
+    private List<ILevelMenuActions> m_LevelMenuActionsCallbackInterfaces = new List<ILevelMenuActions>();
+    private readonly InputAction m_LevelMenu_Select;
+    private readonly InputAction m_LevelMenu_Move;
+    public struct LevelMenuActions
+    {
+        private @InputController m_Wrapper;
+        public LevelMenuActions(@InputController wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Select => m_Wrapper.m_LevelMenu_Select;
+        public InputAction @Move => m_Wrapper.m_LevelMenu_Move;
+        public InputActionMap Get() { return m_Wrapper.m_LevelMenu; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(LevelMenuActions set) { return set.Get(); }
+        public void AddCallbacks(ILevelMenuActions instance)
+        {
+            if (instance == null || m_Wrapper.m_LevelMenuActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_LevelMenuActionsCallbackInterfaces.Add(instance);
+            @Select.started += instance.OnSelect;
+            @Select.performed += instance.OnSelect;
+            @Select.canceled += instance.OnSelect;
+            @Move.started += instance.OnMove;
+            @Move.performed += instance.OnMove;
+            @Move.canceled += instance.OnMove;
+        }
+
+        private void UnregisterCallbacks(ILevelMenuActions instance)
+        {
+            @Select.started -= instance.OnSelect;
+            @Select.performed -= instance.OnSelect;
+            @Select.canceled -= instance.OnSelect;
+            @Move.started -= instance.OnMove;
+            @Move.performed -= instance.OnMove;
+            @Move.canceled -= instance.OnMove;
+        }
+
+        public void RemoveCallbacks(ILevelMenuActions instance)
+        {
+            if (m_Wrapper.m_LevelMenuActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(ILevelMenuActions instance)
+        {
+            foreach (var item in m_Wrapper.m_LevelMenuActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_LevelMenuActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public LevelMenuActions @LevelMenu => new LevelMenuActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -854,6 +942,10 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         void OnShuffle(InputAction.CallbackContext context);
     }
     public interface IMenuActions
+    {
+        void OnSelect(InputAction.CallbackContext context);
+    }
+    public interface ILevelMenuActions
     {
         void OnSelect(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
