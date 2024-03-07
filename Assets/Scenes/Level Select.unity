@@ -2933,6 +2933,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1428139805427240423, guid: 881dad9b2825c4a96a5b8b299bcb1e44, type: 3}
+      propertyPath: locked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428139805427240423, guid: 881dad9b2825c4a96a5b8b299bcb1e44, type: 3}
       propertyPath: LevelNumber
       value: 2
       objectReference: {fileID: 0}
