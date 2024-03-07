@@ -18,6 +18,7 @@ public class ResetDeviceBindings : MonoBehaviour
     public void ResetControlSchemeBinding(){
         foreach (InputActionMap map in _inputActions.actionMaps){
             foreach (InputAction action in map.actions){
+                Debug.Log(action.name);
                 action.RemoveBindingOverride(InputBinding.MaskByGroup(_targetControlScheme));
             }
         }

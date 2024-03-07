@@ -171,13 +171,12 @@ RectTransform:
   - {fileID: 140632144}
   - {fileID: 1853757844}
   - {fileID: 261143056}
-  - {fileID: 1877623294}
   m_Father: {fileID: 1234044790}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -13.2, y: 49.36}
+  m_AnchoredPosition: {x: -22, y: -93}
   m_SizeDelta: {x: 831.87, y: 448.21}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &31170383
@@ -195,7 +194,7 @@ MonoBehaviour:
   m_Padding:
     m_Left: 140
     m_Right: 0
-    m_Top: 37
+    m_Top: 6
     m_Bottom: 0
   m_ChildAlignment: 0
   m_StartCorner: 0
@@ -498,7 +497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.380429, g: 0.7830189, b: 0.39308012, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -572,7 +571,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -89, y: -258.99}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &283868209
@@ -597,8 +596,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 44aec7dd91c072d41a621e35653b75d0, type: 2}
+  m_sharedMaterial: {fileID: 846196089405244353, guid: 44aec7dd91c072d41a621e35653b75d0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -658,7 +657,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -340.45193, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -961,11 +960,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 62255123907987999, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_text
-      value: Inventory Scroll
+      value: Scroll
       objectReference: {fileID: 0}
     - target: {fileID: 6339845498579235048, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_text
-      value: Q/E
+      value: ;/K
       objectReference: {fileID: 0}
     - target: {fileID: 6680292650503350822, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Name
@@ -1616,7 +1615,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 62255123907987999, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_text
-      value: Inventory Scroll
+      value: Scroll
       objectReference: {fileID: 0}
     - target: {fileID: 6339845498579235048, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_text
@@ -1816,7 +1815,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 62255123907987999, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_text
-      value: Inventory Select
+      value: Select 3
       objectReference: {fileID: 0}
     - target: {fileID: 6339845498579235048, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_text
@@ -1989,7 +1988,7 @@ RectTransform:
   m_Children:
   - {fileID: 295030001}
   m_Father: {fileID: 1234044790}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2133,7 +2132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 62255123907987999, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_text
-      value: Inventory Select
+      value: Select 5
       objectReference: {fileID: 0}
     - target: {fileID: 6339845498579235048, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_text
@@ -2270,7 +2269,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 62255123907987999, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_text
-      value: Inventory Select
+      value: Select 4
       objectReference: {fileID: 0}
     - target: {fileID: 6339845498579235048, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_text
@@ -2579,6 +2578,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1877623294}
   - {fileID: 31170382}
   - {fileID: 1097850718}
   m_Father: {fileID: 0}
@@ -2670,7 +2670,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 62255123907987999, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_text
-      value: Inventory Select
+      value: Select 3
       objectReference: {fileID: 0}
     - target: {fileID: 6339845498579235048, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_text
@@ -3147,7 +3147,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 62255123907987999, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_text
-      value: Inventory Select
+      value: Select 1
       objectReference: {fileID: 0}
     - target: {fileID: 6339845498579235048, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_text
@@ -3284,7 +3284,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 62255123907987999, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_text
-      value: Inventory Select
+      value: Select 2
       objectReference: {fileID: 0}
     - target: {fileID: 6339845498579235048, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_text
@@ -3518,7 +3518,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 62255123907987999, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_text
-      value: Inventory Select
+      value: Select 4
       objectReference: {fileID: 0}
     - target: {fileID: 6339845498579235048, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_text
@@ -3687,7 +3687,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 62255123907987999, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_text
-      value: Inventory Select
+      value: Select 2
       objectReference: {fileID: 0}
     - target: {fileID: 6339845498579235048, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_text
@@ -3840,19 +3840,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1877623293}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 283868208}
-  m_Father: {fileID: 31170382}
-  m_RootOrder: 19
+  m_Father: {fileID: 1234044790}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 639.6, y: -419.5}
-  m_SizeDelta: {x: 50, y: 35}
+  m_AnchoredPosition: {x: 504.5, y: -284}
+  m_SizeDelta: {x: 1009, y: 567.99}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1877623295
 MonoBehaviour:
@@ -3942,7 +3942,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6339845498579235048, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_text
-      value: LS/Up/LS/Left/LS/Down/LS/Right
+      value: Up/Left/Down/Right
       objectReference: {fileID: 0}
     - target: {fileID: 6680292650503350822, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Name
@@ -4086,7 +4086,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 62255123907987999, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_text
-      value: Inventory Select
+      value: Select 1
       objectReference: {fileID: 0}
     - target: {fileID: 6339845498579235048, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_text
@@ -4250,7 +4250,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 62255123907987999, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_text
-      value: Inventory Select
+      value: Select 5
       objectReference: {fileID: 0}
     - target: {fileID: 6339845498579235048, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_text
