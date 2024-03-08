@@ -30,8 +30,8 @@ public class InventoryManager : MonoBehaviour
     {
         // Picks a random tile in tileOptions.
         int index = Random.Range(0, tileOptions.Length);
-        SquareTile prefab = tileOptions[index];
-        return prefab;
+        SquareTile newTile = tileOptions[index];
+        return newTile;
     }
 
     public SquareTile GetActiveTile()
