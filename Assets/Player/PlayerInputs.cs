@@ -9,11 +9,14 @@ public class PlayerInputs : MonoBehaviour
 
     private InventoryManager inventoryManagementScript;
     private PlayerTilePlacement playerTilePlacementScript;
+    
+    public GameObject canvas;
 
     void Start()
     {
         inventoryManagementScript = GameObject.FindGameObjectWithTag("InventoryManagement").GetComponent<InventoryManager>();
         playerTilePlacementScript = this.gameObject.GetComponent<PlayerTilePlacement>();
+        canvas.SetActive(false);
     }
 
     private void OnShuffle()
@@ -43,7 +46,12 @@ public class PlayerInputs : MonoBehaviour
 
     private void OnExit()
     {
-        print("Exit!");
+        if (canvas.activeSelf){
+            canvas.SetActive(false);
+        }
+        else {
+            canvas.SetActive(true);
+        }
     }
 
     private void OnPlace()
