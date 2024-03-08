@@ -61,8 +61,6 @@ public class PlayerInputs : MonoBehaviour
                 intVal /= Mathf.Abs(intVal);
             }
         }
-        SquareTile activeTile = inventoryManagementScript.GetActiveTile();
-        activeTile.rotateSides(intVal);
         inventoryManagementScript.RotateCurrent(intVal);
     }
 

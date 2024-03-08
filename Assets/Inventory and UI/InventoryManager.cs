@@ -30,7 +30,6 @@ public class InventoryManager : MonoBehaviour
     {
         // Picks a random tile in tileOptions.
         int index = Random.Range(0, tileOptions.Length);
-        Debug.Log(index);
         SquareTile prefab = tileOptions[index];
         return prefab;
     }
@@ -82,6 +81,7 @@ public class InventoryManager : MonoBehaviour
     }
 
     public void RotateCurrent(int dir){
+        GetActiveTile().rotateSides(dir);
         _hotbar.RotateCurrent(dir, activeIndex, GetActiveTile());
     }
 
