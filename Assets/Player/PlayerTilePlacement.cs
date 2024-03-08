@@ -65,7 +65,7 @@ public class PlayerTilePlacement : MonoBehaviour
         List<PenroseTile> adjacentTiles = new List<PenroseTile>();
 
         // Loop through the colliders we just got above.
-        foreach (Collider2D collider in colliders){
+        foreach (Collider2D collider in colliders) {
             if (collider != null){
                 PenroseTile temp = collider.gameObject.GetComponent<PenroseTile>();
                 //Debug.Log("Yay"); Unnecessary? Should always work.
@@ -89,21 +89,36 @@ public class PlayerTilePlacement : MonoBehaviour
             if(adjacentTiles[i]){ // Super redundant?
                 // I think this is already done in another function.
                 int connection = tile.CanConnectWith(adjacentTiles[i], ignore); // Gets the value of the first side it can connect with (adjacentTile's).
-                validPlacement = IsValidPlacement(tile, adjacentTiles[i], connection); // true if sides are available.
-                if (connection == 4 || !validPlacement){
-                    Debug.Log("Not valid placement");
+                if (connection != 4){
+                    validPlacement = IsValidPlacement(tile, adjacentTiles[i], connection); // true if sides are available.
+
+                    if (validPlacement){
+                        Debug.Log("Ignoring:" + connection);
+                        // Keep track on of the connections made.
+                        connections.Add(connection);
+                        // Update current tile's connections.
+                        ignore[i] = connection;
+                    }
+
+                    else{
+                        Debug.Log("Not valid placement.");
+                    }
                 }
-                else{
-                    Debug.Log("Ignoring:" + connection);
-                    connections.Add(connection);
-                    ignore[i] = connection;
+
+                else {
+                    Debug.Log("Not valid placement");
                 }
             }
         }
-        if(validPlacement){
+
+        if (validPlacement) {
+            // Loop through neighboring tiles.
             for (int i = 0; i < adjacentTiles.Count; i++){
+                // Update adjacent tile neighbourhoods.
                 adjacentTiles[i].freeSide[connections[i]] = tile;
-                if(connections[i] <= 1){
+
+                // Update current tile's neighbourhood. A little reundant with ignore?
+                if(connections[i] < 2){
                     tile.freeSide[(-1) * (connections[i] - 1)] = adjacentTiles[i];
                     Debug.Log("Tile connected with side:" + ((-1) * (connections[i] - 1)));
                 }
@@ -113,10 +128,13 @@ public class PlayerTilePlacement : MonoBehaviour
                 }
             }
         }
-        else{
+        
+        // If bad placement, destroy tile.
+        else {
             Destroy(tile.gameObject);
             Debug.Log("No Tile Placed");
         }
+
         return validPlacement;
     }
 
