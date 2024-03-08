@@ -26,24 +26,28 @@ public abstract class PenroseTile : MonoBehaviour
     // Returns the value of the first side it can connect to.
     // Used in PlayerTilePlacement.cs
     public int CanConnectWith(PenroseTile otherTile, int[] ignore){
-        int adjacentSide; // adjcaentSide is the side on otherTile that the instantiated tile should connect with.
+        int tester; // adjcaentSide is the side on otherTile that the instantiated tile should connect with.
+        
         for (int i = 0; i < 4; i++){
-            if (i < 2){
-                adjacentSide = (-1) * (i - 1); // When i = 0, tester = 1. When i = 1, tester = 0.
-            if (i > 1){
-                adjacentSide = (i - 3) * (-1) + 2; // When i = 2, tester = 3. When i = 3, tester = 2.
+
+            tester = (-1) * (i - 1); // When i = 0, tester = 1. When i = 1, tester = 0.
+            // If the appropriate side is empty and the current i value is not in ignore.
+            if (i < 2 && otherTile.freeSide[tester]  == null && Array.IndexOf(ignore, i) == -1){
+                //Debug.Log("Connection: " + tester);
+                return tester;
             }
 
+            tester = (i - 3) * (-1) + 2; // When i = 2, tester = 3. When i = 3, tester = 2.
             // If the appropriate side is empty and the current i value is not in ignore.
-            if (otherTile.freeSide[adjacentSide] == null && Array.IndexOf(ignore, i) == -1)
-                //Debug.Log("Connection: " + adjacentSide);
-                return adjacentSide;
+            if (i > 1 && otherTile.freeSide[tester]  == null && Array.IndexOf(ignore, i) == -1){
+                //Debug.Log("Connection: " + tester);
+                return tester;
             }
         }
 
-        // If no connections could be made, return 4.
+        // If no connections could be made, return 4
         return 4;
-    } // Rework to swap tester and i for clarity?
+    }  // Rework to swap tester and i for clarity?
     
     // Takes in an adjacent tile to be tested and the side on adjacentTile to calculate the necessary rotation for.
     // Returns the rotation angle for the tile it's called upon.
