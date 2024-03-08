@@ -21,33 +21,66 @@ public abstract class PenroseTile : MonoBehaviour
     color fence = [line 0 color, line 1 color] 
                   [line 0 fence, line 1 fence]
     */
+
+    // Takes in the tile that another tile is trying to connect with and ignore(?)
+    // Returns the value of the first side it can connect to.
+    // Used in PlayerTilePlacement.cs
     public int CanConnectWith(PenroseTile otherTile, int[] ignore){
+        int adjacentSide; // adjcaentSide is the side on otherTile that the instantiated tile should connect with.
         for (int i = 0; i < 4; i++){
-            int tester = (-1) * (i - 1);
-            if (i < 2 && otherTile.freeSide[tester]  == null && Array.IndexOf(ignore, i) == -1){
-                //Debug.Log("Connection: " + tester);
-                return tester;
+            if (i < 2){
+                adjacentSide = (-1) * (i - 1); // When i = 0, tester = 1. When i = 1, tester = 0.
+            if (i > 1){
+                adjacentSide = (i - 3) * (-1) + 2; // When i = 2, tester = 3. When i = 3, tester = 2.
             }
-            tester = (i - 3) * (-1) + 2;
-            if (i > 1 && otherTile.freeSide[tester]  == null && Array.IndexOf(ignore, i) == -1){
-                //Debug.Log("Connection: " + tester);
-                return tester;
+
+            // If the appropriate side is empty and the current i value is not in ignore.
+            if (otherTile.freeSide[adjacentSide] == null && Array.IndexOf(ignore, i) == -1)
+                //Debug.Log("Connection: " + adjacentSide);
+                return adjacentSide;
             }
         }
+
+        // If no connections could be made, return 4.
         return 4;
+    } // Rework to swap tester and i for clarity?
+    
+    // Takes in an adjacent tile to be tested and the side on adjacentTile to calculate the necessary rotation for.
+    // Returns the rotation angle for the tile it's called upon.
+    // Used in PlayerTilePlacement.cs in OrientTile.
+    public float CalculateRotation(PenroseTile adjacentTile, int connection)
+    {
+        float adjacentRotation = adjacentTile.transform.rotation.eulerAngles.z; // Rotation of adjacentTile in the 2d plane.
+        float rotationAngle = 0;
+        
+        // If the adjacent tile is thin rather than thick.
+        if(adjacentTile.tileType == PenroseTile.TileType.ThinRhombus)
+        {
+            // If it's connecting to side 1 or 2 on adjacentTile
+            if(connection == 1 || connection == 2){
+                rotationAngle = adjacentRotation + 216;
+            }
+            // If it's connecting to side 0 or 3 on adjacentTile.
+            else if(connection == 0 || connection == 3){
+                rotationAngle = adjacentRotation + 144;
+            }
+        }
+
+        return rotationAngle % 360; // Always returns the appropriate rotation angle.
     }
 
-    public float GetOffset(PenroseTile adjacentTile){
-        return sideLength / 2 + adjacentTile.sideLength / 2;
-    }
-
+    // Takes in the adjacentTile being considered, the angle of rotation that the current tile needs and the side on adjacentTile that is being connected to.
+    // Returns a vector that represents the direction that the tile needs to be translated.
+    // Used in PlayerTilePlacement.cs
     public Vector2 CalculatePositionOffset(PenroseTile adjacentTile, float rotationAngle, int connection)
     {
-        float radians = Mathf.Deg2Rad * rotationAngle;
-        float offset = 0.0f;
-        offset = GetOffset(adjacentTile);
-        float rotatedY = offset * Mathf.Cos(radians);
-        float rotatedX = offset * Mathf.Sin(radians);
+        float rotationRadians = Mathf.Deg2Rad * rotationAngle; // rotationAngle in radians.
+        float offset = GetOffset(adjacentTile); // Half the side length of each tile added together.
+
+        float rotatedY = 0;
+        float rotatedX = 0;
+
+        // If the adjacentTile is thin.
         if(adjacentTile.tileType == PenroseTile.TileType.ThinRhombus)
         {
             if(connection == 0){
@@ -55,10 +88,12 @@ public abstract class PenroseTile : MonoBehaviour
                 rotatedY = offset;
             }
             else if(connection == 1){
-                rotatedY *= -1;
+                rotatedY = -1 * offset * Mathf.Cos(rotationRadians);
+                rotatedX = offset * Mathf.Sin(rotationRadians);
             }
             else if(connection == 2){
-                rotatedX *= -1;
+                rotatedX = -1 * offset * Mathf.Sin(rotationRadians);
+                rotatedY = offset * Mathf.Cos(rotationRadians);
             }
             else if(connection == 3){
                 rotatedX = 0;
@@ -69,21 +104,14 @@ public abstract class PenroseTile : MonoBehaviour
         return new Vector2(rotatedX, rotatedY);
     }
 
-    public float CalculateRotation(PenroseTile adjacentTile, int connection)
-    {
-        float adjacentRotation = adjacentTile.transform.rotation.eulerAngles.z;
-        float rotationAngle = 0;
-        if(adjacentTile.tileType == PenroseTile.TileType.ThinRhombus)
-        {
-            if(connection == 1 || connection == 2){
-                rotationAngle = adjacentRotation + 216;
-            }
-            else if(connection == 0 || connection == 3){
-                rotationAngle = adjacentRotation + 144;
-            }
-        }
-        return rotationAngle;
+    // Takes in the adjacentTile.
+    // Returns half the side length of each, added together.
+    public float GetOffset(PenroseTile adjacentTile){
+        return sideLength / 2 + adjacentTile.sideLength / 2;
     }
+    
+
+    
 
     public bool IsTouchingTile()
     {
