@@ -64,16 +64,36 @@ public class PlayerInputs : MonoBehaviour
         inventoryManagementScript.RotateCurrent(intVal);
     }
 
+    public Vector3 GetGridPos(){
+        Vector3 currPos = transform.position;
+        currPos.y -= 0.5f; // Offset to place on shadow.
+        float currPosX = Mathf.Floor(currPos.x);
+        float currPosY = Mathf.Floor(currPos.y);
+        if (currPos.x - currPosX > 0.5){
+            currPosX += 1;
+        }
+        if (currPos.y - currPosY > 0.5){
+            currPosY += 1;
+        }
+        Vector3 gridPos = new Vector3(currPosX, currPosY, 0);
+        return gridPos;
+    }
+
     private void OnPlace()
     {
         SquareTile tilePlayed = inventoryManagementScript.GetActiveTile();
         if (tilePlayed != inventoryManagementScript.emptyTile) // Replace with reference to the empty tile.
         {
+            bool result = false;
+            Vector3 gridPos = GetGridPos();
+            // result = PlaceTile(gridPos, tilePlayed);
+            /*
             Vector3 currPos = transform.position;
             currPos.y -= 0.5f; // Offset to place on shadow.
             tilePlayed = ThinRhombusPrefab; // Remove when tile placement works with the thick rhombus.
             bool result = false;
             //bool result = playerTilePlacementScript.PlaceTile(currPos, tilePlayed);
+            */
             if (result)
             {
                 inventoryManagementScript.ActiveDestroy();
