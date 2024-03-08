@@ -184,8 +184,10 @@ public class PlayerTilePlacement : MonoBehaviour
             // If adjacentTile isn't null and isn't instantiated tile.
             if (adjacentTile != null && adjacentTile != tile){ // Not necessary?
                 // Gets direction that player is from adjacentTile.
-                float xOff = Normalize(x - adjacentTile.transform.position.x);
-                float yOff = Normalize(y - adjacentTile.transform.position.y);
+                float xOff = x - adjacentTile.transform.position.x;
+                float yOff = y - adjacentTile.transform.position.y;
+                float theta = angleWrap(Mathf.Rad2Deg * (Mathf.Atan2(xOff, yOff)) - (float)adjacentTile.transform.rotation.eulerAngles.z);
+                Debug.Log("Theta: " + theta);
 
                 // Try to make every connection.
                 for(int j = 0; j < 4; j++){
@@ -201,10 +203,13 @@ public class PlayerTilePlacement : MonoBehaviour
                         Vector2 offset = tile.CalculatePositionOffset(adjacentTile, rotationAngle, connection); // Unclear?
                         Vector3 newPosition = (Vector3)adjacentTile.transform.position + (Vector3)offset;
                         tile.transform.position = newPosition;
+                        xOff = tile.transform.position.x - adjacentTile.transform.position.x;
+                        yOff = tile.transform.position.y - adjacentTile.transform.position.y;
+                        float theta2 = angleWrap(Mathf.Rad2Deg * (Mathf.Atan2(xOff, yOff)) - (float)adjacentTile.transform.rotation.eulerAngles.z);
                         //Debug.Log("New offset: " + Normalize(tile.transform.position.x - adjacentTile.transform.position.x) + ", " + Normalize(tile.transform.position.y - adjacentTile.transform.position.y));
 
                         // If the direction that the tile needs to move is generally the same as the direction it needs to be translated.
-                        if(Approx(xOff, Normalize(tile.transform.position.x - adjacentTile.transform.position.x), yOff, Normalize(tile.transform.position.y - adjacentTile.transform.position.y))){
+                        if(sameRelativeRotation(theta, theta2, adjacentTile.tileType)){
                             j = adjacentTiles.Count; // Not doing anything? Breaks loop but return does that too.
                             Debug.Log("Correct Position, connection = " + connection);
                             return true;
@@ -221,6 +226,36 @@ public class PlayerTilePlacement : MonoBehaviour
             }
         }   
         return false;
+    }
+
+    private bool sameRelativeRotation(float a1, float a2, PenroseTile.TileType type){
+        if(type == PenroseTile.TileType.ThinRhombus){
+            if((a1 <= 72 && a2 <= 72) && (a1 >= -18 && a2 >= -18)){
+                return true;
+            }
+            else if((a1 <= -18 && a2 <= -18) && (a1 >= -108 && a2 >= -108)){
+                return true;
+            }
+            else if((a1 <= 162 && a2 <= 162) && (a1 >= 72 && a2 >= 72)){
+                return true;
+            }
+            else if((a1 >= 162 && a2 >= 162) || (a1 <= -108 && a2 <= -108)){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    private float angleWrap(float r){
+        while(r > 180 || r < -180){
+            if(r > 180){
+                r -= 360;
+            }
+            else{
+                r += 360;
+            }
+        }
+        return r;
     }
     
     // Takes in old offset, normalized new offset in x, old offset, normalized new offset in y.
@@ -240,18 +275,6 @@ public class PlayerTilePlacement : MonoBehaviour
         }
 
         return false;
-    }
-    
-    // Pretty self-explanatory.
-    private float Normalize(float n){
-        float normVal = 0;
-        if(n > 0){
-            normVal = 1;
-        }
-        else if(n < 0){
-            normVal = -1;
-        }
-        return normVal;
     }
 
     // Takes in the current tile, the tile it is connecting to and the side on adjacentTile that tile is connecting to.

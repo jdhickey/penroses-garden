@@ -10,8 +10,9 @@ public class ThinRhombusTile : PenroseTile
         InitializeTile();
     }
 
-    public new void InitializeTile()
+    public override void InitializeTile()
     {
         smallAngle = 36;
+        tileType = TileType.ThinRhombus;
     }
 }

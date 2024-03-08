@@ -9,7 +9,7 @@ public class EmptyTile : PenroseTile
         InitializeTile();
     }
 
-    public new void InitializeTile()
+    public override void InitializeTile()
     {
         smallAngle = 0;
     }

@@ -151,7 +151,6 @@ public abstract class PenroseTile : MonoBehaviour
         }
     }
 
-    public void InitializeTile()
-    {
+    public abstract void InitializeTile();
+    
     }
-}
