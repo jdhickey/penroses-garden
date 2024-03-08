@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class SquareTile : MonoBehaviour
 {
-    public int[] sides = new int[4];
-    public bool corners = false;
-    public SquareTile[] neigh = new SquareTile[4];
-    public float rotation = 0;
+    public int[] sides = new int[4]; // A length-4 array of ints that represent which type of side it is. Possible connections 0 <-> 1, 2 <-> 3, 4 <-> 5
+    public bool corners = false; // If the tile has square corners, this is true.
+    public SquareTile[] neigh = new SquareTile[4]; // A length-4 array of SquareTiles that represent the neighbors in the cardinal diretions. This is useful for eventually coding the garden filling.
+    public float rotation = 0; // A float representing the rotation of the object in degrees.
 
     public void rotateSides(int dir){ // dir true = right
         if(dir > 0){
@@ -28,6 +28,19 @@ public class SquareTile : MonoBehaviour
             sides[1] = temp2;
             sides[0] = temp;
         }
+        /* I think this could replace the above code but I would have to test it?
+        for (int i = 0; i < 4; i++){
+            if (dir > 0){
+                temp = sides[(i+1)%4];
+                sides[(i+1)%4] = sides[i];
+            }
+            else{
+                temp = sides[(i-1)%4];
+                sides[(i-1)%4] = sides[i];
+            }
+            sides[i] = temp;
+        }
+        */
         rotation += dir * 90 % 360;
     }
 }
