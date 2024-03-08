@@ -8,8 +8,14 @@ public class SquareTilePlacement : MonoBehaviour
     // Check placement rules which are their own functions. Edge rules and corner rules.
     // If valid, place at gridPos and update the values of the tiles in the neighborhood and currTile. Else return false.
     public bool PlaceTile(Vector3 gridPos, SquareTile currTile){
+        Debug.Log("Trying to place tile.");
         SquareTile[, ,] currNeighborhood = new SquareTile[3, 3, 3];
         bool valid = false;
+
+        valid = CheckCornerRules(currNeighborhood, currTile);
+        if (valid){
+            valid = CheckEdgeRules(currNeighborhood, currTile);
+        }
 
         return valid;
     }

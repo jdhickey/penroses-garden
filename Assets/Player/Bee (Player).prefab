@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6454500962280664604}
   - component: {fileID: -4348874688749185383}
   - component: {fileID: 4263957673274405655}
-  - component: {fileID: 6170563780094553685}
+  - component: {fileID: 2705503863938288093}
   m_Layer: 0
   m_Name: Bee (Player)
   m_TagString: Player
@@ -190,8 +190,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e10eeb52c31e544bb689979d0adc49c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ThinRhombusPrefab: {fileID: 8059499933239002205, guid: fdda93d376d4ae8489a0fbc553520923, type: 3}
---- !u!114 &6170563780094553685
+  ThinRhombusPrefab: {fileID: 0}
+  canvas: {fileID: 0}
+--- !u!114 &2705503863938288093
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -200,7 +201,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6454500962280664599}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25abcb2a1a13c35499f677178240c54e, type: 3}
+  m_Script: {fileID: 11500000, guid: 96ff1f922d1228046bb33a02893afd6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ThinRhombusPrefab: {fileID: 8059499933239002205, guid: fdda93d376d4ae8489a0fbc553520923, type: 3}
