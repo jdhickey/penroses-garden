@@ -62,10 +62,8 @@ public class PlayerInputs : MonoBehaviour
         inventoryManagementScript.RotateCurrent(intVal);
     }
 
-    // I need to test this.
     public Vector3 GetGridPos(){
         Vector3 currPos = transform.position;
-        currPos.y -= 0.5f; // Offset to place on shadow.
         Vector3 gridPos = new Vector3(Mathf.Round(currPos.x), Mathf.Round(currPos.y), 0);
         return gridPos;
     }
