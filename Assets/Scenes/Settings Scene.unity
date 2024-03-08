@@ -171,7 +171,7 @@ RectTransform:
   - {fileID: 140632144}
   - {fileID: 1853757844}
   m_Father: {fileID: 1234044790}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -233,7 +233,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 974440488}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -424,8 +424,8 @@ GameObject:
   - component: {fileID: 114492502}
   - component: {fileID: 114492504}
   - component: {fileID: 114492503}
-  m_Layer: 0
-  m_Name: FOVLabel (1)
+  m_Layer: 5
+  m_Name: ColourBlindnessLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -440,15 +440,15 @@ RectTransform:
   m_GameObject: {fileID: 114492501}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -5113.8228}
-  m_LocalScale: {x: 56.79999, y: 56.79999, z: 56.79999}
+  m_LocalScale: {x: 56.799988, y: 56.799988, z: 56.799988}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 273806459}
-  m_RootOrder: 4
+  m_Father: {fileID: 974440488}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -256.57, y: 161.4}
+  m_AnchoredPosition: {x: -174.98004, y: 0.82003784}
   m_SizeDelta: {x: 2.42, y: 0.75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &114492503
@@ -1007,11 +1007,11 @@ RectTransform:
   m_Children:
   - {fileID: 177855424}
   m_Father: {fileID: 1234044790}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 591, y: -372.88}
+  m_AnchoredPosition: {x: 627, y: -385}
   m_SizeDelta: {x: 95, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &261143057
@@ -1154,9 +1154,8 @@ RectTransform:
   - {fileID: 327158683}
   - {fileID: 2000618701}
   - {fileID: 782478533}
-  - {fileID: 114492502}
   m_Father: {fileID: 1234044790}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1549,6 +1548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ebbcf245f23168478a7e1f6b641f7e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider: {fileID: 327158684}
 --- !u!1 &350405709 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8384654220190448158, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
@@ -2333,7 +2333,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 974440488}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -2612,7 +2612,7 @@ GameObject:
   - component: {fileID: 782478533}
   - component: {fileID: 782478535}
   - component: {fileID: 782478534}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: VolumeLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3304,8 +3304,9 @@ GameObject:
   - component: {fileID: 974440491}
   - component: {fileID: 974440490}
   - component: {fileID: 974440489}
+  - component: {fileID: 974440492}
   m_Layer: 5
-  m_Name: Dropdown
+  m_Name: ColourBlindDropdown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3323,11 +3324,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 114492502}
   - {fileID: 35608440}
   - {fileID: 549773756}
   - {fileID: 1643880465}
   m_Father: {fileID: 1234044790}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3456,6 +3458,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 974440487}
   m_CullTransparentMesh: 1
+--- !u!114 &974440492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974440487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f81e7a49cc7383541862ae3ddc728dbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropdown: {fileID: 974440489}
 --- !u!224 &997663929 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6680292650503350825, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
@@ -4326,11 +4341,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1097850718}
-  - {fileID: 1877623294}
   - {fileID: 261143056}
   - {fileID: 31170382}
   - {fileID: 273806459}
   - {fileID: 974440488}
+  - {fileID: 1877623294}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5696,7 +5711,7 @@ RectTransform:
   - {fileID: 236373168}
   - {fileID: 2008419744}
   m_Father: {fileID: 974440488}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -6324,12 +6339,12 @@ RectTransform:
   m_Children:
   - {fileID: 283868208}
   m_Father: {fileID: 1234044790}
-  m_RootOrder: 1
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 504.5, y: -284}
-  m_SizeDelta: {x: 1009, y: 567.99}
+  m_AnchoredPosition: {x: 544, y: -306}
+  m_SizeDelta: {x: 1088, y: 611.99}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1877623295
 MonoBehaviour:
@@ -6559,6 +6574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ebbcf245f23168478a7e1f6b641f7e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider: {fileID: 327158684}
 --- !u!1001 &2003099575
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7035,7 +7051,7 @@ GameObject:
   - component: {fileID: 2076028361}
   - component: {fileID: 2076028363}
   - component: {fileID: 2076028362}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FOVLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
