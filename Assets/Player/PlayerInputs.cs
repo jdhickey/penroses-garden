@@ -35,7 +35,6 @@ public class PlayerInputs : MonoBehaviour
 
     private void OnInventoryScroll(InputValue value)
     {
-        Debug.Log("Scrolling!");
         int intVal = (int) value.Get<float>();
         if (intVal != 0){
             if (intVal != 1 || intVal != -1){
@@ -56,7 +55,6 @@ public class PlayerInputs : MonoBehaviour
     }
 
     private void OnInventoryRotate(InputValue value){
-        Debug.Log("Rotating!");
         int intVal = (int) value.Get<float>();
         if (intVal != 0){
             if (intVal != 1 || intVal != -1){
