@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputs : MonoBehaviour
 {
-    public PenroseTile ThinRhombusPrefab;
+    public SquareTile ThinRhombusPrefab;
 
     private InventoryManager inventoryManagementScript;
     private PlayerTilePlacement playerTilePlacementScript;
@@ -35,6 +35,7 @@ public class PlayerInputs : MonoBehaviour
 
     private void OnInventoryScroll(InputValue value)
     {
+        Debug.Log("Scrolling!");
         int intVal = (int) value.Get<float>();
         if (intVal != 0){
             if (intVal != 1 || intVal != -1){
@@ -54,15 +55,29 @@ public class PlayerInputs : MonoBehaviour
         }
     }
 
+    private void OnInventoryRotate(InputValue value){
+        Debug.Log("Rotating!");
+        int intVal = (int) value.Get<float>();
+        if (intVal != 0){
+            if (intVal != 1 || intVal != -1){
+                intVal /= Mathf.Abs(intVal);
+            }
+        }
+        SquareTile activeTile = inventoryManagementScript.GetActiveTile();
+        activeTile.rotateSides(intVal);
+        inventoryManagementScript.RotateCurrent(intVal);
+    }
+
     private void OnPlace()
     {
-        PenroseTile tilePlayed = inventoryManagementScript.GetActiveTile();
+        SquareTile tilePlayed = inventoryManagementScript.GetActiveTile();
         if (tilePlayed != inventoryManagementScript.emptyTile) // Replace with reference to the empty tile.
         {
             Vector3 currPos = transform.position;
             currPos.y -= 0.5f; // Offset to place on shadow.
             tilePlayed = ThinRhombusPrefab; // Remove when tile placement works with the thick rhombus.
-            bool result = playerTilePlacementScript.PlaceTile(currPos, tilePlayed);
+            bool result = false;
+            //bool result = playerTilePlacementScript.PlaceTile(currPos, tilePlayed);
             if (result)
             {
                 inventoryManagementScript.ActiveDestroy();

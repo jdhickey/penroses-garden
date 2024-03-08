@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-    public PenroseTile[] tileOptions;
-    private PenroseTile[] inventory;
-    public PenroseTile emptyTile;
+    public SquareTile[] tileOptions;
+    private SquareTile[] inventory;
+    public SquareTile emptyTile;
     private RuntimeInventoryUI _hotbar;
 
     private int activeIndex = 1;
@@ -14,7 +14,7 @@ public class InventoryManager : MonoBehaviour
     void Awake()
     {
         // Generate inventory and UI.
-        inventory = new PenroseTile[inventorySize];
+        inventory = new SquareTile[inventorySize];
         _hotbar = GameObject.FindGameObjectWithTag("UI").GetComponent<RuntimeInventoryUI>();
         initializeInventory();
     }
@@ -26,15 +26,15 @@ public class InventoryManager : MonoBehaviour
         }
     }
  
-    PenroseTile randomTile() 
+    SquareTile randomTile() 
     {
         // Picks a random tile in tileOptions.
         int index = Random.Range(0, tileOptions.Length);
-        PenroseTile prefab = tileOptions[index];
+        SquareTile prefab = tileOptions[index];
         return prefab;
     }
 
-    public PenroseTile GetActiveTile()
+    public SquareTile GetActiveTile()
     {
         return inventory[activeIndex - 1]; 
     }
@@ -44,7 +44,7 @@ public class InventoryManager : MonoBehaviour
         return inventorySize; 
     }
     
-    public PenroseTile[] GetInventory(){
+    public SquareTile[] GetInventory(){
         return inventory; 
     }
 
@@ -80,6 +80,10 @@ public class InventoryManager : MonoBehaviour
         _hotbar.Select(activeIndex);
     }
 
+    public void RotateCurrent(int dir){
+        _hotbar.RotateCurrent(dir, activeIndex, GetActiveTile());
+    }
+
     public void ActiveDestroy()
     {
         inventory[activeIndex - 1] = emptyTile;
@@ -91,7 +95,7 @@ public class InventoryManager : MonoBehaviour
         inventorySize = n;
     }
 
-    public void SetInventory(PenroseTile[] newInventory){
+    public void SetInventory(SquareTile[] newInventory){
         inventory = newInventory;
     }
 }

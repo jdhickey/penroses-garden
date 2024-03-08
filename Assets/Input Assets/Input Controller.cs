@@ -64,6 +64,15 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
+                    ""name"": ""Inventory Rotate"",
+                    ""type"": ""Button"",
+                    ""id"": ""e92dec42-89b0-442e-aaf8-0373c9c3dcee"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Exit"",
                     ""type"": ""Button"",
                     ""id"": ""88b7e565-225b-4f67-aa82-1d2f18053e19"",
@@ -327,39 +336,6 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Primary"",
-                    ""id"": ""655d7905-9990-4a0a-9dbf-935fdbc4a5c8"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Inventory Scroll"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""ecf129f2-c394-426e-a933-ed54c6194274"",
-                    ""path"": ""<Keyboard>/q"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Inventory Scroll"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""fd601bfc-6180-4773-9192-e82f77722eb9"",
-                    ""path"": ""<Keyboard>/e"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Inventory Scroll"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Alt"",
                     ""id"": ""4a98b4ed-6dcb-4115-b518-c9f23382d843"",
                     ""path"": ""1DAxis(whichSideWins=1)"",
                     ""interactions"": """",
@@ -384,6 +360,39 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""name"": ""positive"",
                     ""id"": ""388c22d5-bbb1-4ec5-afe0-67f323e74f53"",
                     ""path"": ""<Mouse>/scroll/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Inventory Scroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Alt"",
+                    ""id"": ""655d7905-9990-4a0a-9dbf-935fdbc4a5c8"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Inventory Scroll"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""ecf129f2-c394-426e-a933-ed54c6194274"",
+                    ""path"": ""<Keyboard>/leftBracket"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Inventory Scroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""fd601bfc-6180-4773-9192-e82f77722eb9"",
+                    ""path"": ""<Keyboard>/rightBracket"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
@@ -434,6 +443,72 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""action"": ""Shuffle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Primary"",
+                    ""id"": ""20884393-f6cf-4194-9bbc-5aa09c898346"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Inventory Rotate"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""1ea4138b-5e68-4cd1-a30a-4a27b49bb180"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Inventory Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""fb339b06-3701-434b-92ad-6ff6651bc754"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Inventory Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Alt"",
+                    ""id"": ""2a404daa-11bc-4bc6-9769-a018652feca1"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Inventory Rotate"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""9aba5944-6528-43b9-ab54-4f0c51fb84f7"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Inventory Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""7cbc5cdc-a87f-4936-a01f-335df55d8f79"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Inventory Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -671,6 +746,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         m_Player_Place = m_Player.FindAction("Place", throwIfNotFound: true);
         m_Player_InventorySelect = m_Player.FindAction("Inventory Select", throwIfNotFound: true);
         m_Player_InventoryScroll = m_Player.FindAction("Inventory Scroll", throwIfNotFound: true);
+        m_Player_InventoryRotate = m_Player.FindAction("Inventory Rotate", throwIfNotFound: true);
         m_Player_Exit = m_Player.FindAction("Exit", throwIfNotFound: true);
         m_Player_Shuffle = m_Player.FindAction("Shuffle", throwIfNotFound: true);
         // Menu
@@ -745,6 +821,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Place;
     private readonly InputAction m_Player_InventorySelect;
     private readonly InputAction m_Player_InventoryScroll;
+    private readonly InputAction m_Player_InventoryRotate;
     private readonly InputAction m_Player_Exit;
     private readonly InputAction m_Player_Shuffle;
     public struct PlayerActions
@@ -755,6 +832,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         public InputAction @Place => m_Wrapper.m_Player_Place;
         public InputAction @InventorySelect => m_Wrapper.m_Player_InventorySelect;
         public InputAction @InventoryScroll => m_Wrapper.m_Player_InventoryScroll;
+        public InputAction @InventoryRotate => m_Wrapper.m_Player_InventoryRotate;
         public InputAction @Exit => m_Wrapper.m_Player_Exit;
         public InputAction @Shuffle => m_Wrapper.m_Player_Shuffle;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -778,6 +856,9 @@ public partial class @InputController: IInputActionCollection2, IDisposable
             @InventoryScroll.started += instance.OnInventoryScroll;
             @InventoryScroll.performed += instance.OnInventoryScroll;
             @InventoryScroll.canceled += instance.OnInventoryScroll;
+            @InventoryRotate.started += instance.OnInventoryRotate;
+            @InventoryRotate.performed += instance.OnInventoryRotate;
+            @InventoryRotate.canceled += instance.OnInventoryRotate;
             @Exit.started += instance.OnExit;
             @Exit.performed += instance.OnExit;
             @Exit.canceled += instance.OnExit;
@@ -800,6 +881,9 @@ public partial class @InputController: IInputActionCollection2, IDisposable
             @InventoryScroll.started -= instance.OnInventoryScroll;
             @InventoryScroll.performed -= instance.OnInventoryScroll;
             @InventoryScroll.canceled -= instance.OnInventoryScroll;
+            @InventoryRotate.started -= instance.OnInventoryRotate;
+            @InventoryRotate.performed -= instance.OnInventoryRotate;
+            @InventoryRotate.canceled -= instance.OnInventoryRotate;
             @Exit.started -= instance.OnExit;
             @Exit.performed -= instance.OnExit;
             @Exit.canceled -= instance.OnExit;
@@ -938,6 +1022,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         void OnPlace(InputAction.CallbackContext context);
         void OnInventorySelect(InputAction.CallbackContext context);
         void OnInventoryScroll(InputAction.CallbackContext context);
+        void OnInventoryRotate(InputAction.CallbackContext context);
         void OnExit(InputAction.CallbackContext context);
         void OnShuffle(InputAction.CallbackContext context);
     }

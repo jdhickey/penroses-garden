@@ -7,9 +7,10 @@ public class SquareTile : MonoBehaviour
     public int[] sides = new int[4];
     public bool corners = false;
     public SquareTile[] neigh = new SquareTile[4];
+    public float rotation = 0;
 
-    public void rotateSides(bool dir){ // dir true = right
-        if(dir){
+    public void rotateSides(int dir){ // dir true = right
+        if(dir > 0){
             int temp = sides[0];
             int temp2 = sides[1];
             sides[0] = sides[3];
@@ -27,6 +28,6 @@ public class SquareTile : MonoBehaviour
             sides[1] = temp2;
             sides[0] = temp;
         }
-
+        rotation += dir * 90 % 360;
     }
 }

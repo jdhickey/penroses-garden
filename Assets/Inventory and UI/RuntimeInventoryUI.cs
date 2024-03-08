@@ -36,7 +36,7 @@ public class RuntimeInventoryUI : MonoBehaviour
 
     public void VisualUpdate() {
         // Variable set-up.
-        PenroseTile[] inventory = inventoryManagementScript.GetInventory();
+        SquareTile[] inventory = inventoryManagementScript.GetInventory();
         int itemCount = inventoryManagementScript.GetInventorySize();
 
         // Populate UI.
@@ -60,5 +60,9 @@ public class RuntimeInventoryUI : MonoBehaviour
 
         // Sets the chosen inventory item to selected
         uiDocument.rootVisualElement.Q("Inventory_Slot_"+(index)+"_Border").style.backgroundImage = new StyleBackground(selected);
+    }
+
+    public void RotateCurrent(int dir, int index, SquareTile activeTile){
+        uiDocument.rootVisualElement.Q("Inventory_Slot_"+(index).ToString()+"_Border").Q(index.ToString()).style.rotate = new StyleRotate(new Rotate(activeTile.rotation));
     }
 }
