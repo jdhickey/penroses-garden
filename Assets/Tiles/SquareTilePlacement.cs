@@ -13,31 +13,32 @@ public class SquareTilePlacement : MonoBehaviour
     public bool PlaceTile(Vector3 gridPos, SquareTile currTile){
         SquareTile[,] currNeighborhood = new SquareTile[3, 3];
         bool valid = false;
-        Vector3 snapPos = Snap(gridPos);
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(snapPos, 1.0f);
-        foreach (Collider2D collider in colliders) {
-            if (collider != null){
-                SquareTile tile = collider.gameObject.GetComponent<SquareTile>();
-                Vector3 tilePos = Snap(tile.transform.position);
-                currNeighborhood = addToNeighborhood(currNeighborhood, snapPos, tilePos, tile);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(gridPos, 1.0f);
+        if (colliders.Length != 0 || !initialTile){
+            foreach (Collider2D collider in colliders) {
+                if (collider != null){
+                    SquareTile tile = collider.gameObject.GetComponent<SquareTile>();
+                    Vector3 tilePos = Snap(tile.transform.position);
+                    currNeighborhood = addToNeighborhood(currNeighborhood, gridPos, tilePos, tile);
+                }
             }
-        }
-        if(CheckEdgeRules(currNeighborhood, currTile) && CheckCornerRules(currNeighborhood, currTile)){
-            valid = true;
-        }
+            if(CheckEdgeRules(currNeighborhood, currTile) && CheckCornerRules(currNeighborhood, currTile)){
+                valid = true;
+            }
 
-        //Place, Orient and adjust the neigh variable for the (up to) 5 tiles
+            //Place, Orient and adjust the neigh variable for the (up to) 5 tiles
 
-        valid = CheckCornerRules(currNeighborhood, currTile);
-        if (valid){
-            valid = CheckEdgeRules(currNeighborhood, currTile);
+            valid = CheckCornerRules(currNeighborhood, currTile);
             if (valid){
-                Quaternion currTileRotation = Quaternion.identity;
-                currTileRotation.eulerAngles = new Vector3(0, 0, currTile.rotation);
-                Debug.Log(currTileRotation.eulerAngles);
-                SquareTile newTile = Instantiate(currTile, gridPos, currTileRotation);
-                if (!initialTile){
-                    initialTile = true;
+                valid = CheckEdgeRules(currNeighborhood, currTile);
+                if (valid){
+                    Quaternion currTileRotation = Quaternion.identity;
+                    currTileRotation.eulerAngles = new Vector3(0, 0, (currTile.rotation - 180) % 360);
+                    Debug.Log(currTileRotation.eulerAngles);
+                    SquareTile newTile = Instantiate(currTile, gridPos, currTileRotation);
+                    if (!initialTile){
+                        initialTile = true;
+                    }
                 }
             }
         }
@@ -125,37 +126,37 @@ public class SquareTilePlacement : MonoBehaviour
     }
 
     // Returns the same array but with the new tile added to the correct position
-    public SquareTile[,] addToNeighborhood(SquareTile[,] currNeighborhood, Vector3 snapPos, Vector3 tilePos, SquareTile tile){
-        if(tilePos.x > snapPos.x){
-            if(tilePos.y > snapPos.y){
+    public SquareTile[,] addToNeighborhood(SquareTile[,] currNeighborhood, Vector3 gridPos, Vector3 tilePos, SquareTile tile){
+        if(tilePos.x > gridPos.x){
+            if(tilePos.y > gridPos.y){
                 currNeighborhood[0,0] = tile;
             }
-            else if(tilePos.y == snapPos.y){
+            else if(tilePos.y == gridPos.y){
                 currNeighborhood[0,1] = tile;
             }
-            else if(tilePos.y < snapPos.y){
+            else if(tilePos.y < gridPos.y){
                 currNeighborhood[0,2] = tile;
             }
         }
-        else if(tilePos.x == snapPos.x){
-            if(tilePos.y > snapPos.y){
+        else if(tilePos.x == gridPos.x){
+            if(tilePos.y > gridPos.y){
                 currNeighborhood[1,0] = tile;
             }
-            else if(tilePos.y == snapPos.y){
+            else if(tilePos.y == gridPos.y){
                 currNeighborhood[1,1] = tile;
             }
-            else if(tilePos.y < snapPos.y){
+            else if(tilePos.y < gridPos.y){
                 currNeighborhood[1,2] = tile;
             }
         }
-        else if(tilePos.x == snapPos.x){
-            if(tilePos.y > snapPos.y){
+        else if(tilePos.x == gridPos.x){
+            if(tilePos.y > gridPos.y){
                 currNeighborhood[2,0] = tile;
             }
-            else if(tilePos.y == snapPos.y){
+            else if(tilePos.y == gridPos.y){
                 currNeighborhood[2,1] = tile;
             }
-            else if(tilePos.y < snapPos.y){
+            else if(tilePos.y < gridPos.y){
                 currNeighborhood[2,2] = tile;
             }
         }
