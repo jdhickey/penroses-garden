@@ -40,6 +40,13 @@ public class SquareTile : MonoBehaviour
         //     }
         //     sides[i] = temp;
         // }
-        rotation += dir * 90 % 360;
+        rotation = (rotation + (dir * 90)) % 360;
+    }
+
+    public void FinishNeighbourhood(SquareTile[,] currNeighborhood){
+        neigh[0] = currNeighborhood[1, 2];
+        neigh[1] = currNeighborhood[2, 1];
+        neigh[2] = currNeighborhood[1, 0];
+        neigh[3] = currNeighborhood[0, 1];
     }
 }

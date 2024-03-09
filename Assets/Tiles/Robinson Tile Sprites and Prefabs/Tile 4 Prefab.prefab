@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70906a5a393dd1b47b83a825994e1871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sides: 01000000020000000400000001000000
+  sides: 04000000010000000100000002000000
   corners: 1
   neigh:
   - {fileID: 0}

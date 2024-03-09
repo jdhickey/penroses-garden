@@ -43,6 +43,7 @@ public class RuntimeInventoryUI : MonoBehaviour
         for (int i = 0; i < itemCount; i++) {
             Sprite tileSprite = inventory[i].GetComponent<SpriteRenderer>().sprite;
             uiDocument.rootVisualElement.Q("Inventory_Slot_"+(i+1).ToString()+"_Border").Q((i + 1).ToString()).style.backgroundImage = new StyleBackground(tileSprite);
+            uiDocument.rootVisualElement.Q("Inventory_Slot_"+(i+1).ToString()+"_Border").Q((i + 1).ToString()).style.rotate = new StyleRotate(new Rotate(0));
         }
     }
 
