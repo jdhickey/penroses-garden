@@ -14,12 +14,7 @@ public class SquareTilePlacement : MonoBehaviour
         Debug.Log("Trying to place tile.");
         //SquareTile[, ,] currNeighborhood = new SquareTile[3, 3, 3];
         Collider2D[] colliders = Physics2D.OverlapCircleAll(gridPos, 1);
-        foreach (Collider2D collider in colliders) {
-            if (collider){
-                SquareTile temp = collider.gameObject.GetComponent<SquareTile>();
-                Debug.Log(temp.sides);
-            }
-        }
+
         SquareTile[, ,] currNeighborhood = OrganizeNeighborhood(colliders);
         bool valid = false;
 
@@ -43,6 +38,9 @@ public class SquareTilePlacement : MonoBehaviour
     // This function will organize the colliders properly.
     public SquareTile[,,] OrganizeNeighborhood(Collider2D[] colliders){
         SquareTile[, ,] currNeighborhood = new SquareTile[3, 3, 3];
+
+        // Insert organizing code here.
+
         return currNeighborhood;
     }
 
@@ -53,10 +51,14 @@ public class SquareTilePlacement : MonoBehaviour
         if (!initialTile){
             valid = true;
         }
-        if (!valid){
-            Debug.Log("Violates edge rules. Not Placing.");
-        }
+        else{
+            // Insert edge checking rules here.
 
+            if (!valid){
+                Debug.Log("Violates edge rules. Not Placing.");
+            }
+        }
+        
         return valid;
     }
 
@@ -66,8 +68,12 @@ public class SquareTilePlacement : MonoBehaviour
         if (!initialTile){
             valid = true;
         }
-        if (!valid){
-            Debug.Log("Violates corner rules. Not Placing.");
+        else{
+            // Insert edge checking rules here.
+
+            if (!valid){
+                Debug.Log("Violates corner rules. Not Placing.");
+            }
         }
 
         return valid;

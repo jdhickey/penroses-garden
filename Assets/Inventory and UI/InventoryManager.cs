@@ -26,7 +26,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
  
-    SquareTile randomTile() 
+    public SquareTile randomTile() 
     {
         // Picks a random tile in tileOptions.
         int index = Random.Range(0, tileOptions.Length);

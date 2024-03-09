@@ -28,19 +28,18 @@ public class SquareTile : MonoBehaviour
             sides[1] = temp2;
             sides[0] = temp;
         }
-        /* I think this could replace the above code but I would have to test it?
-        for (int i = 0; i < 4; i++){
-            if (dir > 0){
-                temp = sides[(i+1)%4];
-                sides[(i+1)%4] = sides[i];
-            }
-            else{
-                temp = sides[(i-1)%4];
-                sides[(i-1)%4] = sides[i];
-            }
-            sides[i] = temp;
-        }
-        */
+        // int temp;
+        // for (int i = 0; i < 4; i++){
+        //     if (dir > 0){
+        //         temp = sides[(i+1)%4];
+        //         sides[(i+1)%4] = sides[i];
+        //     }
+        //     else{
+        //         temp = sides[(i-1)%4];
+        //         sides[(i-1)%4] = sides[i];
+        //     }
+        //     sides[i] = temp;
+        // }
         rotation += dir * 90 % 360;
     }
 }
