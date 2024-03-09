@@ -96,14 +96,6 @@ public class SquareTilePlacement : MonoBehaviour
             }
         }
 
-        Debug.Log("We're getting here.");
-        for (int i = 0; i < 3; i++){
-            for (int j = 0; j < 3; j++){
-                Debug.Log(i + ", " + j + ": " + currNeighborhood[i, j]);
-            }
-        }
-        Debug.Log("But not here?");
-
         return currNeighborhood;
     }
 
@@ -143,15 +135,15 @@ public class SquareTilePlacement : MonoBehaviour
     public bool CompareSides(int side1, int side2){
         Debug.Log("Comparing Sides:" + side1 + " " + side2 + ".");
         if ((side1 == 0 && side2 == 1) || (side1 == 1 && side2 == 0)){
-            Debug.Log("Valid!");
+            Debug.Log("Side check is valid!");
             return true;
         }
         if ((side1 == 2 && side2 == 3) || (side1 == 3 && side2 == 2)){
-            Debug.Log("Valid!");
+            Debug.Log("Side check is valid!");
             return true;
         }
         if ((side1 == 4 && side2 == 5) || (side1 == 5 && side2 == 4)){
-            Debug.Log("Valid!");
+            Debug.Log("Side check is valid!");
             return true;
         }
         Debug.Log("Invalid!");
@@ -178,21 +170,25 @@ public class SquareTilePlacement : MonoBehaviour
         else{
             if (currNeighborhood[0, 0] != null && currNeighborhood[1, 0] != null && currNeighborhood[0, 1] != null){
                 if (!currNeighborhood[0, 0].corners && !currNeighborhood[1, 0].corners && !currNeighborhood[0, 1].corners){
+                    Debug.Log("Violates #1!");
                     valid = false;
                 }
             }
             if (currNeighborhood[2, 0] != null && currNeighborhood[1, 0] != null && currNeighborhood[2, 1] != null){
                 if (!currNeighborhood[2, 0].corners && !currNeighborhood[1, 0].corners && !currNeighborhood[2, 1].corners){
+                    Debug.Log("Violates #2!");
                     valid = false;
                 }
             }
             if (currNeighborhood[2, 2] != null && currNeighborhood[1, 2] != null && currNeighborhood[2, 1] != null){
                 if (!currNeighborhood[2, 2].corners && !currNeighborhood[1, 2].corners && !currNeighborhood[2, 1].corners){
+                    Debug.Log("Violates #3!");
                     valid = false;
                 }
             }
             if (currNeighborhood[0, 2] != null && currNeighborhood[1, 2] != null && currNeighborhood[0, 1] != null){
                 if (!currNeighborhood[0, 2].corners && !currNeighborhood[1, 2].corners && !currNeighborhood[0, 1].corners){
+                    Debug.Log("Violates #4!");
                     valid = false;
                 }
             }

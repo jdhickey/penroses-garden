@@ -55,6 +55,9 @@ public class InventoryManager : MonoBehaviour
 
     public void PlayerShuffle()
     {
+        foreach (SquareTile tile in inventory){
+            Destroy(tile.gameObject);
+        }
         initializeInventory();
         _hotbar.VisualUpdate();
     }
