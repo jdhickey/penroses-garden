@@ -9,6 +9,7 @@ public class SquareTile : MonoBehaviour
     public SquareTile[] neigh = new SquareTile[4]; // A length-4 array of SquareTiles that represent the neighbors in the cardinal diretions. This is useful for eventually coding the garden filling.
     public float rotation = 0; // A float representing the rotation of the object in degrees.
 
+    // Rotates the values of sides and updates rotation.
     public void rotateSides(int dir){ // dir true = right
         if(dir > 0){
             int temp = sides[0];
@@ -28,6 +29,7 @@ public class SquareTile : MonoBehaviour
             sides[1] = temp2;
             sides[0] = temp;
         }
+        // Think this may be a replacement but I don't really feel like testing it right now lol.
         // int temp;
         // for (int i = 0; i < 4; i++){
         //     if (dir > 0){
@@ -41,12 +43,5 @@ public class SquareTile : MonoBehaviour
         //     sides[i] = temp;
         // }
         rotation = (rotation + (dir * 90)) % 360;
-    }
-
-    public void FinishNeighbourhood(SquareTile[,] currNeighborhood){
-        neigh[0] = currNeighborhood[1, 2];
-        neigh[1] = currNeighborhood[2, 1];
-        neigh[2] = currNeighborhood[1, 0];
-        neigh[3] = currNeighborhood[0, 1];
     }
 }
