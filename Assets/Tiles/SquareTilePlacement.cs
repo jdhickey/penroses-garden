@@ -56,7 +56,6 @@ public class SquareTilePlacement : MonoBehaviour
     // This function will organize the colliders properly.
     public SquareTile[,] OrganizeNeighborhood(Collider2D[] colliders, Vector3 gridPos){
         SquareTile[,] currNeighborhood = new SquareTile[3, 3];
-        List<SquareTile> tiles = new List<SquareTile>(); 
 
         foreach (Collider2D collider in colliders) {
             if (collider != null){

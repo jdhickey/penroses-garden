@@ -91,7 +91,9 @@ public class InventoryManager : MonoBehaviour
 
     public void ActiveDestroy()
     {
-        inventory[activeIndex - 1] = emptyTile;
+        SquareTile newEmptyTile = Instantiate(emptyTile);
+        newEmptyTile.gameObject.SetActive(false);
+        inventory[activeIndex - 1] = newEmptyTile;
         _hotbar.VisualUpdate();
     }
 
