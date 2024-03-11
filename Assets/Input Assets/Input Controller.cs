@@ -491,7 +491,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""negative"",
                     ""id"": ""9aba5944-6528-43b9-ab54-4f0c51fb84f7"",
-                    ""path"": """",
+                    ""path"": ""<Keyboard>/minus"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -502,7 +502,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""positive"",
                     ""id"": ""7cbc5cdc-a87f-4936-a01f-335df55d8f79"",
-                    ""path"": """",
+                    ""path"": ""<Keyboard>/equals"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
