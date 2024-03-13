@@ -9,6 +9,7 @@ public class PlayerLvlMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GetComponent<Rigidbody2D>().gravityScale = 0f;
         radius = GetComponent<SpriteRenderer>().bounds.size.x / 4;
     }
 
