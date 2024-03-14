@@ -22,7 +22,12 @@ public class BackgroundTile : MonoBehaviour
             initialized = true;
         }
         _rend = GetComponent<Renderer>();
-        GetComponent<SpriteRenderer>().sprite = options[Random.Range(0,options.Length)];
+
+        // Procedurally generates background using arbitrary prime numbers
+        int x = (int)transform.position.x;
+        int y = (int)transform.position.y;
+        int options_index = Mathf.Abs((x^y + (x>>7)^(y>>4) - (x<<2)^(y<<9))) % options.Length;
+        GetComponent<SpriteRenderer>().sprite = options[options_index];
 
         width = _rend.bounds.size.x;
         centre = _rend.bounds.center;
