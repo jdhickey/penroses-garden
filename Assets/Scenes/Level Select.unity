@@ -3504,6 +3504,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Lvl
       objectReference: {fileID: 0}
+    - target: {fileID: 3404352061223678248, guid: 3eb7a93af51e64dc68be36c0f752f946, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3821866989716375974, guid: 3eb7a93af51e64dc68be36c0f752f946, type: 3}
       propertyPath: m_DefaultActionMap
       value: 72e5776e-9ef4-4e81-85a8-a99339f57c71

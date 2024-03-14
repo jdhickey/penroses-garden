@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e10eeb52c31e544bb689979d0adc49c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ThinRhombusPrefab: {fileID: 0}
+  scrollInterval: 0.075
   canvas: {fileID: 0}
 --- !u!114 &2705503863938288093
 MonoBehaviour:
@@ -204,3 +204,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96ff1f922d1228046bb33a02893afd6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialTile: 0

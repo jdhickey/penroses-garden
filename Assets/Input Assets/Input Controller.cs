@@ -56,12 +56,12 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Inventory Scroll"",
-                    ""type"": ""Value"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""779f8de3-39eb-461d-814d-4bb2b0128479"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": true
+                    ""initialStateCheck"": false
                 },
                 {
                     ""name"": ""Inventory Rotate"",
@@ -337,7 +337,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Primary"",
                     ""id"": ""4a98b4ed-6dcb-4115-b518-c9f23382d843"",
-                    ""path"": ""1DAxis(whichSideWins=1)"",
+                    ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

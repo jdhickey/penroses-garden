@@ -7,6 +7,9 @@ public class PlayerInputs : MonoBehaviour
 {
     private InventoryManager inventoryManagementScript;
     private SquareTilePlacement squareTilePlacementScript;
+    private float lastScroll = 0f;
+    [Range(0.0f, 1.0f)]
+    public float scrollInterval = 1f;
     
     public GameObject canvas;
 
@@ -33,13 +36,15 @@ public class PlayerInputs : MonoBehaviour
 
     private void OnInventoryScroll(InputValue value)
     {
+        // The time check manages scrolling going too fast.
         int intVal = (int) value.Get<float>();
-        if (intVal != 0){
+        if (intVal != 0 && Time.time - lastScroll > scrollInterval){
             if (intVal != 1 || intVal != -1){
+                lastScroll = Time.time;
                 intVal /= Mathf.Abs(intVal);
                 inventoryManagementScript.PlayerScroll(intVal);
             }
-        }
+        } 
     }
 
     private void OnExit()

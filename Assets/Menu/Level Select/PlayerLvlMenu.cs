@@ -21,7 +21,8 @@ public class PlayerLvlMenu : MonoBehaviour
 
     void OnSelect() 
     {
-        Collider2D overlapping = Physics2D.OverlapCircle(transform.position, radius);
+        // 1 here signifies it is only searching the default layer -- layer mask = 2^layer#
+        Collider2D overlapping = Physics2D.OverlapCircle(transform.position, radius, 1);
 
         if (overlapping) {
             overlapping.GetComponent<LevelButton>().AttemptLoad();
