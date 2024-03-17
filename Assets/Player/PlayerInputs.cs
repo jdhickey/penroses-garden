@@ -76,7 +76,7 @@ public class PlayerInputs : MonoBehaviour
     private void OnPlace()
     {
         SquareTile tilePlayed = inventoryManagementScript.GetActiveTile();
-        if (tilePlayed != inventoryManagementScript.emptyTile) // Replace with reference to the empty tile.
+        if (tilePlayed.sides[0] != -1) // Replace with reference to the empty tile.
         {
             Vector3 gridPos = GetGridPos();
             bool result = squareTilePlacementScript.PlaceTile(gridPos, tilePlayed);
