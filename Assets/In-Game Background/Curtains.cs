@@ -16,18 +16,19 @@ public class Curtains : MonoBehaviour
         float screenHeight = Camera.main.orthographicSize * 2;
         float screenWidth = screenHeight * aspect;
 
+        // This spawns in four virtual "transitions" in each cardinal direction
         for (int i = 0; i < 360; i += 90) {
             Vector3 direction = new Vector3(0, 0, 0);
             float angle = i * Mathf.PI / 180;
 
+            // Sets the direction of the transition curtains relative to the centre of the screen.
             if (i % 180 == 0) {
                 direction.y = -Mathf.Cos(angle) * screenWidth * place;
             } else {
                 direction.x = Mathf.Sin(angle) * screenHeight * place;
             }
 
-            Debug.Log(direction);
-
+            // Instantiates the "curtain" and sets it's rotation.
             Transition curtain = (Transition) Instantiate(prefab, direction, Quaternion.Euler(0, 0, i));
             curtain.updateTransform(i);
         }
