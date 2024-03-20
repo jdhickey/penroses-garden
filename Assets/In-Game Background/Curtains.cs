@@ -21,10 +21,12 @@ public class Curtains : MonoBehaviour
             float angle = i * Mathf.PI / 180;
 
             if (i % 180 == 0) {
-                direction.y = Mathf.Sin(angle) * screenWidth * place;
+                direction.y = -Mathf.Cos(angle) * screenWidth * place;
             } else {
-                direction.x = Mathf.Cos(angle) * screenHeight * place;
+                direction.x = Mathf.Sin(angle) * screenHeight * place;
             }
+
+            Debug.Log(direction);
 
             Transition curtain = (Transition) Instantiate(prefab, direction, Quaternion.Euler(0, 0, i));
             curtain.updateTransform(i);

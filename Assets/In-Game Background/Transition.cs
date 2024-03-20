@@ -39,12 +39,11 @@ public class Transition : MonoBehaviour
         Vector3 spriteSize = _rend.bounds.size;
 
         if (rotation % 180 == 0) {
-            _rend.size = new Vector2(spriteSize.x * screenWidth + 1, screenHeight + 1);
+            _rend.size = new Vector2(spriteSize.x * screenWidth * 1.5f, screenHeight * 1.5f);
         } else {
-            _rend.size = new Vector2(spriteSize.y * screenHeight + 1, screenWidth + 1);
+            _rend.size = new Vector2(spriteSize.y * screenHeight * 1.5f, screenWidth * 1.5f);
         }
 
         direction =  new Vector3(Mathf.Cos((i - 90) * Mathf.PI / 180), Mathf.Sin((i - 90) * Mathf.PI / 180), 0);
-        Debug.Log(direction);
     }
 }
