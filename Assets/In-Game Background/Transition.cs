@@ -24,7 +24,7 @@ public class Transition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ct = ct + 0.5f * Time.deltaTime;
+        ct = ct + 1 * Time.deltaTime;
         transform.Translate(direction * Mathf.Pow(step, ct) * Time.deltaTime, Space.World);
     }
 
