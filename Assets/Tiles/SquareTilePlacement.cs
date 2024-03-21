@@ -23,7 +23,7 @@ public class SquareTilePlacement : MonoBehaviour
             // If there are colliders.
             if (colliders.Length != 0){
                 currNeighborhood = OrganizeNeighborhood(colliders, gridPos); // See OrganizeNeighborhood
-                if (currNeighborhood[1, 1] != null){ // Makes sure tiles can't be placed over top of each other.
+                if (currNeighborhood[1, 1] == null){ // Makes sure tiles can't be placed over top of each other.
 
                     // Check corners rules.
                     valid = CheckCornerRules(currNeighborhood, currTile);
@@ -35,6 +35,9 @@ public class SquareTilePlacement : MonoBehaviour
                             FinishNeighbourhood(currNeighborhood, currTile);
                         }
                     }
+                }
+                else{
+                    valid = false;
                 }
             }
             // If there are no colliders. Do not place.
