@@ -126,61 +126,6 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Alt",
-                    "id": "d48a0534-ee0d-40e2-a07d-111204b75c6e",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "98b2e220-9edc-4b6e-864e-067c56fb3551",
-                    "path": "<Keyboard>/upArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard & Mouse",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "db039ac7-9222-4db3-a2bf-3515db80d559",
-                    "path": "<Keyboard>/leftArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard & Mouse",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "3e4a3098-2cfc-4a25-844c-8530b867d283",
-                    "path": "<Keyboard>/downArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard & Mouse",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "eeb3d170-e9d3-425b-ba48-77915f3dba2f",
-                    "path": "<Keyboard>/rightArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard & Mouse",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "",
                     "id": "99d6f4c7-d428-4f2e-b894-9f17bfeed42f",
                     "path": "<Keyboard>/1",
@@ -237,74 +182,8 @@
                 },
                 {
                     "name": "",
-                    "id": "782d93b3-7d80-4447-a32d-3d104eea4a92",
-                    "path": "<Keyboard>/numpad1",
-                    "interactions": "",
-                    "processors": "Scale",
-                    "groups": "Keyboard & Mouse",
-                    "action": "Inventory Select",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "deeedde4-61c3-4e96-8f5a-5c3dec45492d",
-                    "path": "<Keyboard>/numpad2",
-                    "interactions": "",
-                    "processors": "Scale(factor=2)",
-                    "groups": "Keyboard & Mouse",
-                    "action": "Inventory Select",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7a1a0557-c610-40e6-873f-8ce7be411d60",
-                    "path": "<Keyboard>/numpad3",
-                    "interactions": "",
-                    "processors": "Scale(factor=3)",
-                    "groups": "Keyboard & Mouse",
-                    "action": "Inventory Select",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "63bde72d-a940-4b3f-9ba7-5905e906cf04",
-                    "path": "<Keyboard>/numpad4",
-                    "interactions": "",
-                    "processors": "Scale(factor=4)",
-                    "groups": "Keyboard & Mouse",
-                    "action": "Inventory Select",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b995b241-c434-473c-b9b0-06de265544a1",
-                    "path": "<Keyboard>/numpad5",
-                    "interactions": "",
-                    "processors": "Scale(factor=5)",
-                    "groups": "Keyboard & Mouse",
-                    "action": "Inventory Select",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "f2bd2475-ba66-4f64-8f65-ba16fe36dd3e",
                     "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard & Mouse",
-                    "action": "Place",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "12578e46-93c9-41ae-85c7-4d705c5beefc",
-                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard & Mouse",
@@ -346,39 +225,6 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Alt",
-                    "id": "655d7905-9990-4a0a-9dbf-935fdbc4a5c8",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Inventory Scroll",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "ecf129f2-c394-426e-a933-ed54c6194274",
-                    "path": "<Keyboard>/leftBracket",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard & Mouse",
-                    "action": "Inventory Scroll",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "fd601bfc-6180-4773-9192-e82f77722eb9",
-                    "path": "<Keyboard>/rightBracket",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard & Mouse",
-                    "action": "Inventory Scroll",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "",
                     "id": "d5b49a2f-a149-46a5-a8c1-65ee5def7586",
                     "path": "<Keyboard>/{Back}",
@@ -391,30 +237,8 @@
                 },
                 {
                     "name": "",
-                    "id": "7d5d35f1-3343-4d85-9ec3-9e42b1bee715",
-                    "path": "<Keyboard>/backspace",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard & Mouse",
-                    "action": "Exit",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "8f1a38fc-631e-4aaf-9d2a-4bd78b1669ae",
                     "path": "<Keyboard>/r",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard & Mouse",
-                    "action": "Shuffle",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "45f523c9-a064-4427-bbe1-e164ddb0a01e",
-                    "path": "<Keyboard>/backquote",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard & Mouse",
@@ -448,39 +272,6 @@
                     "name": "positive",
                     "id": "fb339b06-3701-434b-92ad-6ff6651bc754",
                     "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Inventory Rotate",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Alt",
-                    "id": "2a404daa-11bc-4bc6-9769-a018652feca1",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Inventory Rotate",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "9aba5944-6528-43b9-ab54-4f0c51fb84f7",
-                    "path": "<Keyboard>/minus",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Inventory Rotate",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "7cbc5cdc-a87f-4936-a01f-335df55d8f79",
-                    "path": "<Keyboard>/equals",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
