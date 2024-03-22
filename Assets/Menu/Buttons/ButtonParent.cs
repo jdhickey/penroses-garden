@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ButtonParent : MonoBehaviour
+public abstract class ButtonParent : MonoBehaviour
 {
 
     public string loadScene;
@@ -20,13 +20,17 @@ public class ButtonParent : MonoBehaviour
         
     }
 
-    protected IEnumerator LoadYourAsyncScene()
+    protected virtual IEnumerator LoadYourAsyncScene()
     {
+        if (loadScene == "Quit") {
+            Application.Quit();
+            UnityEditor.EditorApplication.isPlaying = false;
+        }
         // The Application loads the Scene in the background as the current Scene runs.
         // This is particularly good for creating loading screens.
         // You could also load the Scene by using sceneBuildIndex. In this case Scene2 has
         // a sceneBuildIndex of 1 as shown in Build Settings.
-        if (!(string.IsNullOrEmpty(loadScene))) {
+        else if (!(string.IsNullOrEmpty(loadScene))) {
             AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(loadScene);
 
             // Wait until the asynchronous scene fully loads
@@ -34,7 +38,9 @@ public class ButtonParent : MonoBehaviour
             {
                 yield return null;
             }
-        }
+        } 
         
     }
+
+    public abstract void AttemptLoad();
 }

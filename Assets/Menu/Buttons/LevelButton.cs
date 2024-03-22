@@ -56,7 +56,7 @@ public class LevelButton : ButtonParent
         return name.ToCharArray();
     }
 
-    public void AttemptLoad() {
+    public override void AttemptLoad() {
         if (!locked) {
             StartCoroutine(LoadYourAsyncScene());
         }

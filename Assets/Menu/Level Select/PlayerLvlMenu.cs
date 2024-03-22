@@ -25,7 +25,7 @@ public class PlayerLvlMenu : MonoBehaviour
         Collider2D overlapping = Physics2D.OverlapCircle(transform.position, radius, 1);
 
         if (overlapping) {
-            overlapping.GetComponent<LevelButton>().AttemptLoad();
+            overlapping.GetComponent<ButtonParent>().AttemptLoad();
         }
     }
 }

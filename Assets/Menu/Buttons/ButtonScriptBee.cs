@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonScript : ButtonParent
+public class ButtonScriptBee : ButtonParent
 {
 
     [Range(0.0f, 0.1f)]
@@ -67,25 +67,25 @@ public class ButtonScript : ButtonParent
         }
     }
 
-    void OnMouseEnter() {
+    void OnTriggerEnter2D(Collider2D other) {
         active = true;
         set = false;
     }
 
-    void OnMouseExit() {
+    void OnTriggerExit2D(Collider2D other) {
         active = false;
         set = false;
     }
 
     // The existence of AttemptActivate and AttemptLoad are artifacts of a poor design decision, wherein
     // the main menu and level menu used different user interfaces
+    public override void AttemptLoad() {
+        AttemptActivate();
+    }
+
     public void AttemptActivate() {
         if (active) {
             StartCoroutine(LoadYourAsyncScene());
         }
-    }
-
-    public override void AttemptLoad() {
-        AttemptActivate();
     }
 }
