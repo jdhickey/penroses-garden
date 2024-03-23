@@ -24,7 +24,6 @@ public abstract class ButtonParent : MonoBehaviour
     {
         if (loadScene == "Quit") {
             Application.Quit();
-            UnityEditor.EditorApplication.isPlaying = false;
         }
         // The Application loads the Scene in the background as the current Scene runs.
         // This is particularly good for creating loading screens.

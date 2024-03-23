@@ -7,8 +7,12 @@ using UnityEngine.InputSystem.Utilities;
 
 public class TutorialManager : MonoBehaviour
 {
-    public GameObject tutorialBox;
-
+    public TextUpdate moveBox;
+    public TextUpdate placeBox;
+    public TextUpdate selectBox;
+    public TextUpdate rotateBox;
+    public TextUpdate shuffleBox;
+    
     private ReadOnlyArray<InputBinding> bindings;
     private string move;
     private string place;
@@ -16,6 +20,9 @@ public class TutorialManager : MonoBehaviour
     private string scroll;
     private string rotate;
     private string shuffle;
+
+    private List<bool> stateFlags = new List<bool>();
+    private List<GameObject> states = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
@@ -62,12 +69,22 @@ public class TutorialManager : MonoBehaviour
         scroll = BindingsToString(scrollList);
         rotate = BindingsToString(rotateList);
         shuffle = BindingsToString(shuffleList);
+
+        Instantiate(moveBox);
+        Instantiate(placeBox);
+        Instantiate(selectBox);
+        Instantiate(rotateBox);
+        Instantiate(shuffleBox);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        moveBox.textSet(move);
+        placeBox.textSet(place);
+        selectBox.textSet(select);
+        rotateBox.textSet(rotate);
+        shuffleBox.textSet(shuffle);
     }
 
     private static string BindingsToString(List<string> arr) {

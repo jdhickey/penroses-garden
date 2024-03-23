@@ -44,4 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d3eb7fc963e4683b9444da07099948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorialBox: {fileID: 8537757682196414568, guid: 52e26d82f8a6b43cfa05842900992939, type: 3}
+  moveBox: {fileID: 1540774712918916900, guid: ef200e566e198426d8cf0a73c5bb6e73, type: 3}
+  placeBox: {fileID: 3593712116174888459, guid: 213a180e1ccae4a33b2f597f9f95f933, type: 3}
+  selectBox: {fileID: -2131685518536677270, guid: 5727e0d2c4b9846419c70e9f1963b1a6, type: 3}
+  rotateBox: {fileID: -2577850491437850230, guid: e04bac52cfd484cefad81ab24c84860d, type: 3}
+  shuffleBox: {fileID: -1568551132639316159, guid: e3ca76a0129b14f029920efa4706a9c4, type: 3}
