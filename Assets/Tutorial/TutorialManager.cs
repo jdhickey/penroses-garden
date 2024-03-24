@@ -7,19 +7,27 @@ using UnityEngine.InputSystem.Utilities;
 
 public class TutorialManager : MonoBehaviour
 {
-    public TextUpdate moveBox;
-    public TextUpdate placeBox;
-    public TextUpdate selectBox;
-    public TextUpdate rotateBox;
-    public TextUpdate shuffleBox;
+    // move 
+    // place 
+    // select & scroll 
+    // rotate 
+    // shuffle
+
+    // Prefab for the tutorial box
+    public GameObject tutorialPrefab;
+    // The instantiated prefabs;
+    private GameObject[] tutorialBoxes;
+    // The art for each tutorial box
+    public Texture2D[] textures;
+    // The different actions being explained in the tutorial
+    public string[] actionStrings = {"Move", "Place", "Inventory Select", "Inventory Scroll", "Inventory Rotate", "Shuffle"};
+    // Which texture each action corresponds to
+    public int[] actionTextureNumber = {0, 1, 2, 2, 3, 4};
+    //
+    public string[] displayStrings;
     
     private ReadOnlyArray<InputBinding> bindings;
-    private string move;
-    private string place;
-    private string select;
-    private string scroll;
-    private string rotate;
-    private string shuffle;
+    private List<string> bindStrings = new List<string>();
 
     private List<bool> stateFlags = new List<bool>();
     private List<GameObject> states = new List<GameObject>();
@@ -33,58 +41,67 @@ public class TutorialManager : MonoBehaviour
         // It then formats the bindings into a string which can be used in the tutorial to explain how to take an action.
 
         bindings = GameObject.FindObjectOfType<PlayerInput>().actions.FindActionMap("Player").bindings;
-        List<string> moveList = new List<string>();
-        List<string> placeList = new List<string>();
-        List<string> selectList = new List<string>();
-        List<string> scrollList = new List<string>();
-        List<string> rotateList = new List<string>();
-        List<string> shuffleList = new List<string>();
+        List<List<string>> bindingList = new List<List<string>>();
 
+        // Makes an empty list for each action
+        for (int i = 0; i < actionStrings.Length; i++) {
+            bindingList.Add(new List<string>());
+        }
+
+        // Iterates over the different bindings, getting their display string
+        // then it assigns it to the list corresponding to the action it is part of
         for (int i = 0; i < bindings.Count; i++) {
             string displayString = bindings[i].ToDisplayString();
-            displayString.Replace("/", " ");
             if (string.IsNullOrEmpty(displayString)) {
                 continue;
             }
 
-            if (bindings[i].action == "Move") {
-                moveList.Add(displayString);
-            } else if (bindings[i].action == "Place") {
-                placeList.Add(displayString);
-            } else if (bindings[i].action == "Inventory Select") {
-                selectList.Add(displayString);
-            } else if (bindings[i].action == "Inventory Scroll") {
-                scrollList.Add(displayString);
-            } else if (bindings[i].action == "Inventory Rotate") {
-                rotateList.Add(displayString);
-            } else if (bindings[i].action == "Shuffle") {
-                shuffleList.Add(displayString);
-            } 
+            for (int j = 0; j < actionStrings.Length; j++) {
+                if (bindings[i].action == actionStrings[j]) {
+                    bindingList[j].Add(displayString);
+                    break;
+                }
+            }
         }
 
         // This sets the display strings for each action.
-        move = BindingsToString(moveList);
-        place = BindingsToString(placeList);
-        select = BindingsToString(selectList);
-        scroll = BindingsToString(scrollList);
-        rotate = BindingsToString(rotateList);
-        shuffle = BindingsToString(shuffleList);
+        for (int i = 0; i < bindingList.Count; i++) {
+            bindStrings.Add(BindingsToString(bindingList[i]));
+        }
 
-        Instantiate(moveBox);
-        Instantiate(placeBox);
-        Instantiate(selectBox);
-        Instantiate(rotateBox);
-        Instantiate(shuffleBox);
+        tutorialBoxes = new GameObject[textures.Length];
+
+        // Generates the objects for each tutorial box, with the right sprite.
+        for (int i = 0; i < textures.Length; i++) {
+            tutorialBoxes[i] = Instantiate(tutorialPrefab);
+            Sprite newSprite = Sprite.Create(textures[i], new Rect(0, 0, textures[1].width, textures[1].height), new Vector2(0.5f, 0.5f), 64);
+            tutorialBoxes[i].GetComponent<SpriteRenderer>().sprite = newSprite;
+            tutorialBoxes[i].SetActive(false);
+        }
+
+        // Merges action strings into one string to be displayed if they are assigned the same tutorial box.
+        displayStrings = new string[textures.Length];
+        for (int i = 0; i < actionTextureNumber.Length; i++) {
+            int idx = actionTextureNumber[i];
+
+            if (string.IsNullOrEmpty(displayStrings[idx])) {
+                displayStrings[idx] = bindStrings[i];
+            } else {
+                displayStrings[idx] = displayStrings[idx] + "\n" + bindStrings[i];
+            }
+        }
+
+        // Updates the text for each tutorial box
+        for (int i = 0; i < tutorialBoxes.Length; i++) {
+            tutorialBoxes[i].GetComponent<TextUpdate>().textSet(displayStrings[i]);
+        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        moveBox.textSet(move);
-        placeBox.textSet(place);
-        selectBox.textSet(select);
-        rotateBox.textSet(rotate);
-        shuffleBox.textSet(shuffle);
+
     }
 
     private static string BindingsToString(List<string> arr) {
