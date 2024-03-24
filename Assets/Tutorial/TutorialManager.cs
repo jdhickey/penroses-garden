@@ -7,11 +7,6 @@ using UnityEngine.InputSystem.Utilities;
 
 public class TutorialManager : MonoBehaviour
 {
-    // move 
-    // place 
-    // select & scroll 
-    // rotate 
-    // shuffle
 
     // Prefab for the tutorial box
     public GameObject tutorialPrefab;
@@ -87,7 +82,7 @@ public class TutorialManager : MonoBehaviour
             if (string.IsNullOrEmpty(displayStrings[idx])) {
                 displayStrings[idx] = bindStrings[i];
             } else {
-                displayStrings[idx] = displayStrings[idx] + "\n" + bindStrings[i];
+                displayStrings[idx] = displayStrings[idx] + "\n\n" + bindStrings[i];
             }
         }
 
