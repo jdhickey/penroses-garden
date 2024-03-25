@@ -5,7 +5,10 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 1.0f;
+    public float topSpeed = 1.0f;
+    public float acc = 1.05f;
+    [SerializeField]
+    private float moveSpeed = 1.0f;
 
     public Animator animator;
     public InputController playerActions;
@@ -43,9 +46,9 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         // If there is movement and it's not fast. Move faster.
-        if (moveSpeed < 6.5f && movement.magnitude != 0)
+        if (moveSpeed < topSpeed && movement.magnitude != 0)
         {
-            moveSpeed *= 1.05f;
+            moveSpeed = Mathf.Clamp(moveSpeed * acc, 0, topSpeed);
         }
         Vector3 moveVal = movement * moveSpeed * Time.fixedDeltaTime; // Initial moveVal, only changed if deacceleration is engaged.
 
@@ -54,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (moveSpeed > 1)
             {
-                moveSpeed /= 1.2f;
+                moveSpeed /= acc;
                 moveVal = previousMove * moveSpeed * Time.fixedDeltaTime;
             } 
         }

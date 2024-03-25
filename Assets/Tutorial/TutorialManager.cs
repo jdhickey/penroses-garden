@@ -110,7 +110,9 @@ public class TutorialManager : MonoBehaviour
        } else if (stateFlag == -1) {
             // Await user input to return to main menu
        } else {
-            tutorialBoxes[stateFlag].SetActive(true);
+            for (int i = 0; i <= stateFlag; i++) {
+                tutorialBoxes[i].SetActive(true);
+            }
        }
     }
 
