@@ -18,14 +18,13 @@ public class TutorialManager : MonoBehaviour
     public string[] actionStrings = {"Move", "Place", "Inventory Select", "Inventory Scroll", "Inventory Rotate", "Shuffle"};
     // Which texture each action corresponds to
     public int[] actionTextureNumber = {0, 1, 2, 2, 3, 4};
-    //
-    public string[] displayStrings;
+    // The strings being displayed on the text boxes
+    private string[] displayStrings;
     
     private ReadOnlyArray<InputBinding> bindings;
     private List<string> bindStrings = new List<string>();
 
-    private List<bool> stateFlags = new List<bool>();
-    private List<GameObject> states = new List<GameObject>();
+    private int stateFlag = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -68,9 +67,18 @@ public class TutorialManager : MonoBehaviour
 
         // Generates the objects for each tutorial box, with the right sprite.
         for (int i = 0; i < textures.Length; i++) {
-            tutorialBoxes[i] = Instantiate(tutorialPrefab);
+            // Instantiates the boxes relative to the camera
+            tutorialBoxes[i] = Instantiate(tutorialPrefab, new Vector3(0, 0, 0), Quaternion.identity, Camera.main.transform);
+            SpriteRenderer _rend = tutorialBoxes[i].GetComponent<SpriteRenderer>();
+            Vector3 boxSize = _rend.sprite.bounds.size;
+
+            // Places the box away from the centre
+            // Each box is progressively further around a circle surrounding the bee
+            tutorialBoxes[i].transform.position = 1.5f * new Vector3(-Mathf.Cos(i * 45 * Mathf.PI / 180) * boxSize.x, Mathf.Sin(i * 45 * Mathf.PI / 180) * boxSize.y,0);
+
+            // Updates each box and hides them
             Sprite newSprite = Sprite.Create(textures[i], new Rect(0, 0, textures[1].width, textures[1].height), new Vector2(0.5f, 0.5f), 64);
-            tutorialBoxes[i].GetComponent<SpriteRenderer>().sprite = newSprite;
+            _rend.sprite = newSprite;
             tutorialBoxes[i].SetActive(false);
         }
 
@@ -96,7 +104,52 @@ public class TutorialManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (stateFlag >= tutorialBoxes.Length) {
+            TutorialOver();
+            stateFlag = -1;
+       } else if (stateFlag == -1) {
+            // Await user input to return to main menu
+       } else {
+            tutorialBoxes[stateFlag].SetActive(true);
+       }
+    }
 
+    public void OnMove() {
+        if (stateFlag == 0) {
+            stateFlag++;
+        }
+    }
+
+    void OnPlace() {
+        if (stateFlag == 1) {
+            stateFlag++;
+        }
+    }
+
+    void OnInventorySelect() {
+        if (stateFlag == 2) {
+            stateFlag++;
+        }
+    }
+
+    void OnInventoryScroll() {
+        OnInventorySelect();
+    }
+
+    void OnInventoryRotate() {
+        if (stateFlag == 3) {
+            stateFlag++;
+        }
+    }
+
+    void OnShuffle() {
+        if (stateFlag == 4) {
+            stateFlag++;
+        }
+    }
+
+    void TutorialOver() {
+        // Display a win screen
     }
 
     private static string BindingsToString(List<string> arr) {
