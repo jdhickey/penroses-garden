@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,11 +11,13 @@ public class PlayerInputs : MonoBehaviour
     private float lastScroll = 0f;
     [Range(0.0f, 1.0f)]
     public float scrollInterval = 1f;
+    private PlayerInput input;
     
     public GameObject canvas;
 
     void Start()
     {
+        input = GetComponent<PlayerInput>();
         inventoryManagementScript = GameObject.FindGameObjectWithTag("InventoryManagement").GetComponent<InventoryManager>();
         squareTilePlacementScript = this.gameObject.GetComponent<SquareTilePlacement>();
         canvas.SetActive(false);
@@ -51,9 +54,21 @@ public class PlayerInputs : MonoBehaviour
     {
         if (canvas.activeSelf){
             canvas.SetActive(false);
+            input.actions.FindAction("Move").Enable();
+            input.actions.FindAction("Place").Enable();
+            input.actions.FindAction("Inventory Select").Enable();
+            input.actions.FindAction("Inventory Scroll").Enable();
+            input.actions.FindAction("Inventory Rotate").Enable();
+            input.actions.FindAction("Shuffle").Enable();
         }
         else {
             canvas.SetActive(true);
+            input.actions.FindAction("Move").Disable();
+            input.actions.FindAction("Place").Disable();
+            input.actions.FindAction("Inventory Select").Disable();
+            input.actions.FindAction("Inventory Scroll").Disable();
+            input.actions.FindAction("Inventory Rotate").Disable();
+            input.actions.FindAction("Shuffle").Disable();
         }
     }
 

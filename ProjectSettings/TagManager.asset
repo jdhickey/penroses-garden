@@ -14,9 +14,9 @@ TagManager:
   - Background
   - Water
   - UI
+  - Player
   - Cover
   - Transition
-  - 
   - 
   - 
   - 
@@ -49,6 +49,9 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 494336685
+    locked: 0
+  - name: Player
+    uniqueID: 1353545747
     locked: 0
   - name: Cover
     uniqueID: 694864523
