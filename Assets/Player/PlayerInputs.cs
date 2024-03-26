@@ -98,6 +98,7 @@ public class PlayerInputs : MonoBehaviour
 
             if (result)
             {
+                PlayerPreferences.score++;
                 inventoryManagementScript.ActiveDestroy();
             }
         }

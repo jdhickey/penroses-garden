@@ -16,7 +16,6 @@ public class InventoryManager : MonoBehaviour
         // Generate inventory and UI.
         inventory = new SquareTile[inventorySize];
         _hotbar = GameObject.FindGameObjectWithTag("UI").GetComponent<RuntimeInventoryUI>();
-        //_hotbar.GetComponent<Renderer>().sortingLayerID = SortingLayer.layers[0].id;
         initializeInventory();
     }
 

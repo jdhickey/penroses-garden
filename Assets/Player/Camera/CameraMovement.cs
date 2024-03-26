@@ -6,11 +6,13 @@ public class CameraMovement : MonoBehaviour
 {
 
     public Transform player;
-    public GameObject canvas;
+    public GameObject pauseMenu;
+    public GameObject ScoreUI;
 
     void Update()
     {
         transform.position = player.transform.position + new Vector3(0, 0, -10);
-        canvas.transform.position = transform.position;
+        pauseMenu.transform.position = transform.position;
+        ScoreUI.transform.position = transform.position;
     }
 }

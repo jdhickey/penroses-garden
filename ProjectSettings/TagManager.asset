@@ -7,6 +7,7 @@ TagManager:
   - InventoryManagement
   - UI
   - PlayerPreferences
+  - Scoring
   layers:
   - Default
   - TransparentFX
