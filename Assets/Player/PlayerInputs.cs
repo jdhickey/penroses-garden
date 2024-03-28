@@ -15,6 +15,13 @@ public class PlayerInputs : MonoBehaviour
     
     public GameObject canvas;
     public GameObject winCondition;
+    
+    private AudioSource audio;
+    [SerializeField]
+    private AudioClip placeSound;
+    [SerializeField]
+    private AudioClip failSound;
+
 
     void Start()
     {
@@ -22,6 +29,7 @@ public class PlayerInputs : MonoBehaviour
         inventoryManagementScript = GameObject.FindGameObjectWithTag("InventoryManagement").GetComponent<InventoryManager>();
         squareTilePlacementScript = this.gameObject.GetComponent<SquareTilePlacement>();
         canvas.SetActive(false);
+        audio = GetComponent<AudioSource>();
     }
 
     private void OnShuffle()
@@ -100,10 +108,14 @@ public class PlayerInputs : MonoBehaviour
 
             if (result)
             {
+                audio.PlayOneShot(placeSound);
                 if (LevelManager.pointPerTile){
                     LevelManager.playerScore++;
                 }
                 inventoryManagementScript.ActiveDestroy();
+            }
+            else{
+                audio.PlayOneShot(failSound);
             }
         }
     }

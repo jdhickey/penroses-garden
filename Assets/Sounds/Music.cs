@@ -5,10 +5,12 @@ using UnityEngine;
 public class Music : MonoBehaviour
 {
     private static Music instance = null;
-    public static Music Instance
-    {
+
+
+    public static Music Instance {
         get { return instance; }
     }
+
     void Awake()
     {
         if (instance != null && instance != this) {
@@ -18,5 +20,9 @@ public class Music : MonoBehaviour
             instance = this;
         }
         DontDestroyOnLoad(this.gameObject);
+    }
+
+    public bool fail_sound(){
+        return true;
     }
 }
