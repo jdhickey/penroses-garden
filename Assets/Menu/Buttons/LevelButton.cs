@@ -8,6 +8,12 @@ public class LevelButton : ButtonParent
     public int LevelNumber;
     public Sprite lockedSprite;
     public bool locked = true;
+    public bool initialTile = false;
+    public bool pointPerTile = false;
+    public int randomPreTile = 0;
+    public int winThreshold = 1000;
+    public bool pointPerConnection = false;
+    public float timerVal = 0f;
 
     private Sprite[] numberSprites;
     private SpriteRenderer _rend;
@@ -57,6 +63,12 @@ public class LevelButton : ButtonParent
     }
 
     public override void AttemptLoad() {
+        LevelManager.initialTile = initialTile;
+        LevelManager.pointPerTile = pointPerTile;
+        LevelManager.randomPreTile = randomPreTile;
+        LevelManager.winThreshold = winThreshold;
+        LevelManager.pointPerConnection = pointPerConnection;
+        LevelManager.timerVal = timerVal;
         if (!locked) {
             StartCoroutine(LoadYourAsyncScene());
         }

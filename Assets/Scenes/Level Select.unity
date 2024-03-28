@@ -3346,13 +3346,85 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 411708321}
     m_Modifications:
+    - target: {fileID: 992934759006611877, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
+      propertyPath: timerVal
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 992934759006611877, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
+      propertyPath: loadScene
+      value: Testing Level
+      objectReference: {fileID: 0}
+    - target: {fileID: 992934759006611877, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
+      propertyPath: initialTile
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 992934759006611877, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
+      propertyPath: pointPerTile
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 992934759006611877, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
+      propertyPath: winThreshold
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 992934759006611877, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
+      propertyPath: randomPreTile
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 992934759265060707, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
+      propertyPath: loadScene
+      value: Testing Level
+      objectReference: {fileID: 0}
     - target: {fileID: 992934759639216637, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
       propertyPath: loadScene
-      value: Main Scene
+      value: Testing Level
+      objectReference: {fileID: 0}
+    - target: {fileID: 992934759639216637, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
+      propertyPath: initialTile
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 992934759639216637, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
+      propertyPath: pointPerTile
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 992934759639216637, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
+      propertyPath: winThreshold
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 992934760059088171, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
+      propertyPath: loadScene
+      value: Testing Level
       objectReference: {fileID: 0}
     - target: {fileID: 992934760372956347, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
       propertyPath: loadScene
       value: tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 992934760527373719, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
+      propertyPath: loadScene
+      value: Testing Level
+      objectReference: {fileID: 0}
+    - target: {fileID: 992934760931503064, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
+      propertyPath: loadScene
+      value: Testing Level
+      objectReference: {fileID: 0}
+    - target: {fileID: 992934760931503064, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
+      propertyPath: initialTile
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 992934760931503064, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
+      propertyPath: pointPerTile
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 992934760931503064, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
+      propertyPath: winThreshold
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 992934760931503064, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
+      propertyPath: randomPreTile
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 992934760931503064, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
+      propertyPath: pointPerConnection
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4148144041565222879, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
       propertyPath: m_Name
