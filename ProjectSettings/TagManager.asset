@@ -8,6 +8,8 @@ TagManager:
   - UI
   - PlayerPreferences
   - Scoring
+  - WinCondition
+  - WinLabel
   layers:
   - Default
   - TransparentFX

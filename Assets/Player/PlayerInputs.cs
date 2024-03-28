@@ -14,6 +14,7 @@ public class PlayerInputs : MonoBehaviour
     private PlayerInput input;
     
     public GameObject canvas;
+    public GameObject winCondition;
 
     void Start()
     {
@@ -52,8 +53,9 @@ public class PlayerInputs : MonoBehaviour
 
     private void OnExit()
     {
-        if (canvas.activeSelf){
+        if (canvas.activeSelf || winCondition.activeSelf){
             canvas.SetActive(false);
+            winCondition.SetActive(false);
             input.actions.FindAction("Move").Enable();
             input.actions.FindAction("Place").Enable();
             input.actions.FindAction("Inventory Select").Enable();
@@ -99,7 +101,7 @@ public class PlayerInputs : MonoBehaviour
             if (result)
             {
                 if (LevelManager.pointPerTile){
-                    PlayerPreferences.score++;
+                    LevelManager.playerScore++;
                 }
                 inventoryManagementScript.ActiveDestroy();
             }

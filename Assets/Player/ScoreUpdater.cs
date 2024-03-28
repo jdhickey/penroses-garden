@@ -12,6 +12,6 @@ public class ScoreUpdater : MonoBehaviour
     }
     
     void FixedUpdate(){
-        scoreCounter.SetText(PlayerPreferences.score.ToString());
+        scoreCounter.SetText(LevelManager.playerScore.ToString());
     }
 }
