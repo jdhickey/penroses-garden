@@ -50,7 +50,7 @@ public class SquareTilePlacement : MonoBehaviour
             // Creating rotation angle. Probably a faster way to do it but I'm just trying to get it finished.
             Quaternion currTileRotation = Quaternion.identity;
             // Unity's scene view rotates counter clockwise but everything else does not. That's why this is here. Boooo Unity!
-            if (currTile.rotation == 90 || currTile.rotation == 270 || currTile.rotation == -90){
+            if (currTile.rotation % 360 == 90 || currTile.rotation % 360 == 270 || currTile.rotation == -90 || currTile.rotation == -270){
                 currTileRotation.eulerAngles = new Vector3(0, 0, (currTile.rotation + 180) % 360);
             }
             else{
