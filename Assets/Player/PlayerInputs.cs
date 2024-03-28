@@ -112,6 +112,13 @@ public class PlayerInputs : MonoBehaviour
                 if (LevelManager.pointPerTile){
                     LevelManager.playerScore++;
                 }
+                if (LevelManager.pointPerConnection){
+                    foreach (SquareTile side in tilePlayed.neigh){
+                        if (side != null){
+                            LevelManager.playerScore++;
+                        }
+                    }
+                }
                 inventoryManagementScript.ActiveDestroy();
             }
             else{
