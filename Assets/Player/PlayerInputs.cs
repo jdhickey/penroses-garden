@@ -98,7 +98,9 @@ public class PlayerInputs : MonoBehaviour
 
             if (result)
             {
-                PlayerPreferences.score++;
+                if (LevelManager.pointPerTile){
+                    PlayerPreferences.score++;
+                }
                 inventoryManagementScript.ActiveDestroy();
             }
         }
