@@ -11,7 +11,7 @@ public class ResetLevel : MonoBehaviour
         LevelManager.initialTile = false;
         LevelManager.pointPerTile = false;
         LevelManager.randomPreTile = 0;
-        LevelManager.winThreshold = 0;
+        LevelManager.winThreshold = 1000;
         LevelManager.won = false;
         LevelManager.lost = false;
     }
