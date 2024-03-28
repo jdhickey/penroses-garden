@@ -12,7 +12,7 @@ public class TimerCountdown : MonoBehaviour
     }
 
     void FixedUpdate(){
-        if (LevelManager.timerVal > 0){
+        if (LevelManager.timerVal > 0 && !(LevelManager.won || LevelManager.lost)){
             LevelManager.timerVal -= Time.deltaTime;
             textVal.SetText(LevelManager.timerVal.ToString("0.00"));
         }
