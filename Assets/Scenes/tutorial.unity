@@ -1071,8 +1071,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: GoalCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 359463116639360811, guid: a39804db2723c15429091a11c4729523, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a39804db2723c15429091a11c4729523, type: 3}
+--- !u!1 &2116244258 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 359463116639360811, guid: a39804db2723c15429091a11c4729523, type: 3}
+  m_PrefabInstance: {fileID: 2116244257}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &190624992522633926
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1218,6 +1227,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1243523371}
     m_Modifications:
+    - target: {fileID: -5554062533641569879, guid: c34cae239618b47f6a857f41d94e522f, type: 3}
+      propertyPath: GoalCanvas
+      value: 
+      objectReference: {fileID: 2116244258}
     - target: {fileID: 4097868241032485290, guid: c34cae239618b47f6a857f41d94e522f, type: 3}
       propertyPath: m_Name
       value: TutorialManager

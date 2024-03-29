@@ -24,6 +24,8 @@ public class TutorialManager : MonoBehaviour
     private ReadOnlyArray<InputBinding> bindings;
     private List<string> bindStrings = new List<string>();
 
+    public GameObject GoalCanvas;
+
     private int stateFlag = 0;
 
     // Start is called before the first frame update
@@ -36,6 +38,8 @@ public class TutorialManager : MonoBehaviour
 
         bindings = GameObject.FindObjectOfType<PlayerInput>().actions.FindActionMap("Player").bindings;
         List<List<string>> bindingList = new List<List<string>>();
+
+        GoalCanvas.SetActive(false);
 
         // Makes an empty list for each action
         for (int i = 0; i < actionStrings.Length; i++) {
@@ -102,19 +106,23 @@ public class TutorialManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (stateFlag >= tutorialBoxes.Length) {
-            TutorialOver();
-            stateFlag = -1;
-       } else if (stateFlag == -1) {
-            // Await user input to return to main menu
-       } else {
-            for (int i = 0; i <= stateFlag; i++) {
-                tutorialBoxes[i].SetActive(true);
+    void Update() {
+        if (!(stateFlag == -1)){
+            if (stateFlag >= tutorialBoxes.Length) {
+                foreach (GameObject box in tutorialBoxes){
+                    box.SetActive(false);
+                }
+                //TutorialOver();
+                GoalCanvas.SetActive(true);
+                stateFlag = -1;
             }
-       }
-    }
+            else {
+                for (int i = 0; i <= stateFlag; i++) {
+                    tutorialBoxes[i].SetActive(true);
+                }
+            }
+        }
+    } 
 
     public void OnMove() {
         if (stateFlag == 0) {
