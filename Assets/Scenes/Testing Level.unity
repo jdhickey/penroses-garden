@@ -747,6 +747,10 @@ PrefabInstance:
       value: LevelManager
       objectReference: {fileID: 0}
     - target: {fileID: 6941514840590778125, guid: e6bcfbefafe8ecc40976e8ddc532c51f, type: 3}
+      propertyPath: Timer
+      value: 
+      objectReference: {fileID: 1625596240}
+    - target: {fileID: 6941514840590778125, guid: e6bcfbefafe8ecc40976e8ddc532c51f, type: 3}
       propertyPath: winLabel
       value: 
       objectReference: {fileID: 1446472229}
