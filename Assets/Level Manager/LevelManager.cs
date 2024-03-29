@@ -13,4 +13,5 @@ public static class LevelManager
     public static bool won = false;
     public static bool lost = false;
     public static float timerVal = 0.0f; // Time in seconds that the clock should be set to.
+    public static bool[] levels = new bool[28];
 }

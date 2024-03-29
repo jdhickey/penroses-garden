@@ -29,6 +29,9 @@ public class LevelButton : ButtonParent
 
         // Determines the left and right sides of the level button by the number assigned to the button
         char[] nameChars = levelName(LevelNumber);
+        if (LevelNumber == 1 || LevelManager.levels[LevelNumber-2]){
+            locked = false;
+        }
         string left = "l" + int.Parse(nameChars[0].ToString());
         string right = "r" + int.Parse(nameChars[1].ToString());
         int breakLoop = 0;
