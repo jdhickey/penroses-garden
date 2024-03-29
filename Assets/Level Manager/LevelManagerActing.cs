@@ -25,7 +25,9 @@ public class LevelManagerActing : MonoBehaviour
             
         }
         else{
-            Timer.SetActive(false);
+            if (Timer != null){
+                Timer.SetActive(false);
+            }
         }
 
         // Places an initial tile.
@@ -50,7 +52,9 @@ public class LevelManagerActing : MonoBehaviour
 
     void OnEnable(){
         winCondition.SetActive(false);
-        loseCondition.SetActive(false);
+        if (loseCondition != null){
+            loseCondition.SetActive(false);
+        }
     }
 
     void FixedUpdate(){

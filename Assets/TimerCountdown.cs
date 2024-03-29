@@ -17,7 +17,7 @@ public class TimerCountdown : MonoBehaviour
     }
 
     void FixedUpdate(){
-        if (!PauseMenu.activeSelf){
+        if (PauseMenu == null || !PauseMenu.activeSelf){
             if (LevelManager.timerVal > 0 && !(LevelManager.won || LevelManager.lost)){
                 LevelManager.timerVal -= Time.deltaTime;
                 int timeMin = ((int) LevelManager.timerVal) / 60;

@@ -62,7 +62,7 @@ public class PlayerInputs : MonoBehaviour
 
     private void OnExit()
     {
-        if (canvas.activeSelf || winCondition.activeSelf || loseCondition.activeSelf){
+        if (canvas.activeSelf || (winCondition != null && winCondition.activeSelf) || (loseCondition != null &&loseCondition.activeSelf)){
             canvas.SetActive(false);
             winCondition.SetActive(false);
             loseCondition.SetActive(false);
