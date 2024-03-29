@@ -23,4 +23,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Endless Options.unity
     guid: 551e4d1061284d74280974c0c5807cfb
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 927a2043617d4ac4091c42f8d57eba5e, type: 2}

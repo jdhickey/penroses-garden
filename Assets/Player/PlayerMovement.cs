@@ -11,7 +11,6 @@ public class PlayerMovement : MonoBehaviour
     private float moveSpeed = 1.0f;
 
     public Animator animator;
-    public InputController playerActions;
     private SpriteRenderer _renderer;
     private bool flip;
     Vector3 movement = new Vector3(0,0,0);
