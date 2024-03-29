@@ -1306,6 +1306,14 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 93603647}
+    - target: {fileID: 1914085381928066591, guid: 41b538fa02b8f5e4d877a39b4b4ba9ca, type: 3}
+      propertyPath: m_text
+      value: 'score:'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914085381928066591, guid: 41b538fa02b8f5e4d877a39b4b4ba9ca, type: 3}
+      propertyPath: m_fontSize
+      value: 0.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41b538fa02b8f5e4d877a39b4b4ba9ca, type: 3}
 --- !u!1001 &2247477394424673221
@@ -1821,6 +1829,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7976690904587863200, guid: 8df780e1ee5476b4b980144324918952, type: 3}
+      propertyPath: m_text
+      value: main menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 7976690904587863200, guid: 8df780e1ee5476b4b980144324918952, type: 3}
+      propertyPath: m_fontSize
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7976690904587863200, guid: 8df780e1ee5476b4b980144324918952, type: 3}
       propertyPath: m_fontColor.b
       value: 0.7294118
       objectReference: {fileID: 0}
@@ -1931,6 +1947,14 @@ PrefabInstance:
     - target: {fileID: 7976690905025459686, guid: 8df780e1ee5476b4b980144324918952, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7976690906549883657, guid: 8df780e1ee5476b4b980144324918952, type: 3}
+      propertyPath: m_text
+      value: exit
+      objectReference: {fileID: 0}
+    - target: {fileID: 7976690906549883657, guid: 8df780e1ee5476b4b980144324918952, type: 3}
+      propertyPath: m_fontSize
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7976690906549883657, guid: 8df780e1ee5476b4b980144324918952, type: 3}
       propertyPath: m_fontColor.b

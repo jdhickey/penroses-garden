@@ -253,7 +253,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Normal
+  m_text: normal
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 87273cec42f094af7816bd421eba4b4a, type: 2}
   m_sharedMaterial: {fileID: 6186022736808300829, guid: 87273cec42f094af7816bd421eba4b4a, type: 2}
@@ -280,7 +280,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.7
+  m_fontSize: 29.8
   m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -464,7 +464,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Colour Blindness Accessibility
+  m_text: colour blindness accessibility
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 87273cec42f094af7816bd421eba4b4a, type: 2}
   m_sharedMaterial: {fileID: 6186022736808300829, guid: 87273cec42f094af7816bd421eba4b4a, type: 2}
@@ -1297,7 +1297,7 @@ PrefabInstance:
       objectReference: {fileID: 1877623293}
     - target: {fileID: 6680292650503350826, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_ActionLabelString
-      value: Rotate
+      value: rotate
       objectReference: {fileID: 0}
     - target: {fileID: 6680292650503350826, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_OverRideActionLabel
@@ -2207,7 +2207,7 @@ PrefabInstance:
       objectReference: {fileID: 1877623293}
     - target: {fileID: 6680292650503350826, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_ActionLabelString
-      value: Scroll
+      value: scroll
       objectReference: {fileID: 0}
     - target: {fileID: 6680292650503350826, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_OverRideActionLabel
@@ -2527,6 +2527,14 @@ PrefabInstance:
       propertyPath: m_RebindOverlay
       value: 
       objectReference: {fileID: 1877623293}
+    - target: {fileID: 6680292650503350826, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_ActionLabelString
+      value: place
+      objectReference: {fileID: 0}
+    - target: {fileID: 6680292650503350826, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_OverRideActionLabel
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6680292650847612333, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Layer
       value: 5
@@ -2595,7 +2603,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Volume
+  m_text: volume
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 87273cec42f094af7816bd421eba4b4a, type: 2}
   m_sharedMaterial: {fileID: 6186022736808300829, guid: 87273cec42f094af7816bd421eba4b4a, type: 2}
@@ -2901,6 +2909,14 @@ PrefabInstance:
       propertyPath: m_RebindOverlay
       value: 
       objectReference: {fileID: 1877623293}
+    - target: {fileID: 6680292650503350826, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_ActionLabelString
+      value: shuffle
+      objectReference: {fileID: 0}
+    - target: {fileID: 6680292650503350826, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_OverRideActionLabel
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6680292650847612333, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Layer
       value: 5
@@ -3137,23 +3153,23 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Normal
+    - m_Text: normal
       m_Image: {fileID: 0}
-    - m_Text: Protanopia
+    - m_Text: protanopia
       m_Image: {fileID: 0}
-    - m_Text: Protanomaly
+    - m_Text: protanomaly
       m_Image: {fileID: 0}
-    - m_Text: Deuteranopia
+    - m_Text: deuteranopia
       m_Image: {fileID: 0}
-    - m_Text: Deuteranomaly
+    - m_Text: deuteranomaly
       m_Image: {fileID: 0}
-    - m_Text: Tritanopia
+    - m_Text: tritanopia
       m_Image: {fileID: 0}
-    - m_Text: Tritanomaly
+    - m_Text: tritanomaly
       m_Image: {fileID: 0}
-    - m_Text: Achromatopsia
+    - m_Text: achromatopsia
       m_Image: {fileID: 0}
-    - m_Text: Achromatonamly
+    - m_Text: achromatonamly
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3949,7 +3965,7 @@ PrefabInstance:
       objectReference: {fileID: 1877623293}
     - target: {fileID: 6680292650503350826, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_ActionLabelString
-      value: Select 3
+      value: select 3
       objectReference: {fileID: 0}
     - target: {fileID: 6680292650503350826, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_OverRideActionLabel
@@ -4179,7 +4195,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 62255123907987999, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_text
-      value: Move
+      value: move
+      objectReference: {fileID: 0}
+    - target: {fileID: 62255123907987999, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_fontSize
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 723199622616807248, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Layer
@@ -4318,8 +4338,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1877623293}
     - target: {fileID: 6680292650503350826, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
+      propertyPath: m_ActionLabelString
+      value: move
+      objectReference: {fileID: 0}
+    - target: {fileID: 6680292650503350826, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_OverRideActionLabel
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6680292650847612333, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_Layer
@@ -4628,7 +4652,7 @@ PrefabInstance:
       objectReference: {fileID: 1877623293}
     - target: {fileID: 6680292650503350826, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_ActionLabelString
-      value: Select 2
+      value: select 2
       objectReference: {fileID: 0}
     - target: {fileID: 6680292650503350826, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_OverRideActionLabel
@@ -5142,7 +5166,7 @@ PrefabInstance:
       objectReference: {fileID: 1877623293}
     - target: {fileID: 6680292650503350826, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_ActionLabelString
-      value: Select 4
+      value: select 4
       objectReference: {fileID: 0}
     - target: {fileID: 6680292650503350826, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_OverRideActionLabel
@@ -5699,7 +5723,7 @@ PrefabInstance:
       objectReference: {fileID: 1877623293}
     - target: {fileID: 6680292650503350826, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_ActionLabelString
-      value: Select 1
+      value: select1
       objectReference: {fileID: 0}
     - target: {fileID: 6680292650503350826, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_OverRideActionLabel
@@ -5778,7 +5802,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Field of View
+  m_text: field of view
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 87273cec42f094af7816bd421eba4b4a, type: 2}
   m_sharedMaterial: {fileID: 6186022736808300829, guid: 87273cec42f094af7816bd421eba4b4a, type: 2}
@@ -6048,7 +6072,7 @@ PrefabInstance:
       objectReference: {fileID: 1877623293}
     - target: {fileID: 6680292650503350826, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_ActionLabelString
-      value: Select 5
+      value: select 5
       objectReference: {fileID: 0}
     - target: {fileID: 6680292650503350826, guid: f25dcd618d3acd64795bf8bb32edb6c9, type: 3}
       propertyPath: m_OverRideActionLabel
