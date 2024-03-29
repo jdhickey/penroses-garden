@@ -5,7 +5,7 @@ using TMPro;
 
 public class ScoreUpdater : MonoBehaviour
 {
-    TextMeshProUGUI scoreCounter;
+    private TextMeshProUGUI scoreCounter;
 
     void Start(){
         scoreCounter = GetComponent<TextMeshProUGUI>();

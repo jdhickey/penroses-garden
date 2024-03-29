@@ -751,6 +751,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlockGameCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7976690905025459686, guid: 8df780e1ee5476b4b980144324918952, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7976690906549883657, guid: 8df780e1ee5476b4b980144324918952, type: 3}
       propertyPath: m_text
       value: exit

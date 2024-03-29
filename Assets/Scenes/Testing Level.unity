@@ -1533,6 +1533,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4689908209359044736, guid: ad4c7bfb4e9913b4784424ba39a8d3e7, type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4689908209359044736, guid: ad4c7bfb4e9913b4784424ba39a8d3e7, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4348874688749185383, guid: ad4c7bfb4e9913b4784424ba39a8d3e7, type: 3}
       propertyPath: m_NotificationBehavior
       value: 0
