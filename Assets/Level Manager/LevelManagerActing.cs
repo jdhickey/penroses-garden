@@ -10,6 +10,7 @@ public class LevelManagerActing : MonoBehaviour
     private PlayerInput input;
     private SquareTilePlacement squareTilePlacementScript;
     public GameObject winCondition;
+    public GameObject loseCondition;
     public GameObject Timer;
 
     // Start is called before the first frame update
@@ -48,8 +49,8 @@ public class LevelManagerActing : MonoBehaviour
     }
 
     void OnEnable(){
-        Debug.Log("This is working!");
         winCondition.SetActive(false);
+        loseCondition.SetActive(false);
     }
 
     void FixedUpdate(){

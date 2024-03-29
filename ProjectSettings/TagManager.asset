@@ -10,6 +10,8 @@ TagManager:
   - Scoring
   - WinCondition
   - WinLabel
+  - UIInventoryManager
+  - LoseCondition
   layers:
   - Default
   - TransparentFX

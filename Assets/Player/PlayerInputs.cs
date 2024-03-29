@@ -15,6 +15,7 @@ public class PlayerInputs : MonoBehaviour
     
     public GameObject canvas;
     public GameObject winCondition;
+    public GameObject loseCondition;
     
     private AudioSource audio;
     [SerializeField]
@@ -61,9 +62,10 @@ public class PlayerInputs : MonoBehaviour
 
     private void OnExit()
     {
-        if (canvas.activeSelf || winCondition.activeSelf){
+        if (canvas.activeSelf || winCondition.activeSelf || loseCondition.activeSelf){
             canvas.SetActive(false);
             winCondition.SetActive(false);
+            loseCondition.SetActive(false);
             input.actions.FindAction("Move").Enable();
             input.actions.FindAction("Place").Enable();
             input.actions.FindAction("Inventory Select").Enable();

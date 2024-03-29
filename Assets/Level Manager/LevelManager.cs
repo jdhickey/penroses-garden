@@ -12,5 +12,5 @@ public static class LevelManager
     public static bool pointPerConnection = false;
     public static bool won = false;
     public static bool lost = false;
-    public static float timerVal = 0.0f; // Time in minutes that the clock should be set to.
+    public static float timerVal = 10.0f; // Time in minutes that the clock should be set to.
 }
