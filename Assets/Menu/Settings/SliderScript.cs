@@ -8,6 +8,7 @@ public class SliderScript : MonoBehaviour
     public Slider slider;
 
     void OnEnable(){
+        Debug.Log("I am the slider " + gameObject.name + ". FOV should be " + PlayerPreferences.FOV + " and volume should be " + PlayerPreferences.volume + ".");
         if (gameObject.name == "FOVSlider"){
             slider.value = PlayerPreferences.FOV;
         }

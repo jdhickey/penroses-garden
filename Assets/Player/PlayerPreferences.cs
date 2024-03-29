@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class PlayerPreferences
 {
-    public static float FOV = 3.7f;
-    public static float volume = 0.5f;
+    public static float FOV;
+    public static float volume;
     public static ColorBlindMode colourBlindMode = (ColorBlindMode)0; 
 }
