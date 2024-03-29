@@ -16,5 +16,6 @@ public class ResetLevel : MonoBehaviour
         LevelManager.lost = false;
         LevelManager.timerVal = 0;
         LevelManager.pointPerConnection = false;
+        LevelManager.currLevel = -1;
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,6 +26,11 @@ public class PlayerLvlMenu : MonoBehaviour
         Collider2D overlapping = Physics2D.OverlapCircle(transform.position, radius, 1);
 
         if (overlapping) {
+            try{
+                LevelButton levelButtonScript = overlapping.GetComponent<LevelButton>();
+                LevelManager.currLevel = levelButtonScript.LevelNumber;
+            }
+            catch (Exception){}
             overlapping.GetComponent<ButtonParent>().AttemptLoad();
         }
     }

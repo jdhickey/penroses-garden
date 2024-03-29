@@ -58,7 +58,7 @@ public class LevelManagerActing : MonoBehaviour
     }
 
     void FixedUpdate(){
-        if (!(LevelManager.won) && LevelManager.playerScore >= LevelManager.winThreshold){
+        if (!(LevelManager.won) && (LevelManager.winThreshold >= 0 && LevelManager.playerScore >= LevelManager.winThreshold)){
             winCondition.SetActive(true);
             input.actions.FindAction("Move").Disable();
             input.actions.FindAction("Place").Disable();
@@ -67,6 +67,9 @@ public class LevelManagerActing : MonoBehaviour
             input.actions.FindAction("Inventory Rotate").Disable();
             input.actions.FindAction("Shuffle").Disable();
             LevelManager.won = true;
+            if (LevelManager.currLevel != -1){
+                LevelManager.levels[LevelManager.currLevel-1] = true;
+            }
         }
     }
 }
