@@ -12,7 +12,7 @@ public class UpdateLevelManager : MonoBehaviour
         try{
             LevelManager.randomPreTile = int.Parse(text); 
         }
-        catch (Exception e){
+        catch (Exception){
             Debug.Log("Converting to integer failed. Value of randomPreTile was not updated.");
         }
     }
@@ -22,7 +22,7 @@ public class UpdateLevelManager : MonoBehaviour
         try{
             LevelManager.winThreshold = int.Parse(text); 
         }
-        catch (Exception e){
+        catch (Exception){
             Debug.Log("Converting to integer failed. Value of winThreshold was not updated.");
         }
     }
@@ -39,5 +39,15 @@ public class UpdateLevelManager : MonoBehaviour
 
     public void UpdatePointsPerConnection(){
         LevelManager.pointPerConnection = GetComponent<Toggle>().isOn;
+    }
+
+    public void UpdateTimer(){
+        string minVal = GetComponent<TMP_InputField>().text;
+        try{
+            LevelManager.timerVal = int.Parse(minVal) * 60.0f;
+        }
+        catch (Exception){
+            Debug.Log("Converting to int failed. Value of timerVal was not updated.");
+        }
     }
 }

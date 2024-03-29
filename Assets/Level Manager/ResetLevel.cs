@@ -14,5 +14,7 @@ public class ResetLevel : MonoBehaviour
         LevelManager.winThreshold = 1000;
         LevelManager.won = false;
         LevelManager.lost = false;
+        LevelManager.timerVal = 0;
+        LevelManager.pointPerConnection = false;
     }
 }
