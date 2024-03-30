@@ -17,5 +17,6 @@ public class ResetLevel : MonoBehaviour
         LevelManager.timerVal = 0;
         LevelManager.pointPerConnection = false;
         LevelManager.currLevel = -1;
+        LevelManager.winBySurround = 0;
     }
 }
