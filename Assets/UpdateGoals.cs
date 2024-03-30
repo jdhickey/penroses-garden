@@ -11,10 +11,18 @@ public class UpdateGoals : MonoBehaviour
     {
         goals = GetComponent<TextMeshProUGUI>();
         string goalsStr = "";
-        if (LevelManager.winThreshold > 0){
-            goalsStr += "* earn " + LevelManager.winThreshold + " points";
+        int winThreshold = LevelManager.winThreshold;
+        int winBySurround = LevelManager.winBySurround;
+        if (winThreshold > 0){
+            goalsStr += "* earn " + winThreshold + " points";
         }
-        if (LevelManager.winThreshold > 0){
+        if (winThreshold > 0 && winBySurround > 0){
+            goalsStr += "\n";
+        }
+        if (winBySurround > 0){
+            goalsStr += "* surround the " + winBySurround + " tiles";
+        }
+        if (LevelManager.winThreshold > 0 || LevelManager.winBySurround > 0){
             goals.SetText(goalsStr);
         }
     }

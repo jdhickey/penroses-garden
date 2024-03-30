@@ -8,6 +8,7 @@ public class SquareTile : MonoBehaviour
     public bool corners = false; // If the tile has square corners, this is true.
     public SquareTile[] neigh = new SquareTile[4]; // A length-4 array of SquareTiles that represent the neighbors in the cardinal diretions. This is useful for eventually coding the garden filling.
     public float rotation = 0; // A float representing the rotation of the object in degrees.
+    public bool connectable = true;
 
     // Rotates the values of sides and updates rotation.
     public void rotateSides(int dir){ // dir true = right
@@ -29,19 +30,7 @@ public class SquareTile : MonoBehaviour
             sides[1] = temp2;
             sides[0] = temp;
         }
-        // Think this may be a replacement but I don't really feel like testing it right now lol.
-        // int temp;
-        // for (int i = 0; i < 4; i++){
-        //     if (dir > 0){
-        //         temp = sides[(i+1)%4];
-        //         sides[(i+1)%4] = sides[i];
-        //     }
-        //     else{
-        //         temp = sides[(i-1)%4];
-        //         sides[(i-1)%4] = sides[i];
-        //     }
-        //     sides[i] = temp;
-        // }
+        // I'm sure I could think up a better way to do this. But this works.
         rotation = (rotation + (dir * 90)) % 360;
     }
 }

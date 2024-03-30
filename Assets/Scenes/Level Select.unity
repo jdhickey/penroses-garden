@@ -3384,8 +3384,28 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 992934759265060707, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
+      propertyPath: timerVal
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 992934759265060707, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
       propertyPath: loadScene
       value: Testing Level
+      objectReference: {fileID: 0}
+    - target: {fileID: 992934759265060707, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
+      propertyPath: initialTile
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 992934759265060707, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
+      propertyPath: pointPerTile
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 992934759265060707, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
+      propertyPath: winThreshold
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 992934759265060707, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
+      propertyPath: randomPreTile
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 992934759639216637, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
       propertyPath: loadScene
@@ -3407,6 +3427,22 @@ PrefabInstance:
       propertyPath: loadScene
       value: Testing Level
       objectReference: {fileID: 0}
+    - target: {fileID: 992934760059088171, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
+      propertyPath: initialTile
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 992934760059088171, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
+      propertyPath: pointPerTile
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 992934760059088171, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
+      propertyPath: winThreshold
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 992934760059088171, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
+      propertyPath: randomPreTile
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 992934760372956347, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
       propertyPath: loadScene
       value: tutorial
@@ -3424,8 +3460,20 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 992934760527373719, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
+      propertyPath: timerVal
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 992934760527373719, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
       propertyPath: loadScene
       value: Testing Level
+      objectReference: {fileID: 0}
+    - target: {fileID: 992934760527373719, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
+      propertyPath: pointPerTile
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 992934760527373719, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
+      propertyPath: winThreshold
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 992934760931503064, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
       propertyPath: loadScene

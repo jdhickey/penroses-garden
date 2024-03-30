@@ -132,19 +132,27 @@ public class SquareTilePlacement : MonoBehaviour
         // If any of the following return false, valid should permanently become false in this case?
         if (currNeighborhood[1, 0] != null){
             valid = valid && CompareSides(currNeighborhood[1, 0].sides[0], currTile.sides[2]); // Left.
-            lurd = true;
+            if (currNeighborhood[1, 0].connectable){
+                lurd = true;
+            }
         }
         if (currNeighborhood[0, 1] != null){
             valid = valid && CompareSides(currNeighborhood[0, 1].sides[1], currTile.sides[3]); // Up.
-            lurd = true;
+            if (currNeighborhood[0, 1].connectable){
+                lurd = true;
+            }
         }
         if (currNeighborhood[1, 2] != null){
             valid = valid && CompareSides(currNeighborhood[1, 2].sides[2], currTile.sides[0]); // Right.
-            lurd = true;
+            if (currNeighborhood[1, 2].connectable){
+                lurd = true;
+            }
         }
         if (currNeighborhood[2, 1] != null){
             valid = valid && CompareSides(currNeighborhood[2, 1].sides[3], currTile.sides[1]); // Down.
-            lurd = true;
+            if (currNeighborhood[2, 1].connectable){
+                lurd = true;
+            }
         }
 
         // False if there are no tiles left, right, up, or down.
