@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2707321948252312727}
   - component: {fileID: 2707321948252312726}
-  - component: {fileID: 8534395091756892239}
   - component: {fileID: 799597943740775155}
+  - component: {fileID: 6022155852713438783}
   m_Layer: 0
   m_Name: continue_button
   m_TagString: Untagged
@@ -86,20 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8534395091756892239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2707321948252312729}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa5edd78a54c54312a5497625185f49d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlight: 0.1
-  loadScene: Assets/Scenes/Main Scene.unity
 --- !u!70 &799597943740775155
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -116,3 +102,17 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.05}
   m_Size: {x: 2.0000002, y: 0.5}
   m_Direction: 1
+--- !u!114 &6022155852713438783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2707321948252312729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 262a6735fda4648b38a495c930150653, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadScene: Main Scene
+  highlight: 0.1

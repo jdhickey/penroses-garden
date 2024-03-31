@@ -1539,6 +1539,10 @@ PrefabInstance:
       value: UI Inventory Manager
       objectReference: {fileID: 0}
     - target: {fileID: 7791406921191823194, guid: 4eb7d0c00dfa0407991aa8dd4616a612, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7791406921191823194, guid: 4eb7d0c00dfa0407991aa8dd4616a612, type: 3}
       propertyPath: m_TagString
       value: UI
       objectReference: {fileID: 0}
