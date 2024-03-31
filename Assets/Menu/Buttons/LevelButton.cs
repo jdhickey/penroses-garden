@@ -14,6 +14,7 @@ public class LevelButton : ButtonParent
     public int winThreshold = 1000;
     public bool pointPerConnection = false;
     public float timerVal = 0f;
+    public int winBySurround = 0;
 
     private Sprite[] numberSprites;
     private SpriteRenderer _rend;
@@ -72,6 +73,7 @@ public class LevelButton : ButtonParent
         LevelManager.winThreshold = winThreshold;
         LevelManager.pointPerConnection = pointPerConnection;
         LevelManager.timerVal = timerVal;
+        LevelManager.winBySurround = winBySurround;
         if (!locked) {
             StartCoroutine(LoadYourAsyncScene());
         }

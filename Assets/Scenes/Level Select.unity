@@ -3453,11 +3453,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 992934760372956347, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
       propertyPath: pointPerTile
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 992934760372956347, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
       propertyPath: winThreshold
-      value: 15
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 992934760527373719, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
       propertyPath: timerVal

@@ -112,8 +112,7 @@ public class TutorialManager : MonoBehaviour
                 foreach (GameObject box in tutorialBoxes){
                     box.SetActive(false);
                 }
-                //TutorialOver();
-                GoalCanvas.SetActive(true);
+                TutorialOver();
                 stateFlag = -1;
             }
             else {
@@ -126,18 +125,21 @@ public class TutorialManager : MonoBehaviour
 
     public void OnMove() {
         if (stateFlag == 0) {
+            LevelManager.playerScore += 1;
             stateFlag++;
         }
     }
 
     void OnPlace() {
         if (stateFlag == 1) {
+            LevelManager.playerScore += 1;
             stateFlag++;
         }
     }
 
     void OnInventorySelect() {
         if (stateFlag == 2) {
+            LevelManager.playerScore += 1;
             stateFlag++;
         }
     }
@@ -148,18 +150,20 @@ public class TutorialManager : MonoBehaviour
 
     void OnInventoryRotate() {
         if (stateFlag == 3) {
+            LevelManager.playerScore += 1;
             stateFlag++;
         }
     }
 
     void OnShuffle() {
         if (stateFlag == 4) {
+            LevelManager.playerScore += 1;
             stateFlag++;
         }
     }
 
     void TutorialOver() {
-        // Display a win screen
+        FindObjectOfType<LevelManagerActing>().Win();
     }
 
     private static string BindingsToString(List<string> arr) {

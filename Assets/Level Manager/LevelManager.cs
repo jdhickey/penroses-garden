@@ -15,5 +15,5 @@ public static class LevelManager
     public static float timerVal = 0.0f; // Time in seconds that the clock should be set to.
     public static bool[] levels = new bool[28];
     public static int currLevel = -1;
-    public static int winBySurround = 1;
+    public static int winBySurround = 0;
 }

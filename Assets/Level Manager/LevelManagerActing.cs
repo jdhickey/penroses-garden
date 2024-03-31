@@ -73,7 +73,7 @@ public class LevelManagerActing : MonoBehaviour
         }
     }
 
-    void Win(){
+    public void Win(){
         winCondition.SetActive(true);
         input.actions.FindAction("Move").Disable();
         input.actions.FindAction("Place").Disable();
@@ -82,6 +82,9 @@ public class LevelManagerActing : MonoBehaviour
         input.actions.FindAction("Inventory Rotate").Disable();
         input.actions.FindAction("Shuffle").Disable();
         LevelManager.won = true;
+
+        FindObjectOfType<RuntimeInventoryUI>().gameObject.SetActive(false);
+
         if (LevelManager.currLevel != -1){
             LevelManager.levels[LevelManager.currLevel-1] = true;
         }
