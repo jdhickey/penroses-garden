@@ -114,5 +114,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 262a6735fda4648b38a495c930150653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadScene: Main Scene
+  loadScene: Endless Options Menu
   highlight: 0.1

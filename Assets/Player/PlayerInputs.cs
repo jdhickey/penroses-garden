@@ -65,7 +65,9 @@ public class PlayerInputs : MonoBehaviour
         if (canvas.activeSelf || (winCondition != null && winCondition.activeSelf) || (loseCondition != null &&loseCondition.activeSelf)){
             canvas.SetActive(false);
             winCondition.SetActive(false);
-            loseCondition.SetActive(false);
+            if (loseCondition != null){
+                loseCondition.SetActive(false);
+            }
             input.actions.FindAction("Move").Enable();
             input.actions.FindAction("Place").Enable();
             input.actions.FindAction("Inventory Select").Enable();
