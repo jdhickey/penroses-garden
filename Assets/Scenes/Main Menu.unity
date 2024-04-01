@@ -1468,6 +1468,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 228691348}
     m_Modifications:
+    - target: {fileID: -153745047144248141, guid: cb6119b82ee324a0dad26307d82343c5, type: 3}
+      propertyPath: m_DefaultActionMap
+      value: 72e5776e-9ef4-4e81-85a8-a99339f57c71
+      objectReference: {fileID: 0}
     - target: {fileID: 1988682362768310280, guid: cb6119b82ee324a0dad26307d82343c5, type: 3}
       propertyPath: loadScene
       value: Settings Scene

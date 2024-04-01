@@ -1705,6 +1705,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -4348874688749185383, guid: ad4c7bfb4e9913b4784424ba39a8d3e7, type: 3}
+      propertyPath: m_NeverAutoSwitchControlSchemes
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4348874688749185383, guid: ad4c7bfb4e9913b4784424ba39a8d3e7, type: 3}
       propertyPath: m_ActionEvents.Array.data[6].m_ActionId
       value: e92dec42-89b0-442e-aaf8-0373c9c3dcee
       objectReference: {fileID: 0}

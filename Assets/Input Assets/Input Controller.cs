@@ -153,7 +153,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/1"",
                     ""interactions"": """",
                     ""processors"": ""Scale"",
-                    ""groups"": ""Keyboard & Mouse"",
+                    ""groups"": """",
                     ""action"": ""Inventory Select"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -164,7 +164,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/2"",
                     ""interactions"": """",
                     ""processors"": ""Scale(factor=2)"",
-                    ""groups"": ""Keyboard & Mouse"",
+                    ""groups"": """",
                     ""action"": ""Inventory Select"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -175,7 +175,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/3"",
                     ""interactions"": """",
                     ""processors"": ""Scale(factor=3)"",
-                    ""groups"": ""Keyboard & Mouse"",
+                    ""groups"": """",
                     ""action"": ""Inventory Select"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -186,7 +186,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/4"",
                     ""interactions"": """",
                     ""processors"": ""Scale(factor=4)"",
-                    ""groups"": ""Keyboard & Mouse"",
+                    ""groups"": """",
                     ""action"": ""Inventory Select"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -197,7 +197,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/5"",
                     ""interactions"": """",
                     ""processors"": ""Scale(factor=5)"",
-                    ""groups"": ""Keyboard & Mouse"",
+                    ""groups"": """",
                     ""action"": ""Inventory Select"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -300,56 +300,6 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""action"": ""Inventory Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
-                }
-            ]
-        },
-        {
-            ""name"": ""Menu"",
-            ""id"": ""f2247250-8ec6-45fb-882a-a772ee8d96a6"",
-            ""actions"": [
-                {
-                    ""name"": ""Select"",
-                    ""type"": ""Button"",
-                    ""id"": ""425e2b9f-c462-48dc-a10a-96a5ad9b0002"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""7bd92c2e-f8d4-4ecb-b2da-14b413e5ee69"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Select"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3eb1aa7f-fcb9-47e4-9e95-5bf6ad91b863"",
-                    ""path"": ""<Keyboard>/{Submit}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Select"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""acff0e5d-ad80-48bd-baaa-439b1d5dd9e4"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Select"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -540,9 +490,6 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         m_Player_InventoryRotate = m_Player.FindAction("Inventory Rotate", throwIfNotFound: true);
         m_Player_Exit = m_Player.FindAction("Exit", throwIfNotFound: true);
         m_Player_Shuffle = m_Player.FindAction("Shuffle", throwIfNotFound: true);
-        // Menu
-        m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
-        m_Menu_Select = m_Menu.FindAction("Select", throwIfNotFound: true);
         // LevelMenu
         m_LevelMenu = asset.FindActionMap("LevelMenu", throwIfNotFound: true);
         m_LevelMenu_Select = m_LevelMenu.FindAction("Select", throwIfNotFound: true);
@@ -699,52 +646,6 @@ public partial class @InputController: IInputActionCollection2, IDisposable
     }
     public PlayerActions @Player => new PlayerActions(this);
 
-    // Menu
-    private readonly InputActionMap m_Menu;
-    private List<IMenuActions> m_MenuActionsCallbackInterfaces = new List<IMenuActions>();
-    private readonly InputAction m_Menu_Select;
-    public struct MenuActions
-    {
-        private @InputController m_Wrapper;
-        public MenuActions(@InputController wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Select => m_Wrapper.m_Menu_Select;
-        public InputActionMap Get() { return m_Wrapper.m_Menu; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(MenuActions set) { return set.Get(); }
-        public void AddCallbacks(IMenuActions instance)
-        {
-            if (instance == null || m_Wrapper.m_MenuActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_MenuActionsCallbackInterfaces.Add(instance);
-            @Select.started += instance.OnSelect;
-            @Select.performed += instance.OnSelect;
-            @Select.canceled += instance.OnSelect;
-        }
-
-        private void UnregisterCallbacks(IMenuActions instance)
-        {
-            @Select.started -= instance.OnSelect;
-            @Select.performed -= instance.OnSelect;
-            @Select.canceled -= instance.OnSelect;
-        }
-
-        public void RemoveCallbacks(IMenuActions instance)
-        {
-            if (m_Wrapper.m_MenuActionsCallbackInterfaces.Remove(instance))
-                UnregisterCallbacks(instance);
-        }
-
-        public void SetCallbacks(IMenuActions instance)
-        {
-            foreach (var item in m_Wrapper.m_MenuActionsCallbackInterfaces)
-                UnregisterCallbacks(item);
-            m_Wrapper.m_MenuActionsCallbackInterfaces.Clear();
-            AddCallbacks(instance);
-        }
-    }
-    public MenuActions @Menu => new MenuActions(this);
-
     // LevelMenu
     private readonly InputActionMap m_LevelMenu;
     private List<ILevelMenuActions> m_LevelMenuActionsCallbackInterfaces = new List<ILevelMenuActions>();
@@ -816,10 +717,6 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         void OnInventoryRotate(InputAction.CallbackContext context);
         void OnExit(InputAction.CallbackContext context);
         void OnShuffle(InputAction.CallbackContext context);
-    }
-    public interface IMenuActions
-    {
-        void OnSelect(InputAction.CallbackContext context);
     }
     public interface ILevelMenuActions
     {

@@ -131,7 +131,7 @@
                     "path": "<Keyboard>/1",
                     "interactions": "",
                     "processors": "Scale",
-                    "groups": "Keyboard & Mouse",
+                    "groups": "",
                     "action": "Inventory Select",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -142,7 +142,7 @@
                     "path": "<Keyboard>/2",
                     "interactions": "",
                     "processors": "Scale(factor=2)",
-                    "groups": "Keyboard & Mouse",
+                    "groups": "",
                     "action": "Inventory Select",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -153,7 +153,7 @@
                     "path": "<Keyboard>/3",
                     "interactions": "",
                     "processors": "Scale(factor=3)",
-                    "groups": "Keyboard & Mouse",
+                    "groups": "",
                     "action": "Inventory Select",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -164,7 +164,7 @@
                     "path": "<Keyboard>/4",
                     "interactions": "",
                     "processors": "Scale(factor=4)",
-                    "groups": "Keyboard & Mouse",
+                    "groups": "",
                     "action": "Inventory Select",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -175,7 +175,7 @@
                     "path": "<Keyboard>/5",
                     "interactions": "",
                     "processors": "Scale(factor=5)",
-                    "groups": "Keyboard & Mouse",
+                    "groups": "",
                     "action": "Inventory Select",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -278,56 +278,6 @@
                     "action": "Inventory Rotate",
                     "isComposite": false,
                     "isPartOfComposite": true
-                }
-            ]
-        },
-        {
-            "name": "Menu",
-            "id": "f2247250-8ec6-45fb-882a-a772ee8d96a6",
-            "actions": [
-                {
-                    "name": "Select",
-                    "type": "Button",
-                    "id": "425e2b9f-c462-48dc-a10a-96a5ad9b0002",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "7bd92c2e-f8d4-4ecb-b2da-14b413e5ee69",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard & Mouse",
-                    "action": "Select",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3eb1aa7f-fcb9-47e4-9e95-5bf6ad91b863",
-                    "path": "<Keyboard>/{Submit}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard & Mouse",
-                    "action": "Select",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "acff0e5d-ad80-48bd-baaa-439b1d5dd9e4",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard & Mouse",
-                    "action": "Select",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         },
