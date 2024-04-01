@@ -17,6 +17,8 @@ MonoBehaviour:
   description: Currently used for new levels
   preview: {fileID: 7227190165382435886}
   dependencies:
+  - dependency: {fileID: 2800000, guid: d9a39d80526064f8a8b5197c9eee3da9, type: 3}
+    instantiationMode: 0
   - dependency: {fileID: 8813133887923752978, guid: b66ee32e3e2c840d6b177ec606ad1265, type: 3}
     instantiationMode: 1
   - dependency: {fileID: 1914085381215329065, guid: 41b538fa02b8f5e4d877a39b4b4ba9ca, type: 3}
