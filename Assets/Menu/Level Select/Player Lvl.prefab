@@ -75,6 +75,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7490427515398079677, guid: ad4c7bfb4e9913b4784424ba39a8d3e7, type: 3}
+      propertyPath: m_Constraints
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4263957673274405655, guid: ad4c7bfb4e9913b4784424ba39a8d3e7, type: 3}
     - {fileID: 6170563780094553685, guid: ad4c7bfb4e9913b4784424ba39a8d3e7, type: 3}
@@ -84,43 +88,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6454500962280664599, guid: ad4c7bfb4e9913b4784424ba39a8d3e7, type: 3}
   m_PrefabInstance: {fileID: 8551295846983720767}
   m_PrefabAsset: {fileID: 0}
---- !u!50 &5529552830295987924
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3404352061223678248}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 0
-  m_CollisionDetection: 1
-  m_Constraints: 4
---- !u!70 &3992839877856211727
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3404352061223678248}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.06, y: 0.13}
-  m_Size: {x: 1, y: 0.67}
-  m_Direction: 1
 --- !u!114 &128498043
 MonoBehaviour:
   m_ObjectHideFlags: 0

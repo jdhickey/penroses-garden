@@ -12,6 +12,7 @@ public class PlayerInputs : MonoBehaviour
     [Range(0.0f, 1.0f)]
     public float scrollInterval = 1f;
     private PlayerInput input;
+    public float shuffleRadius = 1.5f;
     
     public GameObject canvas;
     public GameObject winCondition;
@@ -35,7 +36,23 @@ public class PlayerInputs : MonoBehaviour
 
     private void OnShuffle()
     {
-        inventoryManagementScript.PlayerShuffle();
+        Collider2D[] near = Physics2D.OverlapCircleAll(new Vector2(transform.position.x, transform.position.y), shuffleRadius);
+
+        bool found = false;
+
+        foreach (Collider2D obj in near) {
+            SquareTile tile = obj.gameObject.GetComponent<SquareTile>();
+
+            if (tile != null && tile.isHive) {
+                inventoryManagementScript.PlayerShuffle();
+                found = true;
+                break;
+            }
+        }
+
+        if (!found){
+            audio.PlayOneShot(failSound);
+        }
     }
 
     private void OnInventorySelect(InputValue value)

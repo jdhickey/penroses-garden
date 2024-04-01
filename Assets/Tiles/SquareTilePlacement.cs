@@ -61,6 +61,11 @@ public class SquareTilePlacement : MonoBehaviour
             currTile.transform.position = gridPos;
             currTile.transform.rotation = currTileRotation;
             currTile.gameObject.SetActive(true);
+
+            if (!LevelManager.firstTilePlaced) {
+                LevelManager.firstTilePlaced = true;
+                currTile.makeHive();
+            }
             
             // If a tile had not been placed. One has been placed now.
             if (!initialTile){

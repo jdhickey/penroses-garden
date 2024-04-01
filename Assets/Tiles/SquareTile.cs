@@ -9,6 +9,7 @@ public class SquareTile : MonoBehaviour
     public SquareTile[] neigh = new SquareTile[4]; // A length-4 array of SquareTiles that represent the neighbors in the cardinal diretions. This is useful for eventually coding the garden filling.
     public float rotation = 0; // A float representing the rotation of the object in degrees.
     public bool connectable = true;
+    public bool isHive = false;
 
     // Rotates the values of sides and updates rotation.
     public void rotateSides(int dir){ // dir true = right
@@ -32,5 +33,10 @@ public class SquareTile : MonoBehaviour
         }
         // I'm sure I could think up a better way to do this. But this works.
         rotation = (rotation + (dir * 90)) % 360;
+    }
+
+    public void makeHive() {
+        transform.GetChild(0).gameObject.SetActive(true);
+        isHive = true;
     }
 }

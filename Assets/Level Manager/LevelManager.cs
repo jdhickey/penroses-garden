@@ -16,4 +16,5 @@ public static class LevelManager
     public static bool[] levels = new bool[28];
     public static int currLevel = -1;
     public static int winBySurround = 0;
+    public static bool firstTilePlaced = false;
 }
