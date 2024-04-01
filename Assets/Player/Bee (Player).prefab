@@ -197,6 +197,7 @@ MonoBehaviour:
   scrollInterval: 0.075
   canvas: {fileID: 0}
   winCondition: {fileID: 0}
+  loseCondition: {fileID: 0}
   placeSound: {fileID: 8300000, guid: b6d3039a6b256ed40ae7c83a2d6d5600, type: 3}
   failSound: {fileID: 8300000, guid: 77b0ed197b0cd30418d953d6129ecbfd, type: 3}
 --- !u!114 &2705503863938288093
@@ -223,7 +224,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b6d3039a6b256ed40ae7c83a2d6d5600, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -319,7 +320,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 77b0ed197b0cd30418d953d6129ecbfd, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
