@@ -14,6 +14,7 @@ public class TutorialManager : MonoBehaviour
     private GameObject[] tutorialBoxes;
     // The art for each tutorial box
     public Texture2D[] textures;
+    public Texture2D rules;
     // The different actions being explained in the tutorial
     public string[] actionStrings = {"Move", "Place", "Inventory Select", "Inventory Scroll", "Inventory Rotate", "Shuffle"};
     // Which texture each action corresponds to
@@ -86,6 +87,21 @@ public class TutorialManager : MonoBehaviour
             tutorialBoxes[i].SetActive(false);
         }
 
+        // Block to set the location and form of the persistent rules block
+        {
+        GameObject ruleBox = Instantiate(tutorialPrefab, new Vector3(0, 0, 0), Quaternion.identity, Camera.main.transform);
+        ruleBox.GetComponent<TextUpdate>().textSet("");
+        SpriteRenderer _rend = ruleBox.GetComponent<SpriteRenderer>();
+        Vector3 boxSize = _rend.sprite.bounds.size;
+
+        Sprite newSprite = Sprite.Create(rules, new Rect(0, 0, textures[1].width, textures[1].height), new Vector2(0.5f, 0.5f), 64);
+        _rend.sprite = newSprite;
+        float vert = Camera.main.orthographicSize;
+        float hoz = vert * Camera.main.aspect;
+        ruleBox.transform.position = new Vector3(hoz - boxSize.x / 1.75f, vert - boxSize.y / 1.75f, 0);
+        }
+
+
         // Merges action strings into one string to be displayed if they are assigned the same tutorial box.
         displayStrings = new string[textures.Length];
         for (int i = 0; i < actionTextureNumber.Length; i++) {
@@ -109,8 +125,10 @@ public class TutorialManager : MonoBehaviour
     void Update() {
         if (!(stateFlag == -1)){
             if (stateFlag >= tutorialBoxes.Length) {
-                foreach (GameObject box in tutorialBoxes){
-                    box.SetActive(false);
+                TextUpdate[] boxes = FindObjectsOfType<TextUpdate>();
+
+                foreach (TextUpdate box in boxes){
+                    box.gameObject.SetActive(false);
                 }
                 TutorialOver();
                 stateFlag = -1;

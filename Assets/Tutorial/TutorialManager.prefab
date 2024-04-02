@@ -51,6 +51,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 54d92a23be749425c8f774b71a477660, type: 3}
   - {fileID: 2800000, guid: d0b76fe69805645a1ab24c98f6c62759, type: 3}
   - {fileID: 2800000, guid: 87ecef9fbec614ce899dff7b99dd5d43, type: 3}
+  rules: {fileID: 2800000, guid: 317ff431accc643ee96fec6ce3c6f4f2, type: 3}
   actionStrings:
   - Move
   - Place
@@ -59,3 +60,4 @@ MonoBehaviour:
   - Inventory Rotate
   - Shuffle
   actionTextureNumber: 000000000100000002000000020000000300000004000000
+  GoalCanvas: {fileID: 0}
