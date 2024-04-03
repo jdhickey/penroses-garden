@@ -1038,6 +1038,10 @@ PrefabInstance:
       value: LevelManager
       objectReference: {fileID: 0}
     - target: {fileID: 6941514840590778125, guid: e6bcfbefafe8ecc40976e8ddc532c51f, type: 3}
+      propertyPath: Goals
+      value: 
+      objectReference: {fileID: 359463117241559888}
+    - target: {fileID: 6941514840590778125, guid: e6bcfbefafe8ecc40976e8ddc532c51f, type: 3}
       propertyPath: Timer
       value: 
       objectReference: {fileID: 1625596240}
@@ -1225,6 +1229,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a39804db2723c15429091a11c4729523, type: 3}
+--- !u!1 &359463117241559888 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 359463116555385731, guid: a39804db2723c15429091a11c4729523, type: 3}
+  m_PrefabInstance: {fileID: 359463117241559887}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1469627210693483505
 PrefabInstance:
   m_ObjectHideFlags: 0

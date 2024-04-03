@@ -13,7 +13,8 @@ public class LevelManagerActing : MonoBehaviour
     public GameObject loseCondition;
     public GameObject Timer;
     private SquareTile[] tilesToSurround;
-    public UpdateGoals goalsScript;
+    private UpdateGoals goalsScript;
+    public GameObject Goals;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,7 @@ public class LevelManagerActing : MonoBehaviour
         bool result = false;
         squareTilePlacementScript = GameObject.FindGameObjectWithTag("Player").GetComponent<SquareTilePlacement>();
         inventoryManagementScript = GameObject.FindGameObjectWithTag("InventoryManagement").GetComponent<InventoryManager>();
-        goalsScript = GameObject.FindGameObjectWithTag("GoalsLabel").GetComponent<UpdateGoals>();
+        goalsScript = Goals.GetComponent<UpdateGoals>();
 
         if (LevelManager.timerVal > 0){
             
