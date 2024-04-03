@@ -23,6 +23,8 @@ public class PlayerInputs : MonoBehaviour
     private AudioClip placeSound;
     [SerializeField]
     private AudioClip failSound;
+    [SerializeField]
+    private AudioClip shuffleSound;
 
 
     void Start()
@@ -45,6 +47,7 @@ public class PlayerInputs : MonoBehaviour
 
             if (tile != null && tile.isHive) {
                 inventoryManagementScript.PlayerShuffle();
+                audio.PlayOneShot(shuffleSound);
                 found = true;
                 break;
             }
