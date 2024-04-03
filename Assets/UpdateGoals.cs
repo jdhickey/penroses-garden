@@ -20,11 +20,15 @@ public class UpdateGoals : MonoBehaviour
             goalsStr += "\n";
         }
         if (winBySurround > 0){
-            goalsStr += "* surround the " + winBySurround + " tiles";
+            goalsStr += "* surround " + winBySurround + " tiles";
         }
         if (LevelManager.winThreshold > 0 || LevelManager.winBySurround > 0){
             goals.SetText(goalsStr);
         }
+    }
+
+    public void UpdateWin(){
+        goals.SetText("* 'esc' to main menu");
     }
 
 

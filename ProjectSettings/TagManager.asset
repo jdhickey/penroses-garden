@@ -12,6 +12,7 @@ TagManager:
   - WinLabel
   - UIInventoryManager
   - LoseCondition
+  - GoalsLabel
   layers:
   - Default
   - TransparentFX
