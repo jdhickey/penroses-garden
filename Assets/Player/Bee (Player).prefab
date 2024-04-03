@@ -204,7 +204,7 @@ MonoBehaviour:
   loseCondition: {fileID: 0}
   placeSound: {fileID: 8300000, guid: b6d3039a6b256ed40ae7c83a2d6d5600, type: 3}
   failSound: {fileID: 8300000, guid: 77b0ed197b0cd30418d953d6129ecbfd, type: 3}
-  shuffleSound: {fileID: 0}
+  shuffleSound: {fileID: 8300000, guid: 60298ff3a4ebd974a8f7d70a40358cda, type: 3}
 --- !u!114 &2705503863938288093
 MonoBehaviour:
   m_ObjectHideFlags: 0
