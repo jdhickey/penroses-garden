@@ -3265,6 +3265,10 @@ PrefabInstance:
       propertyPath: randomPreTile
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 992934759103259664, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
+      propertyPath: initialTile
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 992934759265060707, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
       propertyPath: timerVal
       value: 300

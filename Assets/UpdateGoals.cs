@@ -28,7 +28,9 @@ public class UpdateGoals : MonoBehaviour
     }
 
     public void UpdateWin(){
-        goals.SetText("* 'esc' to main menu");
+        if (goals != null){
+            goals.SetText("* 'esc' to main menu");
+        }
     }
 
 
