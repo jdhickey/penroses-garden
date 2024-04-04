@@ -1167,6 +1167,10 @@ PrefabInstance:
       value: 1.22
       objectReference: {fileID: 0}
     - target: {fileID: 359463116555385729, guid: a39804db2723c15429091a11c4729523, type: 3}
+      propertyPath: m_text
+      value: '* have fun'
+      objectReference: {fileID: 0}
+    - target: {fileID: 359463116555385729, guid: a39804db2723c15429091a11c4729523, type: 3}
       propertyPath: m_fontSize
       value: 0.5
       objectReference: {fileID: 0}
