@@ -684,6 +684,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 365381925494168465, guid: 210f2be364923c24aa028df40e9fad25, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 365381925494168465, guid: 210f2be364923c24aa028df40e9fad25, type: 3}
       propertyPath: m_SortingLayerID
       value: 694864523
       objectReference: {fileID: 0}
@@ -698,6 +702,18 @@ PrefabInstance:
     - target: {fileID: 1082594461175429736, guid: 210f2be364923c24aa028df40e9fad25, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409106993761400588, guid: 210f2be364923c24aa028df40e9fad25, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409106993761400588, guid: 210f2be364923c24aa028df40e9fad25, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409106993761400588, guid: 210f2be364923c24aa028df40e9fad25, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 694864523
       objectReference: {fileID: 0}
     - target: {fileID: 2499503374204655970, guid: 210f2be364923c24aa028df40e9fad25, type: 3}
       propertyPath: m_Layer
@@ -718,6 +734,18 @@ PrefabInstance:
     - target: {fileID: 2499503374204655980, guid: 210f2be364923c24aa028df40e9fad25, type: 3}
       propertyPath: m_fontSizeMax
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3168158113853824399, guid: 210f2be364923c24aa028df40e9fad25, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3168158113853824399, guid: 210f2be364923c24aa028df40e9fad25, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 694864523
+      objectReference: {fileID: 0}
+    - target: {fileID: 3168158113853824399, guid: 210f2be364923c24aa028df40e9fad25, type: 3}
+      propertyPath: m_OverrideSorting
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3286322885810199890, guid: 210f2be364923c24aa028df40e9fad25, type: 3}
       propertyPath: m_Layer
