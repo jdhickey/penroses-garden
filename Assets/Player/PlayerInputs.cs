@@ -17,6 +17,7 @@ public class PlayerInputs : MonoBehaviour
     public GameObject canvas;
     public GameObject winCondition;
     public GameObject loseCondition;
+    public GameObject inventoryUI;
     
     private AudioSource audio;
     [SerializeField]
@@ -31,6 +32,7 @@ public class PlayerInputs : MonoBehaviour
     {
         input = GetComponent<PlayerInput>();
         inventoryManagementScript = GameObject.FindGameObjectWithTag("InventoryManagement").GetComponent<InventoryManager>();
+        inventoryUI = FindObjectOfType<RuntimeInventoryUI>().gameObject;
         squareTilePlacementScript = this.gameObject.GetComponent<SquareTilePlacement>();
         canvas.SetActive(false);
         audio = GetComponent<AudioSource>();
@@ -83,6 +85,7 @@ public class PlayerInputs : MonoBehaviour
     private void OnExit()
     {
         if (canvas.activeSelf || (winCondition != null && winCondition.activeSelf) || (loseCondition != null &&loseCondition.activeSelf)){
+            inventoryUI.SetActive(true);
             canvas.SetActive(false);
             winCondition.SetActive(false);
             if (loseCondition != null){
