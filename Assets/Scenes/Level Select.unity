@@ -3293,7 +3293,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 992934759006611877, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
       propertyPath: winThreshold
-      value: 40
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 992934759006611877, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
       propertyPath: randomPreTile
@@ -3333,7 +3333,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 992934759265060707, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
       propertyPath: winThreshold
-      value: 25
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 992934759265060707, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
       propertyPath: randomPreTile
@@ -3365,7 +3365,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 992934759639216637, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
       propertyPath: winThreshold
-      value: 25
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 992934759651058547, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
       propertyPath: timerVal
@@ -3409,7 +3409,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 992934760059088171, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
       propertyPath: winThreshold
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 992934760059088171, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
       propertyPath: randomPreTile
@@ -3469,7 +3469,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 992934760527373719, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
       propertyPath: winThreshold
-      value: 25
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 992934760910747990, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
       propertyPath: timerVal
@@ -3501,7 +3501,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 992934760931503064, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
       propertyPath: winThreshold
-      value: 40
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 992934760931503064, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
       propertyPath: randomPreTile
