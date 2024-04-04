@@ -3126,7 +3126,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: should you earn a point for each tile connection
+  m_text: should you earn a point for each tile placed
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 87273cec42f094af7816bd421eba4b4a, type: 2}
   m_sharedMaterial: {fileID: 6186022736808300829, guid: 87273cec42f094af7816bd421eba4b4a, type: 2}
