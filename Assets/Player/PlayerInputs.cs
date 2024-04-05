@@ -58,6 +58,7 @@ public class PlayerInputs : MonoBehaviour
         if (!found){
             audio.PlayOneShot(failSound);
         }
+        inventoryManagementScript.GetActiveTile().gameObject.SetActive(true);
     }
 
     private void OnInventorySelect(InputValue value)
@@ -152,5 +153,9 @@ public class PlayerInputs : MonoBehaviour
                 audio.PlayOneShot(failSound);
             }
         }
+    }
+
+    void FixedUpdate(){
+        inventoryManagementScript.GetActiveTile().transform.position = GetGridPos();
     }
 }

@@ -17,6 +17,8 @@ public class InventoryManager : MonoBehaviour
         inventory = new SquareTile[inventorySize];
         _hotbar = GameObject.FindGameObjectWithTag("UI").GetComponent<RuntimeInventoryUI>();
         initializeInventory();
+        GetActiveTile().gameObject.SetActive(true);
+        GetActiveTile().gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
     }
 
     public void initializeInventory() {
@@ -33,6 +35,14 @@ public class InventoryManager : MonoBehaviour
         SquareTile newTile = Instantiate(tileOptions[index]);
         newTile.gameObject.SetActive(false);
         return newTile;
+    }
+
+    public void ShuffleInventory(){
+        for (int i = 0; i < inventorySize; i++){
+            if (inventory[i].sides[0] == -1){
+                inventory[i] = randomTile();
+            }
+        }
     }
 
     public SquareTile GetActiveTile()
@@ -64,12 +74,18 @@ public class InventoryManager : MonoBehaviour
 
     public void PlayerSelect(int value)
     {
+        GetActiveTile().gameObject.SetActive(false);
         activeIndex = value;
         _hotbar.Select(activeIndex);
+        if (GetActiveTile().sides[0] != -1){
+            GetActiveTile().gameObject.SetActive(true);
+        }
+        GetActiveTile().gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
     }
 
     public void PlayerScroll(int value)
     {
+        GetActiveTile().gameObject.SetActive(false);
         activeIndex += value;
         // Wrap.
         if (activeIndex > inventorySize)
@@ -82,10 +98,22 @@ public class InventoryManager : MonoBehaviour
         }
 
         _hotbar.Select(activeIndex);
+        if (GetActiveTile().sides[0] != -1){
+            GetActiveTile().gameObject.SetActive(true);
+        }
+        GetActiveTile().gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
     }
 
     public void RotateCurrent(int dir){
         GetActiveTile().rotateSides(dir);
+        Quaternion currTileRotation = Quaternion.identity;
+        if (GetActiveTile().rotation % 360 == 90 || GetActiveTile().rotation % 360 == 270 || GetActiveTile().rotation == -90 || GetActiveTile().rotation == -270){
+            currTileRotation.eulerAngles = new Vector3(0, 0, (GetActiveTile().rotation + 180) % 360);
+        }
+        else{
+            currTileRotation.eulerAngles = new Vector3(0, 0, GetActiveTile().rotation);
+        }
+        GetActiveTile().transform.rotation = currTileRotation;
         _hotbar.RotateCurrent(dir, activeIndex, GetActiveTile());
     }
 

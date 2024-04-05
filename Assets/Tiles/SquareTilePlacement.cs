@@ -22,7 +22,7 @@ public class SquareTilePlacement : MonoBehaviour
 
             // If there are colliders.
             if (colliders.Length != 0){
-                currNeighborhood = OrganizeNeighborhood(colliders, gridPos); // See OrganizeNeighborhood
+                currNeighborhood = OrganizeNeighborhood(colliders, gridPos, currTile); // See OrganizeNeighborhood
                 if (currNeighborhood[1, 1] == null){ // Makes sure tiles can't be placed over top of each other.
 
                     // Check corners rules.
@@ -61,6 +61,7 @@ public class SquareTilePlacement : MonoBehaviour
             currTile.transform.position = gridPos;
             currTile.transform.rotation = currTileRotation;
             currTile.gameObject.SetActive(true);
+            currTile.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
 
             if (!LevelManager.firstTilePlaced) {
                 LevelManager.firstTilePlaced = true;
@@ -77,7 +78,7 @@ public class SquareTilePlacement : MonoBehaviour
     }
 
     // This function will organize the colliders properly. Then it returns the organized neighbourhood.
-    public SquareTile[,] OrganizeNeighborhood(Collider2D[] colliders, Vector3 gridPos){
+    public SquareTile[,] OrganizeNeighborhood(Collider2D[] colliders, Vector3 gridPos, SquareTile currTile){
         // Variable initialization.
         SquareTile[,] currNeighborhood = new SquareTile[3, 3];
 
@@ -91,37 +92,48 @@ public class SquareTilePlacement : MonoBehaviour
             Vector3 diff = tilePos - gridPos;
 
             // Place it where it should go in the neighborhood. I'm certain there is a formula but I wanted to get this done fast.
-            if (diff.x == -1){
-                if (diff.y == 1){ // Ex. -1, 1 -> 0, 0
-                    currNeighborhood[0, 0] = tile;
+            if (tile != currTile){
+                if (diff.x == -1){
+                    if (diff.y == 1){ // Ex. -1, 1 -> 0, 0
+                        currNeighborhood[0, 0] = tile;
+                        Debug.Log("-1, 1");
+                    }
+                    else if (diff.y == 0){ // Ex. -1, 0 -> 1, 0
+                        currNeighborhood[1, 0] = tile;
+                        Debug.Log("-1, 0");
+                    }
+                    else{ // Ex. -1, -1 -> 2, 0
+                        currNeighborhood[2, 0] = tile;
+                        Debug.Log("-1, -1");
+                    }
                 }
-                else if (diff.y == 0){ // Ex. -1, 0 -> 1, 0
-                    currNeighborhood[1, 0] = tile;
+                else if (diff.x == 0){
+                    if (diff.y == 1){ // Ex. 0, 1 -> 0, 1
+                        currNeighborhood[0, 1] = tile;
+                        Debug.Log("0, 1");
+                    }
+                    else if (diff.y == 0){
+                        currNeighborhood[1, 1] = tile;
+                        Debug.Log("0, 0");
+                    }
+                    else { // Ex. 0, -1 -> 2, 1
+                        currNeighborhood[2, 1] = tile;
+                        Debug.Log("0, -1");
+                    }
                 }
-                else{ // Ex. -1, -1 -> 2, 0
-                    currNeighborhood[2, 0] = tile;
-                }
-            }
-            else if (diff.x == 0){
-                if (diff.y == 1){ // Ex. 0, 1 -> 0, 1
-                    currNeighborhood[0, 1] = tile;
-                }
-                else if (diff.y == 0){
-                    currNeighborhood[1, 1] = tile;
-                }
-                else { // Ex. 0, -1 -> 2, 1
-                    currNeighborhood[2, 1] = tile;
-                }
-            }
-            else if (diff.x == 1){
-                if (diff.y == 1){ // Ex. 1, 1 -> 0, 2
-                    currNeighborhood[0, 2] = tile;
-                }
-                else if (diff.y == 0){ // Ex. 1, 0 -> 1, 2
-                    currNeighborhood[1, 2] = tile;
-                }
-                else{ // Ex. 1, -1 -> 2, 2
-                    currNeighborhood[2, 2] = tile;
+                else if (diff.x == 1){
+                    if (diff.y == 1){ // Ex. 1, 1 -> 0, 2
+                        currNeighborhood[0, 2] = tile;
+                        Debug.Log("1, 1");
+                    }
+                    else if (diff.y == 0){ // Ex. 1, 0 -> 1, 2
+                        currNeighborhood[1, 2] = tile;
+                        Debug.Log("1, 0");
+                    }
+                    else{ // Ex. 1, -1 -> 2, 2
+                        currNeighborhood[2, 2] = tile;
+                        Debug.Log("1, -1");
+                    }
                 }
             }
         }
@@ -136,28 +148,36 @@ public class SquareTilePlacement : MonoBehaviour
 
         // If any of the following return false, valid should permanently become false in this case?
         if (currNeighborhood[1, 0] != null){
+            Debug.Log("Left side");
             valid = valid && CompareSides(currNeighborhood[1, 0].sides[0], currTile.sides[2]); // Left.
             if (currNeighborhood[1, 0].connectable){
                 lurd = true;
             }
+            Debug.Log(CompareSides(currNeighborhood[1, 0].sides[0], currTile.sides[2]));
         }
         if (currNeighborhood[0, 1] != null){
+            Debug.Log("Up side");
             valid = valid && CompareSides(currNeighborhood[0, 1].sides[1], currTile.sides[3]); // Up.
             if (currNeighborhood[0, 1].connectable){
                 lurd = true;
             }
+            Debug.Log(CompareSides(currNeighborhood[0, 1].sides[1], currTile.sides[3]));
         }
         if (currNeighborhood[1, 2] != null){
+            Debug.Log("Right side");
             valid = valid && CompareSides(currNeighborhood[1, 2].sides[2], currTile.sides[0]); // Right.
             if (currNeighborhood[1, 2].connectable){
                 lurd = true;
             }
+            Debug.Log(CompareSides(currNeighborhood[1, 2].sides[2], currTile.sides[0]));
         }
         if (currNeighborhood[2, 1] != null){
+            Debug.Log("Down side");
             valid = valid && CompareSides(currNeighborhood[2, 1].sides[3], currTile.sides[1]); // Down.
             if (currNeighborhood[2, 1].connectable){
                 lurd = true;
             }
+            Debug.Log(CompareSides(currNeighborhood[2, 1].sides[3], currTile.sides[1]));
         }
 
         // False if there are no tiles left, right, up, or down.
@@ -215,36 +235,36 @@ public class SquareTilePlacement : MonoBehaviour
         else{
             if (currNeighborhood[0, 0] != null && currNeighborhood[1, 0] != null && currNeighborhood[0, 1] != null){
                 if (!currNeighborhood[0, 0].corners && !currNeighborhood[1, 0].corners && !currNeighborhood[0, 1].corners){
-                    //Debug.Log("Violates corner #1!");
+                    Debug.Log("Violates corner #1!");
                     valid = false;
                 }
             }
             if (currNeighborhood[2, 0] != null && currNeighborhood[1, 0] != null && currNeighborhood[2, 1] != null){
                 if (!currNeighborhood[2, 0].corners && !currNeighborhood[1, 0].corners && !currNeighborhood[2, 1].corners){
-                    //Debug.Log("Violates corner #2!");
+                    Debug.Log("Violates corner #2!");
                     valid = false;
                 }
             }
             if (currNeighborhood[2, 2] != null && currNeighborhood[1, 2] != null && currNeighborhood[2, 1] != null){
                 if (!currNeighborhood[2, 2].corners && !currNeighborhood[1, 2].corners && !currNeighborhood[2, 1].corners){
-                    //Debug.Log("Violates corner #3!");
+                    Debug.Log("Violates corner #3!");
                     valid = false;
                 }
             }
             if (currNeighborhood[0, 2] != null && currNeighborhood[1, 2] != null && currNeighborhood[0, 1] != null){
                 if (!currNeighborhood[0, 2].corners && !currNeighborhood[1, 2].corners && !currNeighborhood[0, 1].corners){
-                    //Debug.Log("Violates corner #4!");
+                    Debug.Log("Violates corner #4!");
                     valid = false;
                 }
             }
         }
 
-        // if (!valid){
-        //     Debug.Log("Violates corner rules.");
-        // }
-        // else{
-        //     Debug.Log("Follows corner rules.");
-        // }
+        if (!valid){
+            Debug.Log("Violates corner rules.");
+        }
+        else{
+            Debug.Log("Follows corner rules.");
+        }
 
         return valid;
     } 
