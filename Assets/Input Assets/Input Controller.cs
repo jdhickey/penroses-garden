@@ -106,7 +106,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Up"",
                     ""id"": ""0dcd286e-46d6-40a5-b0db-c548946cfd70"",
-                    ""path"": ""<Keyboard>/upArrow"",
+                    ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
@@ -117,7 +117,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Left"",
                     ""id"": ""6d5c8090-5bca-4129-ba5d-3c1c481d1331"",
-                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
@@ -128,7 +128,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Down"",
                     ""id"": ""b7b5b619-fc0a-4bce-b38f-b09808e8bef4"",
-                    ""path"": ""<Keyboard>/downArrow"",
+                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
@@ -139,7 +139,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Right"",
                     ""id"": ""6a226c4c-a82a-471f-87c3-a81ad37d6cf6"",
-                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
