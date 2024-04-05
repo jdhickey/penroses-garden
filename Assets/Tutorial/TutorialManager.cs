@@ -149,14 +149,14 @@ public class TutorialManager : MonoBehaviour
     }
 
     void PlaceSuccess() {
-        if (stateFlag == 1) {
+        if (stateFlag == 3) {
             LevelManager.playerScore += 1;
             stateFlag++;
         }
     }
 
     void OnInventorySelect() {
-        if (stateFlag == 2) {
+        if (stateFlag == 1) {
             LevelManager.playerScore += 1;
             stateFlag++;
         }
@@ -167,7 +167,7 @@ public class TutorialManager : MonoBehaviour
     }
 
     void OnInventoryRotate() {
-        if (stateFlag == 3) {
+        if (stateFlag == 2) {
             LevelManager.playerScore += 1;
             stateFlag++;
         }
@@ -181,7 +181,7 @@ public class TutorialManager : MonoBehaviour
     }
 
     void TutorialOver() {
-        FindObjectOfType<LevelManagerActing>().Win();
+        FindObjectOfType<LevelManagerActing>().Invoke("Win", 2f);
     }
 
     private static string BindingsToString(List<string> arr) {

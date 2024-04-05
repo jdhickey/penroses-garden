@@ -1287,6 +1287,38 @@ PrefabInstance:
       propertyPath: GoalCanvas
       value: 
       objectReference: {fileID: 2116244258}
+    - target: {fileID: -5554062533641569879, guid: c34cae239618b47f6a857f41d94e522f, type: 3}
+      propertyPath: textures.Array.data[1]
+      value: 
+      objectReference: {fileID: 2800000, guid: 54d92a23be749425c8f774b71a477660, type: 3}
+    - target: {fileID: -5554062533641569879, guid: c34cae239618b47f6a857f41d94e522f, type: 3}
+      propertyPath: textures.Array.data[2]
+      value: 
+      objectReference: {fileID: 2800000, guid: d0b76fe69805645a1ab24c98f6c62759, type: 3}
+    - target: {fileID: -5554062533641569879, guid: c34cae239618b47f6a857f41d94e522f, type: 3}
+      propertyPath: textures.Array.data[3]
+      value: 
+      objectReference: {fileID: 2800000, guid: acfc40aacd519457e82fd95aedf47a8d, type: 3}
+    - target: {fileID: -5554062533641569879, guid: c34cae239618b47f6a857f41d94e522f, type: 3}
+      propertyPath: actionStrings.Array.data[1]
+      value: Inventory Select
+      objectReference: {fileID: 0}
+    - target: {fileID: -5554062533641569879, guid: c34cae239618b47f6a857f41d94e522f, type: 3}
+      propertyPath: actionStrings.Array.data[2]
+      value: Inventory Scroll
+      objectReference: {fileID: 0}
+    - target: {fileID: -5554062533641569879, guid: c34cae239618b47f6a857f41d94e522f, type: 3}
+      propertyPath: actionStrings.Array.data[3]
+      value: Inventory Rotate
+      objectReference: {fileID: 0}
+    - target: {fileID: -5554062533641569879, guid: c34cae239618b47f6a857f41d94e522f, type: 3}
+      propertyPath: actionStrings.Array.data[4]
+      value: Place
+      objectReference: {fileID: 0}
+    - target: {fileID: -5554062533641569879, guid: c34cae239618b47f6a857f41d94e522f, type: 3}
+      propertyPath: actionTextureNumber.Array.data[2]
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4097868241032485290, guid: c34cae239618b47f6a857f41d94e522f, type: 3}
       propertyPath: m_Name
       value: TutorialManager

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerInputs : MonoBehaviour
 {
@@ -47,7 +48,7 @@ public class PlayerInputs : MonoBehaviour
         foreach (Collider2D obj in near) {
             SquareTile tile = obj.gameObject.GetComponent<SquareTile>();
 
-            if (tile != null && tile.isHive) {
+            if ((tile != null && tile.isHive) || SceneManager.GetActiveScene().name == "tutorial") {
                 inventoryManagementScript.ShuffleInventory();
                 BroadcastMessage("ShuffleSuccess");
                 audio.PlayOneShot(shuffleSound);
