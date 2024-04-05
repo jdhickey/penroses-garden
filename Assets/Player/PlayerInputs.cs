@@ -49,6 +49,7 @@ public class PlayerInputs : MonoBehaviour
 
             if (tile != null && tile.isHive) {
                 inventoryManagementScript.ShuffleInventory();
+                BroadcastMessage("ShuffleSuccess");
                 audio.PlayOneShot(shuffleSound);
                 found = true;
                 break;
@@ -152,6 +153,7 @@ public class PlayerInputs : MonoBehaviour
                     }
                 }
                 inventoryManagementScript.ActiveDestroy();
+                BroadcastMessage("PlaceSuccess");
             }
             else{
                 audio.PlayOneShot(failSound);

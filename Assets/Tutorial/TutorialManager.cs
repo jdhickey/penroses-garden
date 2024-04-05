@@ -148,7 +148,7 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
-    void OnPlace() {
+    void PlaceSuccess() {
         if (stateFlag == 1) {
             LevelManager.playerScore += 1;
             stateFlag++;
@@ -173,7 +173,7 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
-    void OnShuffle() {
+    void ShuffleSuccess() {
         if (stateFlag == 4) {
             LevelManager.playerScore += 1;
             stateFlag++;
