@@ -40,9 +40,11 @@ public class InventoryManager : MonoBehaviour
     public void ShuffleInventory(){
         for (int i = 0; i < inventorySize; i++){
             if (inventory[i].sides[0] == -1){
+                Destroy(inventory[i].gameObject);
                 inventory[i] = randomTile();
             }
         }
+        _hotbar.VisualUpdate();
     }
 
     public SquareTile GetActiveTile()

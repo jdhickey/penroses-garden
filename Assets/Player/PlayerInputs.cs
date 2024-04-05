@@ -48,7 +48,7 @@ public class PlayerInputs : MonoBehaviour
             SquareTile tile = obj.gameObject.GetComponent<SquareTile>();
 
             if (tile != null && tile.isHive) {
-                inventoryManagementScript.PlayerShuffle();
+                inventoryManagementScript.ShuffleInventory();
                 audio.PlayOneShot(shuffleSound);
                 found = true;
                 break;
