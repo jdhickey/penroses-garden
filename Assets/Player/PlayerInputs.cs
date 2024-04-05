@@ -58,7 +58,10 @@ public class PlayerInputs : MonoBehaviour
         if (!found){
             audio.PlayOneShot(failSound);
         }
-        inventoryManagementScript.GetActiveTile().gameObject.SetActive(true);
+        if (inventoryManagementScript.GetActiveTile().sides[0] != -1){
+            inventoryManagementScript.GetActiveTile().gameObject.SetActive(true);
+            inventoryManagementScript.GetActiveTile().gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
+        }
     }
 
     private void OnInventorySelect(InputValue value)
