@@ -121,7 +121,7 @@ public class PlayerInputs : MonoBehaviour
     }
 
     public Vector3 GetGridPos(){
-        Vector3 currPos = transform.position;
+        Vector3 currPos = transform.position - new Vector3(0f, 0.35f, 0f);
         Vector3 gridPos = new Vector3(Mathf.Round(currPos.x), Mathf.Round(currPos.y), 0);
         return gridPos;
     }
@@ -151,8 +151,16 @@ public class PlayerInputs : MonoBehaviour
             }
             else{
                 audio.PlayOneShot(failSound);
+                tilePlayed.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 0.5f, 0.5f, 0.5f);
+                Debug.Log(tilePlayed.gameObject.GetComponent<SpriteRenderer>().color);
+                Invoke("ReturnToNormal", 0.5f);
+                Debug.Log(tilePlayed.gameObject.GetComponent<SpriteRenderer>().color);
             }
         }
+    }
+
+    void ReturnToNormal(){
+        inventoryManagementScript.GetActiveTile().gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
     }
 
     void FixedUpdate(){
