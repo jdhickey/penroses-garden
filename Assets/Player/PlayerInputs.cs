@@ -83,7 +83,7 @@ public class PlayerInputs : MonoBehaviour
         } 
     }
 
-    private void OnExit()
+    public void OnExit()
     {
         if (canvas.activeSelf || (winCondition != null && winCondition.activeSelf) || (loseCondition != null &&loseCondition.activeSelf)){
             inventoryUI.SetActive(true);
