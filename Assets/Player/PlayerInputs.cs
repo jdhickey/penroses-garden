@@ -154,7 +154,9 @@ public class PlayerInputs : MonoBehaviour
                     }
                 }
                 inventoryManagementScript.ActiveDestroy();
-                BroadcastMessage("PlaceSuccess");
+                if (SceneManager.GetActiveScene().name == "tutorial"){
+                    BroadcastMessage("PlaceSuccess");
+                }
             }
             else{
                 audio.PlayOneShot(failSound);
