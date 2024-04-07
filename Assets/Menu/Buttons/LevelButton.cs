@@ -67,13 +67,8 @@ public class LevelButton : ButtonParent
     }
 
     public override void AttemptLoad() {
-        LevelManager.initialTile = initialTile;
-        LevelManager.pointPerTile = pointPerTile;
-        LevelManager.randomPreTile = randomPreTile;
-        LevelManager.winThreshold = winThreshold;
-        LevelManager.pointPerConnection = pointPerConnection;
-        LevelManager.timerVal = timerVal;
-        LevelManager.winBySurround = winBySurround;
+        LevelInformation.levels[LevelNumber].SetUpLevel(LevelNumber);
+
         if (!locked) {
             StartCoroutine(LoadYourAsyncScene());
         }

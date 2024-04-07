@@ -2998,6 +2998,7 @@ GameObject:
   - component: {fileID: 1218695103}
   - component: {fileID: 1218695104}
   - component: {fileID: 1218695105}
+  - component: {fileID: 1218695106}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3119,6 +3120,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 50e895dc900810e4faebe0ab69c9cb6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1218695106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218695098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52d42cfd8ef219048afcea4cbb5097ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1319454845 stripped
@@ -3333,7 +3346,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 992934759265060707, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
       propertyPath: winThreshold
-      value: 13
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 992934759265060707, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
       propertyPath: randomPreTile
@@ -3388,12 +3401,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 992934760016519438, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
+      propertyPath: winThreshold
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 992934760016519438, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
       propertyPath: randomPreTile
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 992934760016519438, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
       propertyPath: winBySurround
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 992934760059088171, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
       propertyPath: loadScene

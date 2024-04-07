@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ButtonScriptBee : ButtonParent
 {
@@ -84,7 +85,22 @@ public class ButtonScriptBee : ButtonParent
     }
 
     public void AttemptActivate() {
-        if (active) {
+        bool tutorial = false;
+        if (gameObject.name == "continue_button"){
+            int i = 0;
+            while (i < 28){
+                if (!LevelManager.levels[i]){
+                    LevelInformation.levels[i+1].SetUpLevel(i+1);
+                    i += 28;
+                }
+                i++;
+            }
+            if (i == 0){
+                SceneManager.LoadScene("tutorial");
+                tutorial = true;
+            }
+        }
+        if (active && !tutorial) {
             StartCoroutine(LoadYourAsyncScene());
         }
     }
