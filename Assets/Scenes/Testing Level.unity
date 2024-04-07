@@ -300,8 +300,9 @@ Transform:
   - {fileID: 1759476694}
   - {fileID: 418934167}
   - {fileID: 1992288649}
+  - {fileID: 1382008686}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &409898024
 PrefabInstance:
@@ -312,7 +313,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5240183713036357994, guid: 0ae392fed1b314d49936308a784f54a0, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5240183713036357994, guid: 0ae392fed1b314d49936308a784f54a0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -439,13 +440,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1382008683}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 147264027}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1382008687
 MonoBehaviour:
@@ -670,7 +671,7 @@ PrefabInstance:
       objectReference: {fileID: 8611159633118672308, guid: 33d127e9e59df4c2596f5e2f625cd2c2, type: 3}
     - target: {fileID: 7113862257019403322, guid: b66ee32e3e2c840d6b177ec606ad1265, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7113862257019403322, guid: b66ee32e3e2c840d6b177ec606ad1265, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1215,7 +1216,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8385510785503205347, guid: 90a8c405e23354142a0731ac23fb49a9, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8385510785503205347, guid: 90a8c405e23354142a0731ac23fb49a9, type: 3}
       propertyPath: m_AnchorMax.x
