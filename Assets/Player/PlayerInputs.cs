@@ -15,7 +15,7 @@ public class PlayerInputs : MonoBehaviour
     private PlayerInput input;
     public float shuffleRadius = 1.5f;
     
-    public GameObject canvas;
+    public GameObject PauseMenu;
     public GameObject winCondition;
     public GameObject loseCondition;
     public GameObject inventoryUI;
@@ -36,7 +36,7 @@ public class PlayerInputs : MonoBehaviour
         inventoryManagementScript = GameObject.FindGameObjectWithTag("InventoryManagement").GetComponent<InventoryManager>();
         inventoryUI = FindObjectOfType<RuntimeInventoryUI>().gameObject;
         squareTilePlacementScript = this.gameObject.GetComponent<SquareTilePlacement>();
-        canvas.SetActive(false);
+        PauseMenu.SetActive(false);
         audio = GetComponent<AudioSource>();
         try{
             scoreUpdaterScript = GameObject.FindGameObjectWithTag("Scoring").GetComponent<ScoreUpdater>();
@@ -100,9 +100,9 @@ public class PlayerInputs : MonoBehaviour
 
     public void OnExit()
     {
-        if (canvas.activeSelf || (winCondition != null && winCondition.activeSelf) || (loseCondition != null &&loseCondition.activeSelf)){
+        if (PauseMenu.activeSelf || (winCondition != null && winCondition.activeSelf) || (loseCondition != null &&loseCondition.activeSelf)){
             inventoryUI.SetActive(true);
-            canvas.SetActive(false);
+            PauseMenu.SetActive(false);
             winCondition.SetActive(false);
             if (loseCondition != null){
                 loseCondition.SetActive(false);
@@ -115,7 +115,7 @@ public class PlayerInputs : MonoBehaviour
             input.actions.FindAction("Shuffle").Enable();
         }
         else {
-            canvas.SetActive(true);
+            PauseMenu.SetActive(true);
             input.actions.FindAction("Move").Disable();
             input.actions.FindAction("Place").Disable();
             input.actions.FindAction("Inventory Select").Disable();
@@ -163,7 +163,7 @@ public class PlayerInputs : MonoBehaviour
                         }
                     }
                 }
-                if (scoreUpdaterScript != null){
+                if (scoreUpdaterScript != null && newPoints != 0){
                     scoreUpdaterScript.UpdateScore(newPoints);
                 }
                 inventoryManagementScript.ActiveDestroy();

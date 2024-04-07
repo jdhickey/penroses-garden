@@ -37,7 +37,6 @@ public class ScoreUpdater : MonoBehaviour
             originPos = PlayerScoreUpdateText.transform.position;
             PlayerScoreUpdateText.SetActive(true);
             scoreUpdater.SetText("+" + newPoints.ToString());
-            float timeCounter = 0;
             move = true;
             Invoke("DisappearUpdater", 1);
         }

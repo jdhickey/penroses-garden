@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Random=UnityEngine.Random;
 
 public class LevelManagerActing : MonoBehaviour
 {
@@ -23,15 +25,12 @@ public class LevelManagerActing : MonoBehaviour
         bool result = false;
         squareTilePlacementScript = GameObject.FindGameObjectWithTag("Player").GetComponent<SquareTilePlacement>();
         inventoryManagementScript = GameObject.FindGameObjectWithTag("InventoryManagement").GetComponent<InventoryManager>();
-        goalsScript = Goals.GetComponent<UpdateGoals>();
-
-        if (LevelManager.timerVal > 0){
-            
+        if (Goals != null){
+            goalsScript = Goals.GetComponent<UpdateGoals>();
         }
-        else{
-            if (Timer != null){
-                Timer.SetActive(false);
-            }
+
+        if (Timer != null && LevelManager.timerVal <= 0){
+            Timer.SetActive(false);
         }
 
         // Places an initial tile.
@@ -86,7 +85,11 @@ public class LevelManagerActing : MonoBehaviour
         input.actions.FindAction("Shuffle").Disable();
         LevelManager.won = true;
 
-        FindObjectOfType<RuntimeInventoryUI>().gameObject.SetActive(false);
+        // I think this is happening somewhere else?
+        try{
+            FindObjectOfType<RuntimeInventoryUI>().gameObject.SetActive(false);
+        }
+        catch(Exception){}
 
         if (LevelManager.currLevel != -1){
             LevelManager.levels[LevelManager.currLevel-1] = true;
