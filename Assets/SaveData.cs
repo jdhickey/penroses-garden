@@ -14,6 +14,7 @@ public class SaveData : MonoBehaviour
         }
         PlayerPreferences.FOV = PlayerPrefs.GetFloat("FOV");
         PlayerPreferences.volume = PlayerPrefs.GetFloat("Volume");
+        LevelManager.highscore = PlayerPrefs.GetInt("High Score");
     }
 
     void OnDisable(){
@@ -27,6 +28,7 @@ public class SaveData : MonoBehaviour
         }
         PlayerPrefs.SetFloat("FOV", PlayerPreferences.FOV);
         PlayerPrefs.SetFloat("Volume", PlayerPreferences.volume);
+        PlayerPrefs.SetInt("High Score", LevelManager.highscore);
         PlayerPrefs.Save();
     }
 }

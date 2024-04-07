@@ -17,4 +17,5 @@ public static class LevelManager
     public static int currLevel = -1;
     public static int winBySurround = 0;
     public static bool firstTilePlaced = false;
+    public static int highscore = 0;
 }
