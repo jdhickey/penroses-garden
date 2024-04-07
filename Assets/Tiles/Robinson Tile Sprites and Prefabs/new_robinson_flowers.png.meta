@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ab11421a93e86471d96bc2c164843e24
+guid: 63f273450e1894e1ba4fc06e29a4afdd
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -78,6 +78,18 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -101,23 +113,11 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: new_robinson_0
+      name: new_robinson_flowers_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 718ef00f6930648dbb192d093da5491f
-      internalID: 265135465
+      spriteID: 7357cc7b33f564cce8b6f8b275d9fc64
+      internalID: -786501175
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: new_robinson_1
+      name: new_robinson_flowers_1
       rect:
         serializedVersion: 2
         x: 96
@@ -152,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d809d98144b9c47c98872a0e25e1944e
-      internalID: 1585093202
+      spriteID: 0157d2e1b1837489ba001c547ea3f4df
+      internalID: -447849229
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: new_robinson_2
+      name: new_robinson_flowers_2
       rect:
         serializedVersion: 2
         x: 192
@@ -173,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7de0900524cb44e7c95a5c574b0c6250
-      internalID: -2013743039
+      spriteID: b926b724fa04f4ceab300c95dc3c27eb
+      internalID: 6071503
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: new_robinson_3
+      name: new_robinson_flowers_3
       rect:
         serializedVersion: 2
         x: 0
@@ -194,14 +194,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a415e0891b5a42cfb236dd989d9ebd3
-      internalID: 2089935843
+      spriteID: 33f4434d5404a4626a025a7d76eef09a
+      internalID: -1672454021
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: new_robinson_4
+      name: new_robinson_flowers_4
       rect:
         serializedVersion: 2
         x: 96
@@ -215,14 +215,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d246b041344c94304b42ef6e57f6a881
-      internalID: -656251317
+      spriteID: 30477269b9ef84953aa59aa18f057e54
+      internalID: 2042522779
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: new_robinson_5
+      name: new_robinson_flowers_5
       rect:
         serializedVersion: 2
         x: 192
@@ -236,8 +236,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f41f8bd84dca445b9a3601082eeddae4
-      internalID: -1310201160
+      spriteID: e834e4023e53643f2acffab9c96c5062
+      internalID: 940759627
       vertices: []
       indices: 
       edges: []
@@ -253,12 +253,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      new_robinson_0: 265135465
-      new_robinson_1: 1585093202
-      new_robinson_2: -2013743039
-      new_robinson_3: 2089935843
-      new_robinson_4: -656251317
-      new_robinson_5: -1310201160
+      new_robinson_flowers_0: -786501175
+      new_robinson_flowers_1: -447849229
+      new_robinson_flowers_2: 6071503
+      new_robinson_flowers_3: -1672454021
+      new_robinson_flowers_4: 2042522779
+      new_robinson_flowers_5: 940759627
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
