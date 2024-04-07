@@ -91,13 +91,21 @@ public class ButtonScriptBee : ButtonParent
             while (i < 28){
                 if (!LevelManager.levels[i]){
                     LevelInformation.levels[i+1].SetUpLevel(i+1);
-                    i += 28;
+                    break;
                 }
-                i++;
+                else{
+                    i++;
+                }
             }
-            if (i == 0){
+            // Level 1 (Tutorial #1)
+            if (i + 1 == 1){
                 SceneManager.LoadScene("tutorial");
                 tutorial = true;
+            }
+            // Level 2 (Tutorial #2)
+            if (i + 1 == 2){
+                // SceneManager.LoadScene("INSERT NAME OF SCENE HERE");
+                // tutorial = true;
             }
         }
         if (active && !tutorial) {

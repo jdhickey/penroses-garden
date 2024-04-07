@@ -8,13 +8,6 @@ public class LevelButton : ButtonParent
     public int LevelNumber;
     public Sprite lockedSprite;
     public bool locked = true;
-    public bool initialTile = false;
-    public bool pointPerTile = false;
-    public int randomPreTile = 0;
-    public int winThreshold = 1000;
-    public bool pointPerConnection = false;
-    public float timerVal = 0f;
-    public int winBySurround = 0;
 
     private Sprite[] numberSprites;
     private SpriteRenderer _rend;
