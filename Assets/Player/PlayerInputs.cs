@@ -27,6 +27,7 @@ public class PlayerInputs : MonoBehaviour
     private AudioClip failSound;
     [SerializeField]
     private AudioClip shuffleSound;
+    private ScoreUpdater scoreUpdaterScript;
 
 
     void Start()
@@ -37,6 +38,12 @@ public class PlayerInputs : MonoBehaviour
         squareTilePlacementScript = this.gameObject.GetComponent<SquareTilePlacement>();
         canvas.SetActive(false);
         audio = GetComponent<AudioSource>();
+        try{
+            scoreUpdaterScript = GameObject.FindGameObjectWithTag("Scoring").GetComponent<ScoreUpdater>();
+        }
+        catch (Exception){
+            Debug.Log("The score updater thingy isn't present.");
+        }
     }
 
     private void OnShuffle()
@@ -50,7 +57,9 @@ public class PlayerInputs : MonoBehaviour
 
             if ((tile != null && tile.isHive) || SceneManager.GetActiveScene().name == "tutorial") {
                 inventoryManagementScript.ShuffleInventory();
-                BroadcastMessage("ShuffleSuccess");
+                if (SceneManager.GetActiveScene().name == "tutorial"){
+                    BroadcastMessage("ShuffleSuccess");
+                }
                 audio.PlayOneShot(shuffleSound);
                 found = true;
                 break;
@@ -142,16 +151,20 @@ public class PlayerInputs : MonoBehaviour
 
             if (result)
             {
+                int newPoints = 0;
                 audio.PlayOneShot(placeSound);
                 if (LevelManager.pointPerTile){
-                    LevelManager.playerScore++;
+                    newPoints++;
                 }
                 if (LevelManager.pointPerConnection){
                     foreach (SquareTile side in tilePlayed.neigh){
                         if (side != null){
-                            LevelManager.playerScore++;
+                            newPoints++;
                         }
                     }
+                }
+                if (scoreUpdaterScript != null){
+                    scoreUpdaterScript.UpdateScore(newPoints);
                 }
                 inventoryManagementScript.ActiveDestroy();
                 if (SceneManager.GetActiveScene().name == "tutorial"){
