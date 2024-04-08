@@ -12,7 +12,7 @@ public class PauseMenuInfo : MonoBehaviour
         levelInfo = GetComponent<TextMeshProUGUI>();
         string levelInformation = "";
         if (LevelManager.currLevel == -1){
-            levelInformation += "Endless\n";
+            levelInformation += "endless\n";
         }
         else{
             levelInformation += "Level " + LevelManager.currLevel.ToString() + "\n";

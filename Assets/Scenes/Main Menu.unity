@@ -1829,6 +1829,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -3.26
       objectReference: {fileID: 0}
+    - target: {fileID: 1494580820629941374, guid: cb6119b82ee324a0dad26307d82343c5, type: 3}
+      propertyPath: loadScene
+      value: Game Description Scene
+      objectReference: {fileID: 0}
     - target: {fileID: 3373980025767893034, guid: cb6119b82ee324a0dad26307d82343c5, type: 3}
       propertyPath: m_RootOrder
       value: 0

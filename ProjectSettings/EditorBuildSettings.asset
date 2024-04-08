@@ -24,10 +24,13 @@ EditorBuildSettings:
     path: Assets/Scenes/Endless Options.unity
     guid: 551e4d1061284d74280974c0c5807cfb
   - enabled: 1
-    path: Assets/Scenes/Edge Rules Scene.unity
+    path: Assets/Scenes/Game Description Scene.unity
     guid: d18490e00b47b7d4bb63d18ffdb4ba9c
   - enabled: 1
     path: Assets/Scenes/Corner Rules Scene.unity
     guid: e6a5fe1b0e087aa469c7018cf478cb32
+  - enabled: 1
+    path: Assets/Scenes/Edge Rules Scene.unity
+    guid: a898f6245d3f93e49b7b198f47f39da2
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 927a2043617d4ac4091c42f8d57eba5e, type: 2}
