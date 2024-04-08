@@ -107,16 +107,22 @@ public class InventoryManager : MonoBehaviour
     }
 
     public void RotateCurrent(int dir){
-        GetActiveTile().rotateSides(dir);
+        SquareTile tile = GetActiveTile();
+
+        tile.rotateSides(dir);
         Quaternion currTileRotation = Quaternion.identity;
-        if (GetActiveTile().rotation % 360 == 90 || GetActiveTile().rotation % 360 == 270 || GetActiveTile().rotation == -90 || GetActiveTile().rotation == -270){
-            currTileRotation.eulerAngles = new Vector3(0, 0, (GetActiveTile().rotation + 180) % 360);
+        if (tile.rotation % 360 == 90 || tile.rotation % 360 == 270 || tile.rotation == -90 || tile.rotation == -270){
+            currTileRotation.eulerAngles = new Vector3(0, 0, (tile.rotation + 180) % 360);
         }
         else{
-            currTileRotation.eulerAngles = new Vector3(0, 0, GetActiveTile().rotation);
+            currTileRotation.eulerAngles = new Vector3(0, 0, tile.rotation);
         }
-        GetActiveTile().transform.rotation = currTileRotation;
-        _hotbar.RotateCurrent(dir, activeIndex, GetActiveTile());
+        tile.transform.rotation = currTileRotation;
+
+        Quaternion hiveRotation = new Quaternion();
+        hiveRotation.eulerAngles = -currTileRotation.eulerAngles;
+        tile.transform.GetChild(0).gameObject.transform.localRotation = hiveRotation;
+        _hotbar.RotateCurrent(dir, activeIndex, tile);
     }
 
     public void ActiveDestroy()
