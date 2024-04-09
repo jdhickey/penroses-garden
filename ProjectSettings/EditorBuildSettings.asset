@@ -32,5 +32,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Edge Rules Scene.unity
     guid: a898f6245d3f93e49b7b198f47f39da2
+  - enabled: 1
+    path: Assets/Scenes/Controls Scene.unity
+    guid: ff5a7e376d27270469a0ae789dacd89c
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 927a2043617d4ac4091c42f8d57eba5e, type: 2}
