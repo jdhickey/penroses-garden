@@ -130,7 +130,9 @@ public class TutorialManager : MonoBehaviour
                 foreach (TextUpdate box in boxes){
                     box.gameObject.SetActive(false);
                 }
-                TutorialOver();
+                if (!LevelManager.won){
+                    TutorialOver();
+                }
                 stateFlag = -1;
             }
             else {
@@ -182,6 +184,7 @@ public class TutorialManager : MonoBehaviour
 
     void TutorialOver() {
         FindObjectOfType<LevelManagerActing>().Invoke("Win", 2f);
+        Debug.Log("This is the one from Tutorial Manager.");
     }
 
     private static string BindingsToString(List<string> arr) {

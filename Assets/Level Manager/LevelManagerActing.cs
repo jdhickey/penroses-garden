@@ -58,6 +58,11 @@ public class LevelManagerActing : MonoBehaviour
         bool result;
         for (int i = 0; i < numTiles; i++){
             SquareTile newTile = inventoryManagementScript.randomTile();
+            // This isn't working for some reason?
+            // float rndRot = Random.Range(0, 3);
+            // for (int j = 0; j < rndRot; j++){
+            //     inventoryManagementScript.RotateCurrent(1);
+            // }
             do {
                 if (squareTilePlacementScript.initialTile){
                     squareTilePlacementScript.initialTile = false;

@@ -14,6 +14,9 @@ public class PauseMenuInfo : MonoBehaviour
         if (LevelManager.currLevel == -1){
             levelInformation += "endless\n";
         }
+        else if (LevelManager.currLevel == 1){
+            levelInformation += "tutorial\n- learn your controls";
+        }
         else{
             levelInformation += "Level " + LevelManager.currLevel.ToString() + "\n";
         }

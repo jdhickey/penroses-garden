@@ -323,6 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7431da4ad517ad14ba82bf28cf6a0e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelInfo: {fileID: 0}
 --- !u!1 &8385510785271615009
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,8 +620,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0074999332, y: -0.029900014}
-  m_SizeDelta: {x: -0.943, y: -0.4191}
+  m_AnchoredPosition: {x: 0.030500054, y: 0.020200014}
+  m_SizeDelta: {x: -0.1879, y: -0.1417}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8385510785783028673
 CanvasRenderer:
@@ -677,12 +678,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.65
+  m_fontSize: 0.75
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 0.01
-  m_fontSizeMax: 72
+  m_fontSizeMax: 0.75
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -754,8 +755,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.034500003, y: -0.022499979}
-  m_SizeDelta: {x: -0.8792, y: -0.4041}
+  m_AnchoredPosition: {x: 0.000024904, y: 0.00001168251}
+  m_SizeDelta: {x: -0.4051, y: -0.000025153}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8385510785803953759
 CanvasRenderer:
@@ -812,7 +813,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.65
+  m_fontSize: 0.75
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1461,8 +1462,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.011600018, y: -0.028699994}
-  m_SizeDelta: {x: -0.8452, y: -0.2985}
+  m_AnchoredPosition: {x: 0.0000029802322, y: -0.0316}
+  m_SizeDelta: {x: -0.0000064373, y: 0.0632}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8385510786692231432
 CanvasRenderer:
@@ -1519,12 +1520,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.65
+  m_fontSize: 0.75
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 0.01
-  m_fontSizeMax: 72
+  m_fontSizeMax: 0.75
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
