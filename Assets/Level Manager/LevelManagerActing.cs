@@ -48,6 +48,7 @@ public class LevelManagerActing : MonoBehaviour
             tilesToSurround = PreGenTiles(LevelManager.winBySurround);
             foreach (SquareTile tile in tilesToSurround){
                 tile.connectable = false;
+                tile.gameObject.transform.GetChild(1).gameObject.SetActive(true);
             }
         }
     }
