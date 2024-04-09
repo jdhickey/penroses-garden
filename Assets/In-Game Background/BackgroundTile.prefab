@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tile: {fileID: 7137366228738481611}
-  decoChance: 0.393
+  decoChance: 0.4
 --- !u!65 &-5722704721715288128
 BoxCollider:
   m_ObjectHideFlags: 0

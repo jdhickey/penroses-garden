@@ -8,7 +8,8 @@ public class BackgroundTile : MonoBehaviour
 
     public static Sprite[] options;
     public static Sprite[] decorations;
-    public GameObject tile;
+    public static int sceneSeed;
+    private GameObject tile;
     [Range(0f, 1f)]
     public float decoChance = 0.15f;
     private Renderer _rend;
@@ -21,10 +22,12 @@ public class BackgroundTile : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        tile = Resources.Load<GameObject>("BackgroundTile2");
         // Loads sprites from background spritemap and randomly assigns one to this tile
         if (!initialized) {
             options = Resources.LoadAll<Sprite>("Background");
             decorations = Resources.LoadAll<Sprite>("FlowerStone");
+            sceneSeed = (int) Time.time % (17 * 13);
             initialized = true;
         }
         _rend = GetComponent<Renderer>();
@@ -32,30 +35,27 @@ public class BackgroundTile : MonoBehaviour
         // Procedurally generates background using arbitrary prime numbers
         int x = (int)transform.position.x;
         int y = (int)transform.position.y;
-        int options_index = (int) Mathf.Floor((((x/(Mathf.Pow((y+1), 2)) % 1) * Mathf.PI) % 1 * (x+y))) + 177;
+        int options_index = ((x + y) * (x + y + 1) / 2) + y;
 
         System.Random thisRand = new System.Random(options_index);
 
         GetComponent<SpriteRenderer>().sprite = options[thisRand.Next(0, options.Length)];
         width = _rend.bounds.size.x;
         centre = _rend.bounds.center;
-
         if (thisRand.NextDouble() <= decoChance && !decorated) {
             GameObject deco = new GameObject("decoration");
             deco.layer = LayerMask.NameToLayer("Background");
             SpriteRenderer decoRend = deco.AddComponent<SpriteRenderer>();
             decoRend.sortingLayerName = "Background";
+            decoRend.sortingOrder = 1;
 
             Vector3 scale = gameObject.transform.localScale;
 
             decoRend.sprite = decorations[thisRand.Next(0, decorations.Length)];
-            Debug.Log(thisRand.Next(0, decorations.Length));
             deco.transform.parent = gameObject.transform;
-            deco.transform.localPosition = Quaternion.Euler(0, 0, thisRand.Next(0, 360)) * new Vector3((float) thisRand.NextDouble() * width, 0, 0) * 1/scale.x;
+            deco.transform.localPosition = Quaternion.Euler(0, 0, thisRand.Next(0, 360) * (x + y * sceneSeed)) * new Vector3((float) thisRand.NextDouble() * width, 0, 0) * 2/scale.x;
             decorated = true;
         }
-
-
     }
 
     // Update is called once per frame
