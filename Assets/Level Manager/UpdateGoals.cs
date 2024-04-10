@@ -13,17 +13,19 @@ public class UpdateGoals : MonoBehaviour
         string goalsStr = "";
         int winThreshold = LevelManager.winThreshold;
         int winBySurround = LevelManager.winBySurround;
+        int winByConnect = LevelManager.connectHive;
         if (winThreshold > 0){
-            goalsStr += "* earn " + winThreshold + " points";
-        }
-        if (winThreshold > 0 && winBySurround > 0){
-            goalsStr += "\n";
+            goalsStr += "* earn " + winThreshold + " point(s)\n";
         }
         if (winBySurround > 0){
-            goalsStr += "* surround " + winBySurround + " tiles";
+            goalsStr += "* surround " + winBySurround + " tile(s)\n";
         }
-        if (LevelManager.winThreshold > 0 || LevelManager.winBySurround > 0){
-            goals.SetText(goalsStr);
+        if (winByConnect > 0){
+            goalsStr += "* connect to " + winByConnect + " tile(s)\n";
+        }
+
+        if (goalsStr != ""){
+            goals.SetText(goalsStr.Substring(0, goalsStr.Length - 1));
         }
     }
 

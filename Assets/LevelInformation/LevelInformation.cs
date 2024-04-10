@@ -15,8 +15,9 @@ public struct Level{
     public bool pointPerConnection;
     public int timerVal;
     public int winBySurround;
+    public int winByConnect;
 
-    public Level(bool initialTile, bool pointPerTile, int randomPreTile, int winThreshold, bool pointPerConnection, int timerVal, int winBySurround){
+    public Level(bool initialTile, bool pointPerTile, int randomPreTile, int winThreshold, bool pointPerConnection, int timerVal, int winBySurround, int winByConnect){
         this.initialTile = initialTile;
         this.pointPerTile = pointPerTile;
         this.randomPreTile = randomPreTile;
@@ -24,6 +25,7 @@ public struct Level{
         this.pointPerConnection = pointPerConnection;
         this.timerVal = timerVal;
         this.winBySurround = winBySurround;
+        this.winByConnect = winByConnect;
     }
 
     public void SetUpLevel(int levelNumber){
@@ -34,6 +36,7 @@ public struct Level{
         LevelManager.pointPerConnection = this.pointPerConnection;
         LevelManager.timerVal = this.timerVal;
         LevelManager.winBySurround = this.winBySurround;
+        LevelManager.winByConnect = this.winByConnect;
         LevelManager.currLevel = levelNumber;
     }
 }

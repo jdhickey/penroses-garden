@@ -15,8 +15,11 @@ public class LevelManagerActing : MonoBehaviour
     public GameObject loseCondition;
     public GameObject Timer;
     private SquareTile[] tilesToSurround;
+    private SquareTile[] tilesToConnect;
     private UpdateGoals goalsScript;
     public GameObject Goals;
+
+    public List<SquareTile> processedTiles;
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +53,14 @@ public class LevelManagerActing : MonoBehaviour
                 tile.connectable = false;
                 tile.gameObject.transform.GetChild(1).gameObject.SetActive(true);
             }
+        }
+
+        if (LevelManager.connectHive > 0){
+            tilesToConnect = PreGenTiles(LevelManager.connectHive);
+            foreach (SquareTile tile in tilesToConnect){
+                tile.connectable = false;
+            }
+
         }
     }
 
@@ -92,6 +103,7 @@ public class LevelManagerActing : MonoBehaviour
         LevelManager.won = true;
 
         // I think this is happening somewhere else?
+        // I think I wrote the above comment but I do not remember why? - Gwen
         try{
             FindObjectOfType<RuntimeInventoryUI>().gameObject.SetActive(false);
         }
@@ -110,7 +122,7 @@ public class LevelManagerActing : MonoBehaviour
             if (LevelManager.winThreshold > 0 && LevelManager.playerScore >= LevelManager.winThreshold){
                 Win();
             }
-            if (LevelManager.winBySurround > 0){
+            if (LevelManager.winBySurround > 0 && LevelManager.tilePlaced){
                 bool valid = true;
                 foreach (SquareTile tile in tilesToSurround){
                     Collider2D[] colliders = Physics2D.OverlapCircleAll(tile.transform.position, 3.0f);     
@@ -122,7 +134,32 @@ public class LevelManagerActing : MonoBehaviour
                     Win();
                 }
             }
+            if (LevelManager.connectHive > 0 && LevelManager.tilePlaced){
+                bool valid = true;
+                foreach (SquareTile tile in tilesToConnect){
+                    processedTiles = new List<SquareTile>();
+                    valid = valid && ConnectToHive(tile);
+                }
+                if (valid){
+                    Win();
+                }
+            }
+            LevelManager.tilePlaced = false;
         }
+    }
+
+    private bool ConnectToHive(SquareTile tile){
+        if (tile.isHive){
+            return true;
+        }
+        bool connected = false;
+        foreach (SquareTile tile2 in tile.neigh){
+            if (tile2 != null && !(processedTiles.Contains(tile2))){
+                processedTiles.Add(tile2);
+                connected = connected || ConnectToHive(tile2);
+            }
+        }
+        return connected;
     }
 
     private bool CheckSurrounded(SquareTile[,] currNeighborhood){

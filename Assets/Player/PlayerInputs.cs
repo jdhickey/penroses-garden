@@ -166,6 +166,7 @@ public class PlayerInputs : MonoBehaviour
                         }
                     }
                 }
+                LevelManager.tilePlaced = true;
                 if (scoreUpdaterScript != null && newPoints != 0){
                     scoreUpdaterScript.UpdateScore(newPoints);
                 }
