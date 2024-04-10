@@ -13,6 +13,6 @@ public class CameraMovement : MonoBehaviour
     {
         transform.position = player.transform.position + new Vector3(0, 0, -10);
         pauseMenu.transform.position = transform.position;
-        ScoreUI.transform.position = transform.position;
+        //ScoreUI.transform.position = transform.position;
     }
 }
