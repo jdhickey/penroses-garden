@@ -18,6 +18,6 @@ public static class LevelManager
     public static int winBySurround = 0;
     public static bool firstTilePlaced = false;
     public static int highscore = 0;
-    public static int winByConnect = 4;
+    public static int winByConnect = 0;
     public static bool tilePlaced = false;
 }

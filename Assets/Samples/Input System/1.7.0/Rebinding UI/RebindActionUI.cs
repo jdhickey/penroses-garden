@@ -295,6 +295,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
             m_RebindOperation = action.PerformInteractiveRebinding(bindingIndex)
                 //.witchControlsExcluding(); Exclude controls like mouse.
                 .WithCancelingThrough("<Keyboard>/escape")
+                .WithControlsExcluding("<Mouse>/scroll/y")
                 .OnCancel(
                     operation =>
                     {

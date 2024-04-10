@@ -10,5 +10,8 @@ public class PlayerPreferencesReader : MonoBehaviour
         colorBlindFilterScript = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<ColorBlindFilter>();
         ColorBlindMode mode = PlayerPreferences.colourBlindMode;
         colorBlindFilterScript.mode = mode;
+        if (PlayerPreferences.FOV != 0){
+            gameObject.GetComponent<Camera>().orthographicSize = PlayerPreferences.FOV;
+        }
     }
 }
