@@ -79,12 +79,13 @@ public class TutorialManager : MonoBehaviour
 
             // Places the box away from the centre
             // Each box is progressively further around a circle surrounding the bee
-            tutorialBoxes[i].transform.position = 1.5f * new Vector3(-Mathf.Cos(i * 45 * Mathf.PI / 180) * boxSize.x, Mathf.Sin(i * 45 * Mathf.PI / 180) * boxSize.y,0);
+            tutorialBoxes[i].transform.position = 1.5f * (1 - 1/PlayerPreferences.FOV) * new Vector3(-Mathf.Cos(i * 45 * Mathf.PI / 180) * boxSize.x, Mathf.Sin(i * 45 * Mathf.PI / 180) * boxSize.y,0);
 
             // Updates each box and hides them
             Sprite newSprite = Sprite.Create(textures[i], new Rect(0, 0, textures[1].width, textures[1].height), new Vector2(0.5f, 0.5f), 64);
             _rend.sprite = newSprite;
             tutorialBoxes[i].SetActive(false);
+            tutorialBoxes[i].transform.localScale *= (1 - 1/PlayerPreferences.FOV);
         }
 
         // Block to set the location and form of the persistent rules block

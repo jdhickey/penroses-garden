@@ -7,6 +7,8 @@ public abstract class ButtonParent : MonoBehaviour
 {
 
     public string loadScene;
+    protected bool active = false;
+    protected bool set = true;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +41,20 @@ public abstract class ButtonParent : MonoBehaviour
             }
         } 
         
+    }
+
+    void OnMouseEnter() {
+        active = true;
+        set = false;
+    }
+
+    void OnMouseExit() {
+        active = false;
+        set = false;
+    }
+
+    void OnMouseUp() {
+        AttemptLoad();
     }
 
     public abstract void AttemptLoad();

@@ -16,8 +16,6 @@ public class ButtonScriptBee : ButtonParent
     private CapsuleCollider2D thisCollider;
     private float colliderOffset;
     private float factor;
-    private bool active = false;
-    private bool set = true;
 
     // Start is called before the first frame update
     void Start()
