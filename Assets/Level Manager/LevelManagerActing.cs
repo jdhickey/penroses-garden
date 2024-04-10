@@ -55,8 +55,8 @@ public class LevelManagerActing : MonoBehaviour
             }
         }
 
-        if (LevelManager.connectHive > 0){
-            tilesToConnect = PreGenTiles(LevelManager.connectHive);
+        if (LevelManager.winByConnect > 0){
+            tilesToConnect = PreGenTiles(LevelManager.winByConnect);
             foreach (SquareTile tile in tilesToConnect){
                 tile.connectable = false;
             }
@@ -134,7 +134,7 @@ public class LevelManagerActing : MonoBehaviour
                     Win();
                 }
             }
-            if (LevelManager.connectHive > 0 && LevelManager.tilePlaced){
+            if (LevelManager.winByConnect > 0 && LevelManager.tilePlaced){
                 bool valid = true;
                 foreach (SquareTile tile in tilesToConnect){
                     processedTiles = new List<SquareTile>();

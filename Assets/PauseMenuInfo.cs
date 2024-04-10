@@ -41,8 +41,8 @@ public class PauseMenuInfo : MonoBehaviour
         if (LevelManager.winBySurround > 0){
             levelInformation += "- " + LevelManager.winBySurround + " tiles to surround\n";
         }
-        if (LevelManager.connectHive > 0){
-            levelInformation += "- " + LevelManager.connectHive + " tiles to connect\n";
+        if (LevelManager.winByConnect > 0){
+            levelInformation += "- " + LevelManager.winByConnect + " tiles to connect\n";
         }
         levelInformation = levelInformation.Substring(0, levelInformation.Length-1);
         levelInfo.SetText(levelInformation);

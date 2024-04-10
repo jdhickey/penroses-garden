@@ -13,7 +13,7 @@ public class UpdateGoals : MonoBehaviour
         string goalsStr = "";
         int winThreshold = LevelManager.winThreshold;
         int winBySurround = LevelManager.winBySurround;
-        int winByConnect = LevelManager.connectHive;
+        int winByConnect = LevelManager.winByConnect;
         if (winThreshold > 0){
             goalsStr += "* earn " + winThreshold + " point(s)\n";
         }
