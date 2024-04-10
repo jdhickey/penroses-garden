@@ -847,8 +847,16 @@ PrefabInstance:
       value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 3813902935102065866, guid: 322eb4bf78aec0c42a475502ead44632, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813902935102065866, guid: 322eb4bf78aec0c42a475502ead44632, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813902935102065866, guid: 322eb4bf78aec0c42a475502ead44632, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1085.2
       objectReference: {fileID: 0}
     - target: {fileID: 3813902935102065867, guid: 322eb4bf78aec0c42a475502ead44632, type: 3}
       propertyPath: m_Name
@@ -1706,8 +1714,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8385510785503205349, guid: 90a8c405e23354142a0731ac23fb49a9, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8385510785503205349, guid: 90a8c405e23354142a0731ac23fb49a9, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8385510785503205349, guid: 90a8c405e23354142a0731ac23fb49a9, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1101.6
       objectReference: {fileID: 0}
     - target: {fileID: 8385510785503205350, guid: 90a8c405e23354142a0731ac23fb49a9, type: 3}
       propertyPath: m_Name
@@ -1719,7 +1735,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8385510785503205350, guid: 90a8c405e23354142a0731ac23fb49a9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8385510786037239558, guid: 90a8c405e23354142a0731ac23fb49a9, type: 3}
       propertyPath: m_SortingLayer
