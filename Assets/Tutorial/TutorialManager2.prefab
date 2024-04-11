@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4272907018712921639}
-  - component: {fileID: -5554062533641569879}
+  - component: {fileID: 7636706770329011633}
   m_Layer: 6
-  m_Name: TutorialManager1
+  m_Name: TutorialManager2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-5554062533641569879
+--- !u!114 &7636706770329011633
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,23 +41,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4097868241032485290}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95d3eb7fc963e4683b9444da07099948, type: 3}
+  m_Script: {fileID: 11500000, guid: fee9e27bdcbbc4e4ba464c356dcc62c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialPrefab: {fileID: 4245235193569834403, guid: 6426d2c3ef4bc40c591321198f2bf30f, type: 3}
   textures:
-  - {fileID: 2800000, guid: 243360106e1a348b9ad512e92a6ad258, type: 3}
-  - {fileID: 2800000, guid: 54d92a23be749425c8f774b71a477660, type: 3}
-  - {fileID: 2800000, guid: d0b76fe69805645a1ab24c98f6c62759, type: 3}
-  - {fileID: 2800000, guid: acfc40aacd519457e82fd95aedf47a8d, type: 3}
-  - {fileID: 2800000, guid: 87ecef9fbec614ce899dff7b99dd5d43, type: 3}
-  rules: {fileID: 2800000, guid: 317ff431accc643ee96fec6ce3c6f4f2, type: 3}
-  actionStrings:
-  - Move
-  - Inventory Select
-  - Inventory Scroll
-  - Inventory Rotate
-  - Place
-  - Shuffle
-  actionTextureNumber: 000000000100000001000000020000000300000004000000
+  - {fileID: 2800000, guid: 25c0fba02f60b44dab4fc81947db1970, type: 3}
+  - {fileID: 2800000, guid: 2a8de08d6d1f14035971901721abfaa8, type: 3}
+  - {fileID: 2800000, guid: 8e1b1d481700c40b1b6651a1c49dbb1b, type: 3}
+  - {fileID: 2800000, guid: 526d5e41405b74bb68b9b40ff568f272, type: 3}
   GoalCanvas: {fileID: 0}

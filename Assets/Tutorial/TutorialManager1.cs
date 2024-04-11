@@ -5,15 +5,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-public class TutorialManager1 : MonoBehaviour
+public class TutorialManager1 : TutorialManagerParent
 {
 
-    // Prefab for the tutorial box
-    public GameObject tutorialPrefab;
-    // The instantiated prefabs;
-    private GameObject[] tutorialBoxes;
-    // The art for each tutorial box
-    public Texture2D[] textures;
     public Texture2D rules;
     // The different actions being explained in the tutorial
     public string[] actionStrings = {"Move", "Place", "Inventory Select", "Inventory Scroll", "Inventory Rotate", "Shuffle"};
@@ -25,13 +19,12 @@ public class TutorialManager1 : MonoBehaviour
     private ReadOnlyArray<InputBinding> bindings;
     private List<string> bindStrings = new List<string>();
 
-    public GameObject GoalCanvas;
-
-    private int stateFlag = 0;
-
     // Start is called before the first frame update
     void Start()
     {
+        GenerateTutorialBoxes();
+        GoalCanvas.SetActive(false);
+
         // The below code iterates through all of the different key bindings, assigning them to the "action"
         // that the player takes using that binding.
 
@@ -39,8 +32,6 @@ public class TutorialManager1 : MonoBehaviour
 
         bindings = GameObject.FindObjectOfType<PlayerInput>().actions.FindActionMap("Player").bindings;
         List<List<string>> bindingList = new List<List<string>>();
-
-        GoalCanvas.SetActive(false);
 
         // Makes an empty list for each action
         for (int i = 0; i < actionStrings.Length; i++) {
@@ -66,26 +57,6 @@ public class TutorialManager1 : MonoBehaviour
         // This sets the display strings for each action.
         for (int i = 0; i < bindingList.Count; i++) {
             bindStrings.Add(BindingsToString(bindingList[i]));
-        }
-
-        tutorialBoxes = new GameObject[textures.Length];
-
-        // Generates the objects for each tutorial box, with the right sprite.
-        for (int i = 0; i < textures.Length; i++) {
-            // Instantiates the boxes relative to the camera
-            tutorialBoxes[i] = Instantiate(tutorialPrefab, new Vector3(0, 0, 0), Quaternion.identity, Camera.main.transform);
-            SpriteRenderer _rend = tutorialBoxes[i].GetComponent<SpriteRenderer>();
-            Vector3 boxSize = _rend.sprite.bounds.size;
-
-            // Places the box away from the centre
-            // Each box is progressively further around a circle surrounding the bee
-            tutorialBoxes[i].transform.position = 1.5f * (1 - 1/PlayerPreferences.FOV) * new Vector3(-Mathf.Cos(i * 45 * Mathf.PI / 180) * boxSize.x, Mathf.Sin(i * 45 * Mathf.PI / 180) * boxSize.y,0);
-
-            // Updates each box and hides them
-            Sprite newSprite = Sprite.Create(textures[i], new Rect(0, 0, textures[1].width, textures[1].height), new Vector2(0.5f, 0.5f), 64);
-            _rend.sprite = newSprite;
-            tutorialBoxes[i].SetActive(false);
-            tutorialBoxes[i].transform.localScale *= (1 - 1/PlayerPreferences.FOV);
         }
 
         // Block to set the location and form of the persistent rules block
@@ -124,24 +95,7 @@ public class TutorialManager1 : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        if (!(stateFlag == -1)){
-            if (stateFlag >= tutorialBoxes.Length) {
-                TextUpdate[] boxes = FindObjectsOfType<TextUpdate>();
-
-                foreach (TextUpdate box in boxes){
-                    box.gameObject.SetActive(false);
-                }
-                if (!LevelManager.won){
-                    TutorialOver();
-                }
-                stateFlag = -1;
-            }
-            else {
-                for (int i = 0; i <= stateFlag; i++) {
-                    tutorialBoxes[i].SetActive(true);
-                }
-            }
-        }
+        StateCheck();
     } 
 
     public void OnMove() {
@@ -181,11 +135,6 @@ public class TutorialManager1 : MonoBehaviour
             LevelManager.playerScore += 1;
             stateFlag++;
         }
-    }
-
-    void TutorialOver() {
-        FindObjectOfType<LevelManagerActing>().Invoke("Win", 2f);
-        Debug.Log("This is the one from Tutorial Manager.");
     }
 
     private static string BindingsToString(List<string> arr) {
