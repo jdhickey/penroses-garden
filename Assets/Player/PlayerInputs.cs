@@ -56,7 +56,7 @@ public class PlayerInputs : MonoBehaviour
             SquareTile tile = obj.gameObject.GetComponent<SquareTile>();
 
             if ((tile != null && tile.isHive) || SceneManager.GetActiveScene().name == "tutorial") {
-                if (SceneManager.GetActiveScene().name == "tutorial"){
+                if (SceneManager.GetActiveScene().name.Contains("tutorial")){
                     BroadcastMessage("ShuffleSuccess");
                     inventoryManagementScript.PlayerShuffle();
                 }
@@ -171,7 +171,8 @@ public class PlayerInputs : MonoBehaviour
                     scoreUpdaterScript.UpdateScore(newPoints);
                 }
                 inventoryManagementScript.ActiveDestroy();
-                if (SceneManager.GetActiveScene().name == "tutorial"){
+
+                if (SceneManager.GetActiveScene().name.Contains("tutorial")){
                     BroadcastMessage("PlaceSuccess");
                 }
             }

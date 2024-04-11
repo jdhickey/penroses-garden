@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-public class TutorialManager : MonoBehaviour
+public class TutorialManager1 : MonoBehaviour
 {
 
     // Prefab for the tutorial box
