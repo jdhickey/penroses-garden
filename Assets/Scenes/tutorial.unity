@@ -1329,7 +1329,7 @@ PrefabInstance:
     - target: {fileID: 6941514840590778125, guid: e6bcfbefafe8ecc40976e8ddc532c51f, type: 3}
       propertyPath: loseCondition
       value: 
-      objectReference: {fileID: 1840165366}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6bcfbefafe8ecc40976e8ddc532c51f, type: 3}
 --- !u!4 &1542822487 stripped
@@ -1341,11 +1341,6 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5952560547572251506, guid: 0f1cda47d6d1c4f1fa95294d1c329c31, type: 3}
   m_PrefabInstance: {fileID: 7936203441088090086}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1840165366 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4317704570190194621, guid: 322eb4bf78aec0c42a475502ead44632, type: 3}
-  m_PrefabInstance: {fileID: 315473582}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &190624992522633926
 PrefabInstance:
@@ -1530,7 +1525,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4097868241032485290, guid: c34cae239618b47f6a857f41d94e522f, type: 3}
       propertyPath: m_Name
-      value: TutorialManager
+      value: TutorialManager1
       objectReference: {fileID: 0}
     - target: {fileID: 4097868241032485290, guid: c34cae239618b47f6a857f41d94e522f, type: 3}
       propertyPath: m_Layer
@@ -1616,7 +1611,7 @@ PrefabInstance:
     - target: {fileID: 4263957673274405655, guid: ad4c7bfb4e9913b4784424ba39a8d3e7, type: 3}
       propertyPath: loseCondition
       value: 
-      objectReference: {fileID: 1840165366}
+      objectReference: {fileID: 0}
     - target: {fileID: 4263957673274405655, guid: ad4c7bfb4e9913b4784424ba39a8d3e7, type: 3}
       propertyPath: scrollInterval
       value: 0.075
