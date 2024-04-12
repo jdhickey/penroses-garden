@@ -21,7 +21,9 @@ public class InventoryManager : MonoBehaviour
 
     public void initializeInventory(int[] presets) {
         // Populates inventory using randomTile.
-        Debug.Log(presets.Length);
+        try {
+            GetActiveTile().gameObject.SetActive(false);
+        } catch {}
 
         for (int i = 0; i < inventorySize; i++) {
             if (i < presets.Length) {
