@@ -17,8 +17,6 @@ public class InventoryManager : MonoBehaviour
         inventory = new SquareTile[inventorySize];
         _hotbar = GameObject.FindGameObjectWithTag("UI").GetComponent<RuntimeInventoryUI>();
         initializeInventory();
-        GetActiveTile().gameObject.SetActive(true);
-        GetActiveTile().gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
     }
 
     public void initializeInventory(int[] presets) {
@@ -32,6 +30,8 @@ public class InventoryManager : MonoBehaviour
                 inventory[i] = randomTile();
             }
         }
+        GetActiveTile().gameObject.SetActive(true);
+        GetActiveTile().gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
     }
 
     public void initializeInventory() {
@@ -55,6 +55,10 @@ public class InventoryManager : MonoBehaviour
                 inventory[i] = randomTile();
             }
         }
+        _hotbar.VisualUpdate();
+    }
+
+    public void VisualUpdate() {
         _hotbar.VisualUpdate();
     }
 

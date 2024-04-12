@@ -3366,7 +3366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 992934759639216637, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
       propertyPath: loadScene
-      value: Testing Level
+      value: tutorial2
       objectReference: {fileID: 0}
     - target: {fileID: 992934759639216637, guid: 681efc542b5a8418f96c1c759dd4375e, type: 3}
       propertyPath: initialTile

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5952560547572251506}
   - component: {fileID: -4733608207505094520}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Inventory Manager
   m_TagString: InventoryManagement
   m_Icon: {fileID: 0}
@@ -45,13 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileOptions:
-  - {fileID: 8059499933239002205, guid: fdda93d376d4ae8489a0fbc553520923, type: 3}
-  inventory:
-  - {fileID: 8059499933239002205, guid: fdda93d376d4ae8489a0fbc553520923, type: 3}
-  - {fileID: 8059499933239002205, guid: fdda93d376d4ae8489a0fbc553520923, type: 3}
-  - {fileID: 8059499933239002205, guid: fdda93d376d4ae8489a0fbc553520923, type: 3}
-  - {fileID: 8059499933239002205, guid: fdda93d376d4ae8489a0fbc553520923, type: 3}
-  - {fileID: 8059499933239002205, guid: fdda93d376d4ae8489a0fbc553520923, type: 3}
-  emptyTile: {fileID: 3861361692662059243, guid: 0341eadf1f2a44f98a1141ab8a518f71, type: 3}
-  activeIndex: 1
-  inventorySize: 5
+  - {fileID: -856584149714714744, guid: 7165a19b47c40254698b27b8194aab85, type: 3}
+  - {fileID: 4873821655589781860, guid: 5c74207bfad0e8a4aac03d13687904a7, type: 3}
+  - {fileID: 2546541021920994536, guid: 89a624dfce3ea6b4eb4d96239b656831, type: 3}
+  - {fileID: 7122033470112548936, guid: ef1bcff1f653b994fb8b210d46ca21ae, type: 3}
+  - {fileID: 5869573193866020330, guid: 81ebeb31b01fc7844a0277ee82959f14, type: 3}
+  - {fileID: -8985388370376884777, guid: 0151b5b9091facf4286a22bfd12f25d5, type: 3}
+  emptyTile: {fileID: 1501071113654082048, guid: 0341eadf1f2a44f98a1141ab8a518f71, type: 3}
