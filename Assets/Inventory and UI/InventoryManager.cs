@@ -21,20 +21,31 @@ public class InventoryManager : MonoBehaviour
         GetActiveTile().gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
     }
 
-    public void initializeInventory() {
+    public void initializeInventory(int[] presets) {
         // Populates inventory using randomTile.
+        Debug.Log(presets.Length);
+
         for (int i = 0; i < inventorySize; i++) {
-            inventory[i] = randomTile();
+            if (i < presets.Length) {
+                inventory[i] = setTile(presets[i]);
+            } else {
+                inventory[i] = randomTile();
+            }
         }
     }
- 
-    public SquareTile randomTile() 
-    {
-        // Picks a random tile in tileOptions.
-        int index = Random.Range(0, tileOptions.Length);
-        SquareTile newTile = Instantiate(tileOptions[index]);
+
+    public void initializeInventory() {
+        initializeInventory(new int[0]);
+    }
+
+    public SquareTile setTile(int i) {
+        SquareTile newTile = Instantiate(tileOptions[i]);
         newTile.gameObject.SetActive(false);
         return newTile;
+    }
+
+    public SquareTile randomTile() {
+        return setTile(Random.Range(0, tileOptions.Length));
     }
 
     public void ShuffleInventory(){

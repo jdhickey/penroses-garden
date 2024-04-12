@@ -14,6 +14,8 @@ public class TutorialManager2 : TutorialManagerParent
     // Update is called once per frame
     void Update()
     {
-        
+        StateCheck();
     }
+
+    
 }
