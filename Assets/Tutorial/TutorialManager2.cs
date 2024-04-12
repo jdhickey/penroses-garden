@@ -33,7 +33,7 @@ public class TutorialManager2 : TutorialManagerParent
     }
 
     public void ShuffleSuccess() {
-        if (stateFlag < 4) {
+        if (stateFlag == 3) {
             stateFlag += 1;
         }
     }
