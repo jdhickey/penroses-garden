@@ -123,8 +123,8 @@ public class InventoryManager : MonoBehaviour
         GetActiveTile().gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
     }
 
-    public void RotateCurrent(int dir){
-        SquareTile tile = GetActiveTile();
+    public void RotateCurrent(int dir, SquareTile tile){
+        //SquareTile tile = GetActiveTile();
 
         tile.rotateSides(dir);
         Quaternion currTileRotation = Quaternion.identity;

@@ -135,7 +135,7 @@ public class PlayerInputs : MonoBehaviour
                 intVal /= Mathf.Abs(intVal);
             }
         }
-        inventoryManagementScript.RotateCurrent(intVal);
+        inventoryManagementScript.RotateCurrent(intVal, inventoryManagementScript.GetActiveTile());
     }
 
     public Vector3 GetGridPos(){
