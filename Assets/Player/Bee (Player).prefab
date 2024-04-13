@@ -35,7 +35,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6454500962280664599}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.87, y: -0.92, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -199,9 +199,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scrollInterval: 0.075
   shuffleRadius: 1.5
-  canvas: {fileID: 0}
+  PauseMenu: {fileID: 0}
   winCondition: {fileID: 0}
   loseCondition: {fileID: 0}
+  inventoryUI: {fileID: 0}
+  hatPrefab: {fileID: 5473380437409036923, guid: a5875387b7d1e4fdfa73971a6dec5ca8, type: 3}
   placeSound: {fileID: 8300000, guid: b6d3039a6b256ed40ae7c83a2d6d5600, type: 3}
   failSound: {fileID: 8300000, guid: 77b0ed197b0cd30418d953d6129ecbfd, type: 3}
   shuffleSound: {fileID: 8300000, guid: 60298ff3a4ebd974a8f7d70a40358cda, type: 3}

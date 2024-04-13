@@ -1552,6 +1552,10 @@ PrefabInstance:
       propertyPath: m_NotificationBehavior
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1997649955723115041, guid: ad4c7bfb4e9913b4784424ba39a8d3e7, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2705503863938288093, guid: ad4c7bfb4e9913b4784424ba39a8d3e7, type: 3}
       propertyPath: initialTile
       value: 0

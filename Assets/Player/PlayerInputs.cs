@@ -19,6 +19,7 @@ public class PlayerInputs : MonoBehaviour
     public GameObject winCondition;
     public GameObject loseCondition;
     public GameObject inventoryUI;
+    public GameObject hatPrefab;
     
     private AudioSource audio;
     [SerializeField]
@@ -28,7 +29,11 @@ public class PlayerInputs : MonoBehaviour
     [SerializeField]
     private AudioClip shuffleSound;
     private ScoreUpdater scoreUpdaterScript;
+    private Sprite[] hats;
 
+    private float startTime; 
+    private bool startTimeSet = false;
+    private int hatsSpawned = 0;
 
     void Start()
     {
@@ -43,6 +48,15 @@ public class PlayerInputs : MonoBehaviour
         }
         catch (Exception){
             Debug.Log("The score updater thingy isn't present.");
+        }
+
+        hats = Resources.LoadAll<Sprite>("Hats");
+    }
+
+    void Update() {
+        if (!startTimeSet) {
+            startTime = Time.realtimeSinceStartup;
+            startTimeSet = true;
         }
     }
 
@@ -184,6 +198,8 @@ public class PlayerInputs : MonoBehaviour
                 Debug.Log(tilePlayed.gameObject.GetComponent<SpriteRenderer>().color);
             }
         }
+
+        CheckHat();
     }
 
     void ReturnToNormal(){
@@ -192,5 +208,49 @@ public class PlayerInputs : MonoBehaviour
 
     void FixedUpdate(){
         inventoryManagementScript.GetActiveTile().transform.position = GetGridPos();
+        float dt = Time.realtimeSinceStartup - startTime;
+
+        // MULTIPLY CHECKVAL BUT A LARGE NUMBER TO CHANGE HAT FREQUENCY
+
+        float checkVal = hatCalc(dt);
+
+        if (UnityEngine.Random.value < checkVal * Time.fixedDeltaTime) {
+            SpawnHat();
+        }
+    }
+
+    void SpawnHat() {
+        Vector3 randVec = UnityEngine.Random.insideUnitCircle * 5 * gameObject.GetComponent<SpriteRenderer>().size.x;
+        GameObject hat = Instantiate(hatPrefab, gameObject.transform.position + randVec, Quaternion.identity);
+        hat.GetComponent<SpriteRenderer>().sprite = hats[UnityEngine.Random.Range(0, hats.Length)];
+        hatsSpawned += 1;
+        startTimeSet = false;
+    }
+
+    void CheckHat() {
+        Collider2D[] potentialHats = Physics2D.OverlapCircleAll(transform.position, gameObject.GetComponent<SpriteRenderer>().size.x, 128);
+        
+        if (potentialHats.Length > 0) {
+            GameObject chosenHat = potentialHats[0].gameObject;
+
+            // If there is no hat, assigns the found hat as the child. Otherwise just updates the old hat sprite.
+            try {
+                GameObject currentHat = gameObject.transform.Find("Hat").gameObject;
+                currentHat.GetComponent<SpriteRenderer>().sprite = chosenHat.GetComponent<SpriteRenderer>().sprite;
+                Destroy(chosenHat);
+            } catch {
+                chosenHat.gameObject.name = "Hat";
+                Destroy(chosenHat.GetComponent<Collider2D>());
+                chosenHat.transform.SetParent(gameObject.transform);
+                chosenHat.transform.localPosition = new Vector3(0.1f, -0.2f, 0);
+                chosenHat.GetComponent<SpriteRenderer>().sortingLayerID = SortingLayer.NameToID("Cover");
+            }
+        }
+    }
+
+    // A sigmoidal function which slowly increases the change of a hat to spawn per second up to 100%
+    float hatCalc(float dt) {
+        float val = 1 + Mathf.Exp(-(dt/100 - 1.5f));
+        return 1 / ((20 + 10 * hatsSpawned) * val);
     }
 }

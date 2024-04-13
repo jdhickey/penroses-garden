@@ -31,6 +31,15 @@ public class PlayerMovement : MonoBehaviour
             flip = false;
         }
 
+        try {
+            GameObject hat = gameObject.transform.Find("Hat").gameObject;
+            hat.GetComponent<SpriteRenderer>().flipX = flip;
+
+            if (hat.transform.localPosition.x > 0 && flip || hat.transform.localPosition.x < 0 && !flip) {
+                hat.transform.localPosition = new Vector3(hat.transform.localPosition.x * -1, hat.transform.localPosition.y, 0);
+            }
+        } catch {}
+
         _renderer.flipX = flip;
     }
 
