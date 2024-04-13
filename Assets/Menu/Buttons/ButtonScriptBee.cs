@@ -97,13 +97,13 @@ public class ButtonScriptBee : ButtonParent
             }
             // Level 1 (Tutorial #1)
             if (i + 1 == 1){
-                SceneManager.LoadScene("tutorial");
+                SceneManager.LoadScene("tutorial1");
                 tutorial = true;
             }
             // Level 2 (Tutorial #2)
             if (i + 1 == 2){
-                // SceneManager.LoadScene("INSERT NAME OF SCENE HERE");
-                // tutorial = true;
+                SceneManager.LoadScene("tutorial2");
+                tutorial = true;
             }
         }
         if (active && !tutorial) {
