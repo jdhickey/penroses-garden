@@ -27,12 +27,12 @@ public class LevelInitializer : MonoBehaviour
         LevelInformation.levels[19] = new Level(true, false, 2, 75, true, 0, 0, 3);
         LevelInformation.levels[20] = new Level(true, false, 0, 0, false, 300, 0, 3);
         LevelInformation.levels[21] = new Level(true, true, 0, 125, true, 0, 0, 4);
-        LevelInformation.levels[22] = new Level(true, false, 0, 0, false, 0, 2, 3);
-        LevelInformation.levels[23] = new Level(true, true, 0, 10, false, 0, 0, 0);
-        LevelInformation.levels[24] = new Level(true, true, 0, 10, false, 0, 0, 0);
-        LevelInformation.levels[25] = new Level(true, true, 0, 10, false, 0, 0, 0);
-        LevelInformation.levels[26] = new Level(true, true, 0, 10, false, 0, 0, 0);
-        LevelInformation.levels[27] = new Level(true, true, 0, 10, false, 0, 0, 0);
-        LevelInformation.levels[28] = new Level(true, true, 0, 10, false, 0, 0, 0);
+        LevelInformation.levels[22] = new Level(true, false, 0, 0, false, 0, 1, 1);
+        LevelInformation.levels[23] = new Level(true, true, 0, 75, false, 0, 2, 0);
+        LevelInformation.levels[24] = new Level(true, false, 0, 0, false, 0, 3, 3);
+        LevelInformation.levels[25] = new Level(true, true, 0, 85, false, 0, 0, 3);
+        LevelInformation.levels[26] = new Level(true, false, 0, 0, false, 0, 6, 0);
+        LevelInformation.levels[27] = new Level(true, false, 0, 0, false, 0, 0, 6);
+        LevelInformation.levels[28] = new Level(true, true, 2, 250, true, 0, 0, 0);
     }
 }
